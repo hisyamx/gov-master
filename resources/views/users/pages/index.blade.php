@@ -2,6 +2,7 @@
     @section('title', 'Beranda - DPRD')
 
     @section('content')
+    
     <section class="w3l-testimonials" id="testimonials">
         <!-- main-slider -->
         <div class="testimonials pt-5 pb-5">
@@ -208,7 +209,7 @@
         <section class="w3l-homeblock1 py-sm-1 py-4">
             <div class="container py-md-4">
                 <div class="grids-area-hny main-cont-wthree-fea row">
-                    <div class="col-12 grids-feature">
+                    <div class="col-12 mt-4 grids-feature">
                         <a href="fashion.html">
                             <div class="area-box">
                                 <span class="fa fa-female"></span>
@@ -479,21 +480,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="w3l-subscribe py-5">
-        <div class="container py-lg-5 py-md-4">
-            <div class="w3l-subscribe-content text-center bg-clr-white py-md-5 py-2">
-                <div class="py-5">
-                    <h3 class="section-title-left mb-2">Subscribe to our newsletter!</h3>
-                    <p class="mb-md-5 mb-4">We'll send you the best of our blog just once a month. We promise. </p>
-                    <form action="#" method="GET" class="subscribe">
-                        <input type="email" class="subscribe_input" name="search" placeholder="Email address"
-                            required="">
-                        <button class="btn btn-style btn-primary">Subscribe</button>
-                    </form>
                 </div>
             </div>
         </div>

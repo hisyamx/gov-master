@@ -30,8 +30,9 @@ Route::get('/beranda', 'MainController@beranda');
 // Route::get('/strukturorganisasi', 'MainController@strukturorganisasi');
 // Route::get('/pejabatsruktural', 'MainController@pejabatstruktural');
 //agenda
-// Route::get('/agendadprd', 'MainController@agendadprd');
-// Route::get('/agendasekretariat', 'MainController@agendasekretariat');
+Route::get('/agenda', 'AgendaController@agenda');
+Route::get('/agenda/dprd', 'AgendaController@agendadprd');
+Route::get('/agenda/sekretariat', 'AgendaController@agendasekretariat');
 //berita
 // Route::get('/berita', 'MainController@berita');
 // Route::get('/pressrelease', 'MainController@pressrelease');

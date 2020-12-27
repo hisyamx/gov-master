@@ -83,8 +83,8 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item @@b__active" href="profil/tentang">Tentang</a>
                                 <a class="dropdown-item @@fa__active" href="profil/visimisi">Visi dan Misi</a>
-                                <a class="dropdown-item @@fa__active" href="profil/tugasfungsi">Tugas dan FUngsi</a>
-                                <a class="dropdown-item @@fa__active" href="profil/strukturorg">Struktur Organinasi</a>
+                                <a class="dropdown-item @@fa__active" href="profil/tugasfungsi">Tugas dan Fungsi</a>
+                                <a class="dropdown-item @@fa__active" href="profil/strukturorganisasi">Struktur Organinasi</a>
                                 <a class="dropdown-item @@fa__active" href="profil/profilpjb">Profil Pejabat Struktural</a>
                             </div>
                         </li>
@@ -94,8 +94,8 @@
                                 Agenda<span class="fa fa-angle-down"></span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item @@b__active" href="agenda/agsekkretariat">Agenda Sekkretariat</a>
-                                <a class="dropdown-item @@fa__active" href="agenda/agdprd">Agenda DPRD</a>
+                                <a class="dropdown-item @@b__active" href="{{ url('/agenda/sekretariat')  }}">Agenda Sekkretariat</a>
+                                <a class="dropdown-item @@fa__active" href="{{ url('/agenda/dprd')  }}">Agenda DPRD</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown @@pages__active">
