@@ -24,18 +24,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 //route user
 Route::get('/beranda', 'MainController@beranda');
 //profil
-// Route::get('/tentangdprd', 'MainController@tentangdprd');
-// Route::get('/visimisi', 'MainController@visimisi');
-// Route::get('/tugasfungsi', 'MainController@tugasfungsi');
-// Route::get('/strukturorganisasi', 'MainController@strukturorganisasi');
-// Route::get('/pejabatsruktural', 'MainController@pejabatstruktural');
+Route::get('/tentangdprd', 'ProfilController@tentangdprd');
+Route::get('/visimisi', 'ProfilController@visimisi');
+Route::get('/tugasfungsi', 'ProfilController@tugasfungsi');
+Route::get('/profil/strukturorganisasi', 'ProfilController@strukturorganisasi');
+Route::get('/profil/pejabatsruktural', 'ProfilController@pejabatstruktural');
 //agenda
 Route::get('/agenda', 'AgendaController@agenda');
 Route::get('/agenda/dprd', 'AgendaController@agendadprd');
 Route::get('/agenda/sekretariat', 'AgendaController@agendasekretariat');
 //berita
-// Route::get('/berita', 'MainController@berita');
-// Route::get('/pressrelease', 'MainController@pressrelease');
+// Route::get('/berita', 'BeritaController@berita');
+// Route::get('/pressrelease', 'BeritaController@pressrelease');
 //akd
 // Route::get('/komisi', 'MainController@komisi');
 // Route::get('/pimpinandprd', 'MainController@pimpinandprd');

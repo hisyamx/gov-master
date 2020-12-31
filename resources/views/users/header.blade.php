@@ -81,11 +81,11 @@
                                 Profil <span class="fa fa-angle-down"></span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item @@b__active" href="profil/tentang">Tentang</a>
-                                <a class="dropdown-item @@fa__active" href="profil/visimisi">Visi dan Misi</a>
-                                <a class="dropdown-item @@fa__active" href="profil/tugasfungsi">Tugas dan Fungsi</a>
-                                <a class="dropdown-item @@fa__active" href="profil/strukturorganisasi">Struktur Organinasi</a>
-                                <a class="dropdown-item @@fa__active" href="profil/profilpjb">Profil Pejabat Struktural</a>
+                                <a class="dropdown-item @@b__active" href="/tentangdprd">Tentang</a>
+                                <a class="dropdown-item @@fa__active" href="/visimisi">Visi dan Misi</a>
+                                <a class="dropdown-item @@fa__active" href="/tugasfungsi">Tugas dan Fungsi</a>
+                                <a class="dropdown-item @@fa__active" href="/profil/strukturorganisasi">Struktur Organinasi</a>
+                                <a class="dropdown-item @@fa__active" href="/profil/profilpjb">Profil Pejabat Struktural</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown @@pages__active">
