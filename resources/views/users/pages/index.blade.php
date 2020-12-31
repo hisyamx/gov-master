@@ -209,11 +209,10 @@
         <section class="w3l-homeblock1 py-sm-1 py-4">
             <div class="container py-md-4">
                 <div class="grids-area-hny main-cont-wthree-fea row">
-                    <div class="col-12 mt-4 grids-feature">
+                    <div class="col-12 grids-feature">
                         <a href="fashion.html">
-                            <div class="area-box">
-                                <span class="fa fa-female"></span>
-                                <h4 class="title-head">Fashion and style</h4>
+                            <div class="custom-box">
+                                <img src="assets/images/set.jpeg" alt="" class="card-body blogcustom-details">
                             </div>
                         </a>
                     </div>
@@ -294,6 +293,7 @@
                 <h3 class="section-title-left mb-sm-4 mb-2"> Beauty</h3>
                 <a href="beauty.html" class="more btn btn-small mb-sm-0 mb-4">View more</a>
             </div>
+            
             <div class="row">
                 <div class="col-lg-6">
                     <div class="bg-clr-white hover-box">
@@ -302,7 +302,7 @@
                                 <a href="#blog-single.html" class="image-mobile">
                                     <img class="card-img-bottom d-block radius-image-full"
                                         src="assets/images/beauty1.jpg" alt="Card image cap">
-                                </a>
+                                    </a>
                             </div>
                             <div class="col-sm-7 card-body blog-details align-self">
                                 <a href="#blog-single.html" class="blog-desc">Natural Spa - Where you feel unique and
@@ -316,7 +316,7 @@
                                         </li>
                                         <li class="meta-item blog-lesson">
                                             <span class="meta-value"> July 13, 2020 </span>. <span
-                                                class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
+                                            class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -345,7 +345,7 @@
                                         </li>
                                         <li class="meta-item blog-lesson">
                                             <span class="meta-value"> July 13, 2020 </span>. <span
-                                                class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
+                                            class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -360,7 +360,7 @@
                                 <a href="#blog-single.html" class="image-mobile">
                                     <img class="card-img-bottom d-block radius-image-full"
                                         src="assets/images/beauty3.jpg" alt="Card image cap">
-                                </a>
+                                    </a>
                             </div>
                             <div class="col-sm-7 card-body blog-details align-self">
                                 <a href="#blog-single.html" class="blog-desc">New Hair Styles can look fabulous and
@@ -375,7 +375,7 @@
                                         <li class="meta-item blog-lesson">
                                             <span class="meta-value"> July 13, 2020 </span>. <span
                                                 class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
-                                        </li>
+                                            </li>
                                     </ul>
                                 </div>
                             </div>
@@ -389,13 +389,13 @@
                                 <a href="#blog-single.html" class="image-mobile">
                                     <img class="card-img-bottom d-block radius-image-full"
                                         src="assets/images/beauty4.jpg" alt="Card image cap">
-                                </a>
+                                    </a>
                             </div>
                             <div class="col-sm-7 card-body blog-details align-self">
                                 <a href="#blog-single.html" class="blog-desc">How our dreams should shine and spray
                                     beauty to us.</a>
-                                <div class="author align-items-center">
-                                    <img src="assets/images/a1.jpg" alt="" class="img-fluid rounded-circle" />
+                                    <div class="author align-items-center">
+                                        <img src="assets/images/a1.jpg" alt="" class="img-fluid rounded-circle" />
                                     <ul class="blog-meta">
                                         <li>
                                             <a href="author.html">Isabella ava</a> </a>
@@ -413,70 +413,70 @@
             </div>
         </div>
     </div>
-    <div class="w3l-homeblock2 w3l-homeblock6 py-5">
-        <div class="container-fluid px-sm-5 py-lg-5 py-md-4">
-            <!-- block -->
-            <h3 class="section-title-left mb-4"> Trending Now</h3>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="bg-clr-white hover-box">
-                        <div class="row">
-                            <div class="col-sm-6 position-relative">
-                                <a href="#blog-single.html">
-                                    <img class="card-img-bottom d-block radius-image-full"
-                                        src="assets/images/trending1.jpg" alt="Card image cap">
-                                </a>
-                            </div>
-                            <div class="col-sm-6 card-body blog-details align-self">
-                                <span class="label-blue">Sports</span>
-                                <a href="#blog-single.html" class="blog-desc">Playing footbal with your feet is one
-                                    thing.
-                                </a>
-                                <p>Lorem ipsum dolor sit amet consectetur ipsum adipisicing elit. Quis
-                                    vitae sit.</p>
-                                <div class="author align-items-center mt-3">
-                                    <img src="assets/images/a2.jpg" alt="" class="img-fluid rounded-circle" />
-                                    <ul class="blog-meta">
-                                        <li>
-                                            <a href="author.html">Charlotte mia</a> </a>
-                                        </li>
-                                        <li class="meta-item blog-lesson">
-                                            <span class="meta-value"> July 13, 2020 </span>. <span
-                                                class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
-                                        </li>
-                                    </ul>
-                                </div>
+
+        <div class="w3l-homeblock3 py-5">
+        <div class="container py-lg-5 py-md-4">
+            <h3 class="section-title-left mb-4"> Top Pick's of this month </h3>
+            <div class="row top-pics">
+                <div class="col-lg-4 col-md-6">
+                    <div class="top-pic1">
+                        <div class="card-body blog-details">
+                            <a href="#blog-single.html" class="blog-desc">Fashion is
+                                Creating your Beauty image. The New fashion starts here
+                            </a>
+                            <div class="author align-items-center">
+                                <img src="assets/images/a1.jpg" alt="" class="img-fluid rounded-circle" />
+                                <ul class="blog-meta">
+                                    <li>
+                                        <a href="author.html">Isabella ava</a> </a>
+                                    </li>
+                                    <li class="meta-item blog-lesson">
+                                        <span class="meta-value"> July 13, 2020 </span>. <span
+                                            class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 mt-lg-0 mt-4">
-                    <div class="bg-clr-white hover-box">
-                        <div class="row">
-                            <div class="col-sm-6 position-relative">
-                                <a href="#blog-single.html">
-                                    <img class="card-img-bottom d-block radius-image-full"
-                                        src="assets/images/trending2.jpg" alt="Card image cap">
-                                </a>
+                <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
+                    <div class="top-pic2">
+                        <div class="card-body blog-details">
+                            <a href="#blog-single.html" class="blog-desc">The 5 Nonnegotiables of a Healthy Quarantine
+                                food that a Doctor Approved
+                            </a>
+                            <div class="author align-items-center">
+                                <img src="assets/images/a2.jpg" alt="" class="img-fluid rounded-circle" />
+                                <ul class="blog-meta">
+                                    <li>
+                                        <a href="author.html">Charlotte mia</a> </a>
+                                    </li>
+                                    <li class="meta-item blog-lesson">
+                                        <span class="meta-value"> July 13, 2020 </span>. <span
+                                            class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="col-sm-6 card-body blog-details align-self">
-                                <span class="label-blue">Fitness</span>
-                                <a href="#blog-single.html" class="blog-desc">Experience the state of the art fitness!
-                                    Fitness on Track </a>
-                                <p>Lorem ipsum dolor sit amet consectetur ipsum adipisicing elit. Quis
-                                    vitae sit.</p>
-                                <div class="author align-items-center mt-3">
-                                    <img src="assets/images/a3.jpg" alt="" class="img-fluid rounded-circle" />
-                                    <ul class="blog-meta">
-                                        <li>
-                                            <a href="author.html">ELizabeth</a> </a>
-                                        </li>
-                                        <li class="meta-item blog-lesson">
-                                            <span class="meta-value"> July 13, 2020 </span>. <span
-                                                class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
-                                        </li>
-                                    </ul>
-                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mt-lg-0 mt-4">
+                    <div class="top-pic3">
+                        <div class="card-body blog-details">
+                            <a href="#blog-single.html" class="blog-desc"> Right food baked with natural ingredient, the
+                                use of best quality products
+                            </a>
+                            <div class="author align-items-center">
+                                <img src="assets/images/a3.jpg" alt="" class="img-fluid rounded-circle" />
+                                <ul class="blog-meta">
+                                    <li>
+                                        <a href="author.html">Elizabeth</a> </a>
+                                    </li>
+                                    <li class="meta-item blog-lesson">
+                                        <span class="meta-value"> July 13, 2020 </span>. <span
+                                            class="meta-value ml-2"><span class="fa fa-clock-o"></span> 1 min</span>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -484,6 +484,6 @@
             </div>
         </div>
     </div>
-    
 
+    
     @endsection

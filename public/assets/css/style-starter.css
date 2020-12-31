@@ -10142,6 +10142,18 @@ input:checked + .mode-container i.gg-moon {
   -ms-transition: .3s ease;
   -o-transition: .3s ease; }
 
+.w3l-homeblock1 .custom-box {
+  height: auto;
+  background-color: var(--bg-color);
+  box-shadow: rgba(1, 1, 1, 0.05) 1px 1px 5px 0px;
+  border-radius: var(--border-radius-full);
+  text-align: center;
+  transition: .3s ease;
+  -webkit-transition: .3s ease;
+  -moz-transition: .3s ease;
+  -ms-transition: .3s ease;
+  -o-transition: .3s ease; }
+
 .w3l-homeblock1 h4 {
   display: block;
   font-weight: 700;
@@ -10168,8 +10180,34 @@ input:checked + .mode-container i.gg-moon {
   -ms-transition: .3s ease;
   -o-transition: .3s ease; }
 
+.w3l-homeblock1 .custom-box:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: rgba(46, 41, 51, 0.08) 0px 2px 4px, rgba(71, 63, 79, 0.16) 0px 5px 10px;
+  transition: .3s ease;
+  -webkit-transition: .3s ease;
+  -moz-transition: .3s ease;
+  -ms-transition: .3s ease;
+  -o-transition: .3s ease; }
+
+.w3l-homeblock1 .card-body.blogcustom-details {
+  padding: 0px; }
+.w3l-homeblock1 img {
+  max-width:100%;
+  border-radius: var(--border-radius-full);}
+
 @media (max-width: 568px) {
   .w3l-homeblock1 .area-box h4 {
+    white-space: nowrap;
+    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .w3l-homeblock1 .grids-area-hny.main-cont-wthree-fea.row {
+    padding: 0 8px; }
+  .w3l-homeblock1 .grids-area-hny.main-cont-wthree-fea.row .col-6 {
+    padding: 0 6px; } }
+
+@media (max-width: 568px) {
+  .w3l-homeblock1 .custom-box h4 {
     white-space: nowrap;
     font-size: 18px;
     overflow: hidden;
@@ -10476,6 +10514,7 @@ input:checked + .mode-container i.gg-moon {
 .w3l-homeblock3 {
   background: var(--bg-color); }
   .w3l-homeblock3 .top-pic1 {
+    background: url(../images/pic1.jpg) no-repeat 0px 0px;
     background-size: cover;
     padding: 20px;
     border-radius: var(--border-radius-full);
@@ -10484,7 +10523,7 @@ input:checked + .mode-container i.gg-moon {
     align-items: flex-end;
     position: relative;
     z-index: 1; }
-  .w3l-homeblock3 .top-pic2 {
+    .w3l-homeblock3 .top-pic2 {
     background: url(../images/pic2.jpg) no-repeat 0px 0px;
     background-size: cover;
     padding: 20px;
@@ -10494,7 +10533,8 @@ input:checked + .mode-container i.gg-moon {
     align-items: flex-end;
     position: relative;
     z-index: 1; }
-  .w3l-homeblock3 .top-pic3 {
+    .w3l-homeblock3 .top-pic3 {
+    background: url(../images/pic3.jpg) no-repeat 0px 0px;
     background-size: cover;
     padding: 20px;
     border-radius: var(--border-radius-full);

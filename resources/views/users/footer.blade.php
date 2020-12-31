@@ -12,7 +12,7 @@
                         </div>
                         <div class="col-lg-8 row">
                             <div class="col-sm-4 col-6 footer-list-28">
-                                <h6 class="footer-title-28">Useful links</h6>
+                                <h6 class="footer-title-28">Link Terkait</h6>
                                 <ul>
                                     <li><a href="/beranda">Beranda</a></li>
                                     <li><a href="/tentangdprd">Tentang DRPD</a></li>
@@ -30,7 +30,7 @@
                                 </ul>
                             </div>
                             <div class="col-sm-4 col-6 footer-list-28 mt-sm-0 mt-4">
-                                <h6 class="footer-title-28">Social Media</h6>
+                                <h6 class="footer-title-28">Media Sosial</h6>
                                 <ul class="social-icons">
                                     <li class="facebook"><a href="facebook.com/dprdkalimantan"><span class="fa fa-facebook"></span>DPRD Kalimantan</a></li>
                                     <li class="twitter"> <a href="twitter.com/dprdkalimantan"><span class="fa fa-twitter"></span>DPRD Kalimantan</a></li>

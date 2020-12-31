@@ -104,8 +104,8 @@
                                 Berita<span class="fa fa-angle-down"></span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item @@b__active" href="berita/mainberita">Berita Utama</a>
-                                <a class="dropdown-item @@fa__active" href="berita/pressrelease">Press Release</a>
+                                <a class="dropdown-item @@b__active" href="/berita">Berita Utama</a>
+                                <a class="dropdown-item @@fa__active" href="/berita/pressrelease">Press Release</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown @@pages__active">
@@ -114,12 +114,12 @@
                                 AKD<span class="fa fa-angle-down"></span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item @@b__active" href="akd/komisi">Komisi</a>
-                                <a class="dropdown-item @@fa__active" href="akd/pimpinan">Pimpinan DPRD</a>
-                                <a class="dropdown-item @@fa__active" href="akd/badankehormatan">Badan Kehormatan</a>
-                                <a class="dropdown-item @@fa__active" href="akd/badanmusyawarah">Badan Musyawarah</a>
-                                <a class="dropdown-item @@fa__active" href="akd/badananggaran">Badan Anggaran</a>
-                                <a class="dropdown-item @@fa__active" href="akd/badanperda">Badan Pembentukan Perda</a>
+                                <a class="dropdown-item @@b__active" href="/akd/komisi">Komisi</a>
+                                <a class="dropdown-item @@fa__active" href="/akd/pimpinan">Pimpinan DPRD</a>
+                                <a class="dropdown-item @@fa__active" href="/akd/badankehormatan">Badan Kehormatan</a>
+                                <a class="dropdown-item @@fa__active" href="/akd/badanmusyawarah">Badan Musyawarah</a>
+                                <a class="dropdown-item @@fa__active" href="/akd/badananggaran">Badan Anggaran</a>
+                                <a class="dropdown-item @@fa__active" href="/akd/badanperda">Badan Pembentukan Perda</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown @@fraksi__active">
@@ -128,14 +128,14 @@
                                 Fraksi<span class="fa fa-angle-down"></span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item @@b__active" href="fraksi/pdip">Partai PDIP</a>
-                                <a class="dropdown-item @@fa__active" href="fraksi/demokrat">Partai Demokrat</a>
-                                <a class="dropdown-item @@fa__active" href="fraksi/pks">Partai PKS</a>
-                                <a class="dropdown-item @@fa__active" href="fraksi/golkar">Partai Golkar</a>
-                                <a class="dropdown-item @@fa__active" href="fraksi/pan">Partai PAN</a>
-                                <a class="dropdown-item @@fa__active" href="fraksi/nasdem">Partai Nasdem</a>
-                                <a class="dropdown-item @@fa__active" href="fraksi/pan">Partai PSI</a>
-                                <a class="dropdown-item @@fa__active" href="fraksi/nasdem">Partai PPP</a>
+                                <a class="dropdown-item @@b__active" href="/fraksi/pdip">Partai PDIP</a>
+                                <a class="dropdown-item @@fa__active" href="/fraksi/demokrat">Partai Demokrat</a>
+                                <a class="dropdown-item @@fa__active" href="/fraksi/pks">Partai PKS</a>
+                                <a class="dropdown-item @@fa__active" href="/fraksi/golkar">Partai Golkar</a>
+                                <a class="dropdown-item @@fa__active" href="/fraksi/pan">Partai PAN</a>
+                                <a class="dropdown-item @@fa__active" href="/fraksi/nasdem">Partai Nasdem</a>
+                                <a class="dropdown-item @@fa__active" href="/fraksi/pan">Partai PSI</a>
+                                <a class="dropdown-item @@fa__active" href="/fraksi/nasdem">Partai PPP</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown @@sekretariat__active">
@@ -144,8 +144,8 @@
                                 Sekretariat<span class="fa fa-angle-down"></span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item @@b__active" href="/sekrerencanalaporan"> Rencana dan Laporan</a>
-                                <a class="dropdown-item @@fa__active" href="/sekretugasfungsi">Tugas dan Fungsi</a>
+                                <a class="dropdown-item @@b__active" href="/sekretariat/rencanalaporan"> Rencana dan Laporan</a>
+                                <a class="dropdown-item @@fa__active" href="/sekretariat/tugasfungsi">Tugas dan Fungsi</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown @@informasi__active">
@@ -154,9 +154,10 @@
                                 Informasi<span class="fa fa-angle-down"></span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item @@b__active" href="/tanggaran">Rencana dan Laporan</a>
-                                <a class="dropdown-item @@fa__active" href="/tkinerja">Tugas dan Fungsi</a>
-                                <a class="dropdown-item @@fa__active" href="/pengumuman">Tugas dan Fungsi</a>
+                                <a class="dropdown-item @@b__active" href="/informasi/transparansianggaran">Transparansi Anggaran</a>
+                                <a class="dropdown-item @@fa__active" href="/informasi/transparansikinerja">Transparansi Kinerja</a>
+                                <a class="dropdown-item @@fa__active" href="/informasi/pengumuman">Pengumuman</a>
+                                <a class="dropdown-item @@fa__active" href="/formulir/kunjungan">Formulir Kunjungan</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown @@publikasi__active">
@@ -165,9 +166,9 @@
                                 Publikasi<span class="fa fa-angle-down"></span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item @@b__active" href="publikasi/gallery">Gallery</a>
-                                <a class="dropdown-item @@fa__active" href="publikasi/vod">Video on Demand</a>
-                                <a class="dropdown-item @@fa__active" href="publikasi/live">Siaran Langsung</a>
+                                <a class="dropdown-item @@b__active" href="/publikasi/gallery">Gallery</a>
+                                <a class="dropdown-item @@fa__active" href="/publikasi/vod">Video on Demand</a>
+                                <a class="dropdown-item @@fa__active" href="/publikasi/live">Siaran Langsung</a>
                             </div>
                         </li>
                         <li class="nav-item @@kontak_active">

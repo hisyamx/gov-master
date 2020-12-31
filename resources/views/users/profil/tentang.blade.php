@@ -1,5 +1,5 @@
 @extends('users.master')
-@section('title', 'PPID - DPRD')
+@section('title', 'Tentang - DPRD')
 
 @section('content')
 

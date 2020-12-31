@@ -34,25 +34,26 @@ Route::get('/agenda', 'AgendaController@agenda');
 Route::get('/agenda/dprd', 'AgendaController@agendadprd');
 Route::get('/agenda/sekretariat', 'AgendaController@agendasekretariat');
 //berita
-// Route::get('/berita', 'BeritaController@berita');
-// Route::get('/pressrelease', 'BeritaController@pressrelease');
+Route::get('/berita', 'BeritaController@berita');
+Route::get('/berita/{detailberita}', 'BeritaController@detailberita');
+Route::get('/berita/pressrelease', 'BeritaController@pressrelease');
 //akd
-// Route::get('/komisi', 'MainController@komisi');
-// Route::get('/pimpinandprd', 'MainController@pimpinandprd');
-// Route::get('/badankehormatan', 'MainController@badankehormatan');
-// Route::get('/badanmusyawarah', 'MainController@badanmusyawarah');
-// Route::get('/badananggaran', 'MainController@badananggaran');
-// Route::get('/badanperda', 'MainController@badanperda');
+// Route::get('/akd/komisi', 'AkdController@komisi');
+// Route::get('/akd/pimpinandprd', 'AkdController@pimpinandprd');
+// Route::get('/akd/badankehormatan', 'AkdController@badankehormatan');
+// Route::get('/akd/badanmusyawarah', 'AkdController@badanmusyawarah');
+// Route::get('/akd/badananggaran', 'AkdController@badananggaran');
+// Route::get('/akd/badanperda', 'AkdController@badanperda');
 //fraksi
 // Route::get('/fraksi', 'MainController@fraksi');
 //sekreatariat
-// Route::get('/sekrerencanalaporan', 'MainController@sekrerencanalaporan');
-// Route::get('/sekretugasfungsi', 'MainController@sekretugasfungsi');
+Route::get('/sekretariat/rencanalaporan', 'SekretariatController@rencanalaporan');
+Route::get('/sekretariat/tugasfungsi', 'SekretariatController@tugasfungsi');
 //informasi
-// Route::get('/tanggaran', 'MainController@tanggaran');
-// Route::get('/tkinerja', 'MainController@tkinerja');
-// Route::get('/tkinerja', 'MainController@tkinerja');
-// Route::get('/pengumuman', 'MainController@pengumuman');
+Route::get('/informasi/transparansianggaran', 'InformasiController@tanggaran');
+Route::get('/informasi/transparansikinerja', 'InformasiController@tkinerja');
+Route::get('/informasi/pengumuman', 'InformasiController@pengumuman');
+Route::get('/formulir/kunjungan', 'InformasiController@formulirkunjungan');
 //publikasi
 // Route::get('/gallery', 'MainController@gallery');
 // Route::get('/vod', 'MainController@vod');
