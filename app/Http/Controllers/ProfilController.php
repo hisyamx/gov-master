@@ -20,7 +20,7 @@ class ProfilController extends Controller
     }
     public function strukturorganisasi()
     {
-        return view('users.profil.strukturorganisasi');
+        return view('users.profil.strukturorg');
     }
     public function pejabatstruktural()
     {

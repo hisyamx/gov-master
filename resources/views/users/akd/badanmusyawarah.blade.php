@@ -1,5 +1,5 @@
 @extends('users.master')
-@section('title', 'Pimpinan DPRD - DPRD')
+@section('title', 'Badan Musyawarah - DPRD')
 
 @section('content')
 
@@ -8,8 +8,8 @@
     <div class="text11 py-lg-5 py-md-4">
         <div class="w3l-error-grid py-3 text-center mb-4">
             <div class="center-align">
-                <h2>Pimpinan DPRD</h2>
-                <p>Pimpinan DPRD Provinsi Kalimantan.</p>
+                <h2>Badan Musyawarah</h2>
+                <p>Badan Musyawarah DPRD Provinsi Kalimantan.</p>
             </div>
         </div>
         <div class="image mb-sm-5 mb-4">

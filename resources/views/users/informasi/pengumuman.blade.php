@@ -1,5 +1,5 @@
 @extends('users.master')
-@section('title', 'Pimpinan DPRD - DPRD')
+@section('title', 'Tentang - DPRD')
 
 @section('content')
 
@@ -8,10 +8,35 @@
     <div class="text11 py-lg-5 py-md-4">
         <div class="w3l-error-grid py-3 text-center mb-4">
             <div class="center-align">
-                <h2>Pimpinan DPRD</h2>
-                <p>Pimpinan DPRD Provinsi Kalimantan.</p>
+                <h2>Tentang DPRD</h2>
+                <p>Tentang DPRD Provinsi Kalimantan.</p>
             </div>
         </div>
+        {{-- <section class="w3l-testimonials" id="testimonials"> --}}
+            {{-- <!-- main-slider -->
+            <div class="testimonials pt-12 pb-12">
+                <div class="container pb-lg-12"> --}}
+                    {{-- slider --}}
+                    {{-- <div class="owl-testimonial owl-carousel owl-theme mb-md-0 mb-sm-5 mb-4">
+                        <div class="item">
+                            <div class="rowslider slider-info">
+                                <div class="image mb-sm-5 mb-4">
+                                    <img src="assets/images/blogsingle.jpg" alt="" class="img-fluid radius-image-full">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="rowslider slider-info">
+                                <div class="image mb-sm-5 mb-4">
+                                    <img src="assets/images/blogsingle.jpg" alt="" class="img-fluid radius-image-full">
+                                </div>
+                            </div>
+                        </div>
+                    </div> --}}
+                {{-- </div>
+            </div> --}}
+        {{-- </section> --}}
+        <!-- /main-slider -->
         <div class="image mb-sm-5 mb-4">
             <img src="assets/images/blogsingle.jpg" alt="" class="img-fluid radius-image-full">
         </div>

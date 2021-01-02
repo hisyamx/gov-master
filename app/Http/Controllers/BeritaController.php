@@ -12,7 +12,7 @@ class BeritaController extends Controller
     }
     public function detailberita()
     {
-        return view('users.berita.detailutama');
+        return view('users.berita.detailberita');
     }
     public function pressrelease()
     {

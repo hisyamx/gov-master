@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
@@ -35,29 +35,31 @@ Route::get('/agenda/dprd', 'AgendaController@agendadprd');
 Route::get('/agenda/sekretariat', 'AgendaController@agendasekretariat');
 //berita
 Route::get('/berita', 'BeritaController@berita');
-Route::get('/berita/{detailberita}', 'BeritaController@detailberita');
 Route::get('/berita/pressrelease', 'BeritaController@pressrelease');
+Route::get('/berita/{detailberita}', 'BeritaController@detailberita');
 //akd
-// Route::get('/akd/komisi', 'AkdController@komisi');
-// Route::get('/akd/pimpinandprd', 'AkdController@pimpinandprd');
-// Route::get('/akd/badankehormatan', 'AkdController@badankehormatan');
-// Route::get('/akd/badanmusyawarah', 'AkdController@badanmusyawarah');
-// Route::get('/akd/badananggaran', 'AkdController@badananggaran');
-// Route::get('/akd/badanperda', 'AkdController@badanperda');
+Route::get('/akd/komisi', 'AkdController@komisi');
+Route::get('/akd/pimpinandprd', 'AkdController@pimpinandprd');
+Route::get('/akd/badankehormatan', 'AkdController@badankehormatan');
+Route::get('/akd/badanmusyawarah', 'AkdController@badanmusyawarah');
+Route::get('/akd/badananggaran', 'AkdController@badananggaran');
+Route::get('/akd/badanperda', 'AkdController@badanperda');
 //fraksi
-// Route::get('/fraksi', 'MainController@fraksi');
+Route::get('/fraksi', 'FraksiController@fraksi');
+Route::get('/fraksi/{namafraksi}', 'FraksiController@detailfraksi');
+Route::get('/fraksi/{namaanggotafraksi}', 'FraksiController@detailanggotafraksi');
 //sekreatariat
 Route::get('/sekretariat/rencanalaporan', 'SekretariatController@rencanalaporan');
 Route::get('/sekretariat/tugasfungsi', 'SekretariatController@tugasfungsi');
 //informasi
-Route::get('/informasi/transparansianggaran', 'InformasiController@tanggaran');
-Route::get('/informasi/transparansikinerja', 'InformasiController@tkinerja');
+Route::get('/informasi/transparansianggaran', 'InformasiController@anggaran');
+Route::get('/informasi/transparansikinerja', 'InformasiController@kinerja');
 Route::get('/informasi/pengumuman', 'InformasiController@pengumuman');
 Route::get('/formulir/kunjungan', 'InformasiController@formulirkunjungan');
 //publikasi
-// Route::get('/gallery', 'MainController@gallery');
-// Route::get('/vod', 'MainController@vod');
-// Route::get('/live', 'MainController@live');
+Route::get('/publikasi/gallery', 'PublikasiController@gallery');
+Route::get('/publikasi/vod', 'PublikasiController@vod');
+Route::get('/publikasi/live', 'PublikasiController@live');
 //kontak
 Route::get('/kontak', 'MainController@kontak');
 //ppid
