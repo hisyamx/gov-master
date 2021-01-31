@@ -2,12 +2,25 @@
 
 use Illuminate\Support\Facades\Route;
 
-// Auth::routes();
+Auth::routes();
+//route dashboard
+Route::get('/home', 'HomeController@index')->name('home');
+// admin
+Route::group(['middleware' => ['auth']], function(){
+
+ 	// main
+    Route::get('/dashboard', 'AdminController@index')->name('dashboard.index');
+    // Route::get('/dashboard/iconbanner', 'MainController@index')->name('dashboard.iconbanner');
+    
+	//logout
+	Route::get('/logout', 'AuthManageController@logoutProcess');
+});
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 //route user
-Route::get('/beranda', 'MainController@beranda');
+Route::get('/', 'MainController@beranda');
 //profil
 Route::get('/tentangdprd', 'ProfilController@tentangdprd');
 Route::get('/visimisi', 'ProfilController@visimisi');
@@ -51,7 +64,5 @@ Route::get('/kontak', 'MainController@kontak');
 Route::get('/ppid', 'MainController@ppid');
 //jdih
 Route::get('/jdih', 'MainController@jdih');
-
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
