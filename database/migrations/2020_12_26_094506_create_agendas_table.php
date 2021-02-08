@@ -15,6 +15,12 @@ class CreateAgendasTable extends Migration
     {
         Schema::create('agendas', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_agenda');
+            $table->string('tempat');
+            $table->string('durasi');
+            $table->date('tanggal_buat');
+            $table->date('tanggal_post');
+            $table->string('peserta');
             $table->timestamps();
         });
     }

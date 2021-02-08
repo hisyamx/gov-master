@@ -15,6 +15,8 @@ class CreateFraksisTable extends Migration
     {
         Schema::create('fraksis', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_fraksi');
+            $table->string('foto');
             $table->timestamps();
         });
     }

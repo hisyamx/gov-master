@@ -15,6 +15,12 @@ class CreatePublikasisTable extends Migration
     {
         Schema::create('publikasis', function (Blueprint $table) {
             $table->id();
+            $table->string('judul');
+            $table->string('author');
+            $table->date('tanggal_buat');
+            $table->date('tanggal_post');
+            $table->string('galeri');
+            $table->string('video');
             $table->timestamps();
         });
     }

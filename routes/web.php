@@ -28,6 +28,22 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::post('edit-profil/{id}', 'ProfilController@edit');
     Route::get('hapus-profil/{id}', 'ProfilController@delete');
     Route::get('draft-profil', 'ProfilController@showDraft');
+    // Show Kelola agenda
+    Route::get('kelola-agenda', 'AgendaController@showKelola');
+    Route::get('terbit-agenda/{id}', 'AgendaController@terbit');
+    Route::get('tunda-agenda/{id}', 'AgendaController@tunda');
+    Route::get('edit-agenda/{id}', 'AgendaController@showEdit');
+    Route::post('edit-agenda/{id}', 'AgendaController@edit');
+    Route::get('hapus-agenda/{id}', 'AgendaController@delete');
+    Route::get('draft-agenda', 'AgendaController@showDraft');
+    // Show Kelola berita
+    Route::get('kelola-berita', 'BeritaController@showKelola');
+    Route::get('terbit-berita/{id}', 'BeritaController@terbit');
+    Route::get('tunda-berita/{id}', 'BeritaController@tunda');
+    Route::get('edit-berita/{id}', 'BeritaController@showEdit');
+    Route::post('edit-berita/{id}', 'BeritaController@edit');
+    Route::get('hapus-berita/{id}', 'BeritaController@delete');
+    Route::get('draft-berita', 'BeritaController@showDraft');
     // Show Kelola akd
     Route::get('kelola-akd', 'AkdController@showKelola');
     Route::get('terbit-akd/{id}', 'AkdController@terbit');

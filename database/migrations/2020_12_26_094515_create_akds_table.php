@@ -15,6 +15,11 @@ class CreateAkdsTable extends Migration
     {
         Schema::create('akds', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->string('fraksi');
+            $table->string('jabatan');
+            $table->string('komisi');
+            $table->string('tingkat');
             $table->timestamps();
         });
     }
