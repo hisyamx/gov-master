@@ -134,7 +134,7 @@
     </div>
 
     {{-- berita section --}}
-    <div class="w3l-homeblock2cstm py-1">
+    <div class="w3l-homeblock2cstm py-5">
         <div class="container py-lg-5 py-md-4">
             <div class="w3l-error-grid py-3 text-center">
                 <div class="center-align">
@@ -147,7 +147,7 @@
                 <div class="col-lg-12">
                     <div class="row">
                         {{-- section berita --}}
-                        <div class="col-lg-4 col-md-6 mt-4 item">
+                        <div class="col-lg-4 col-md-6 mt-4 mb-4 item">
                             <div class="card">
                                 <div class="card-header p-0 position-relative">
                                     <a href="blog-single.html">
