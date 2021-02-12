@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{asset('assets') }}/plugins/bootstrap-social/bootstrap-social.css">
     <link rel="stylesheet" href="{{asset('assets') }}/plugins/flag-icon-css/css/flag-icon.min.css">
     <!-- Custom style CSS -->
-    <link rel='shortcut icon' type='image/x-icon' href="{{asset('assets') }}/images/favicon.ico">
+    <link rel='shortcut icon' type='image/x-icon' href="{{asset('assets') }}/images/logo.svg">
     <!-- icons css -->
     <link rel="stylesheet" href="{{asset('assets') }}/plugins/ionicons/css/ionicons.min.css">
     <!-- Font css -->

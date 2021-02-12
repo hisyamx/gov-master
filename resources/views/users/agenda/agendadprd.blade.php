@@ -1,8 +1,6 @@
     @extends('users.master')
     @section('title', 'Agenda - DPRD')
-
     @section('content')
-
     {{-- Agenda section --}}
 
     <div class="w3l-homeblock2 py-5">
@@ -12,7 +10,6 @@
                 <p>Agenda Terbaru Anggota DPRD Provinsi Kalimantan.</p>
             </div>
         </div>
-
 
         <!-- Header -->
         <!-- Page content -->

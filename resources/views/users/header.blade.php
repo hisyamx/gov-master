@@ -89,7 +89,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item {{ request()->is('komisi') ? 'active' : ''}}" href="/akd/komisi">Komisi</a>
-                                <a class="dropdown-item {{ request()->is('pimpinan') ? 'active' : ''}}" href="/akd/pimpinan">Pimpinan DPRD</a>
+                                <a class="dropdown-item {{ request()->is('pimpinan') ? 'active' : ''}}" href="/akd/pimpinandprd">Pimpinan DPRD</a>
                                 <a class="dropdown-item {{ request()->is('badankehormatan') ? 'active' : ''}}" href="/akd/badankehormatan">Badan Kehormatan</a>
                                 <a class="dropdown-item {{ request()->is('badanmusyawarah') ? 'active' : ''}}" href="/akd/badanmusyawarah">Badan Musyawarah</a>
                                 <a class="dropdown-item {{ request()->is('badananggaran') ? 'active' : ''}}" href="/akd/badananggaran">Badan Anggaran</a>
@@ -131,7 +131,7 @@
                                 <a class="dropdown-item {{ request()->is('transparansianggaran') ? 'active' : ''}}" href="/informasi/transparansianggaran">Transparansi Anggaran</a>
                                 <a class="dropdown-item {{ request()->is('transparansikinerja') ? 'active' : ''}}" href="/informasi/transparansikinerja">Transparansi Kinerja</a>
                                 <a class="dropdown-item {{ request()->is('pengumuman') ? 'active' : ''}}" href="/informasi/pengumuman">Pengumuman</a>
-                                <a class="dropdown-item {{ request()->is('kunjungan') ? 'active' : ''}}" href="/formulir/kunjungan">Formulir Kunjungan</a>
+                                <a class="dropdown-item {{ request()->is('kunjungan') ? 'active' : ''}}" href="/informasi/formulir/kunjungan">Formulir Kunjungan</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">

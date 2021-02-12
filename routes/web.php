@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 /// Admin Route
-Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
+Route::group(['middleware' => 'auth'], function () {
     // Show Welcome
     Route::get('admin', 'AdminController@index')->name('dashboard.index');
     Route::get('admin/kelola-banner', 'AdminController@kelolaBeranda');
@@ -143,7 +143,7 @@ Route::get('/sekretariat/tugasfungsi', 'SekretariatController@tugasfungsi');
 Route::get('/informasi/transparansianggaran', 'InformasiController@anggaran');
 Route::get('/informasi/transparansikinerja', 'InformasiController@kinerja');
 Route::get('/informasi/pengumuman', 'InformasiController@pengumuman');
-Route::get('/formulir/kunjungan', 'InformasiController@formulirkunjungan');
+Route::get('/informasi/formulir/kunjungan', 'InformasiController@formulirkunjungan');
 //publikasi
 Route::get('/publikasi/gallery', 'PublikasiController@gallery');
 Route::get('/publikasi/vod', 'PublikasiController@vod');
