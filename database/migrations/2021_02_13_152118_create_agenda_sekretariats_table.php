@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMainsTable extends Migration
+class CreateAgendaSekretariatsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateMainsTable extends Migration
      */
     public function up()
     {
-        Schema::create('mains', function (Blueprint $table) {
+        Schema::create('agenda_sekretariats', function (Blueprint $table) {
             $table->id();
-            $table->string('bannersatu');
-            $table->string('bannerdua');
-            $table->string('bannertiga');
-            $table->string('banner');
-            $table->string('logosatu');
-            $table->string('logodua');
+            $table->string('nama_agenda');
+            $table->string('tempat');
+            $table->string('durasi');
+            $table->date('tanggal_buat');
+            $table->date('tanggal_post');
+            $table->string('peserta');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateMainsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mains');
+        Schema::dropIfExists('agenda_sekretariats');
     }
 }

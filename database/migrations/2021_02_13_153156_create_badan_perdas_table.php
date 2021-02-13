@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAkdsTable extends Migration
+class CreateBadanPerdasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateAkdsTable extends Migration
      */
     public function up()
     {
-        Schema::create('akds', function (Blueprint $table) {
+        Schema::create('badan_perdas', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('fraksi');
-            $table->string('jabatan');
-            $table->string('komisi');
-            $table->string('tingkat');
             $table->timestamps();
         });
     }
@@ -31,6 +26,6 @@ class CreateAkdsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('akds');
+        Schema::dropIfExists('badan_perdas');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMainsTable extends Migration
+class CreateVideoDemandsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,8 @@ class CreateMainsTable extends Migration
      */
     public function up()
     {
-        Schema::create('mains', function (Blueprint $table) {
+        Schema::create('video_demands', function (Blueprint $table) {
             $table->id();
-            $table->string('bannersatu');
-            $table->string('bannerdua');
-            $table->string('bannertiga');
-            $table->string('banner');
-            $table->string('logosatu');
-            $table->string('logodua');
             $table->timestamps();
         });
     }
@@ -32,6 +26,6 @@ class CreateMainsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mains');
+        Schema::dropIfExists('video_demands');
     }
 }
