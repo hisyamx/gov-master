@@ -154,5 +154,3 @@ Route::get('/kontak', 'MainController@kontak');
 Route::get('/ppid', 'MainController@ppid');
 //jdih
 Route::get('/jdih', 'MainController@jdih');
-
-Route::get('/home', 'HomeController@index')->name('home');

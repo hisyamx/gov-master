@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Akd extends Model
+class Komisi extends Model
 {
     //
 }

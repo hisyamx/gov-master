@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAkdsTable extends Migration
+class CreateKomisisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -31,6 +31,6 @@ class CreateAkdsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('akds');
+        Schema::dropIfExists('komisis');
     }
 }

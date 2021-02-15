@@ -19,6 +19,7 @@ class CreateMainsTable extends Migration
             $table->string('bannerdua');
             $table->string('bannertiga');
             $table->string('banner');
+            $table->string('titlebanner');
             $table->string('logosatu');
             $table->string('logodua');
             $table->timestamps();
