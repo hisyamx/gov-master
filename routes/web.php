@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Auth\Events\Logout;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
@@ -96,6 +97,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('admin/delete-user/{id}', 'AdminController@deleteUser');
     Route::get('admin/buat-user', 'AdminController@showBuatUser');
     Route::post('admin/buat-user', 'AdminController@buatUser');
+
+
 });
 
 /// Author Route
