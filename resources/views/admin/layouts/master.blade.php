@@ -31,7 +31,7 @@
             <nav class="navbar navbar-expand-lg main-navbar">
                 @include('admin/layouts/header')
             </nav>
-            <div class="main-sidebar sidebar-style-2">
+            <div class="main-sidebar sidebar-style-1">
                 <aside id="sidebar-wrapper">
                     @include('admin/layouts/sidebar')
                 </aside>

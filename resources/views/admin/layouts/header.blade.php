@@ -10,7 +10,7 @@
             <img alt="image" src="{{asset('assets')}}/images/user.png" class="user-img-radious-style">
             <span class="d-sm-none d-lg-inline-block"></span></a>
         <div class="dropdown-menu dropdown-menu-right">
-            {{-- <div class="dropdown-title">Hello Jessica Hill</div> --}}
+            <div class="dropdown-title">Hello {{ Auth::user()->name }}</div>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
