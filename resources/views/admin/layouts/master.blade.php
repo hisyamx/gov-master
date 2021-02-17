@@ -21,6 +21,8 @@
     <!-- Data Tables css -->
     <link rel="stylesheet" href="{{asset('assets')}}/plugins/datatables/DataTables/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="{{asset('assets')}}/plugins/datatables/datatables.min.css">
+    {{-- CKeditor --}}
+    <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
 </head>
 
 <body>
@@ -43,6 +45,16 @@
             </footer>
         </div>
     </div>
+    <script>
+        ClassicEditor
+                .create( document.querySelector( '#editor' ) )
+                .then( editor => {
+                        console.log( editor );
+                } )
+                .catch( error => {
+                        console.error( error );
+                } );
+    </script>
     <!-- General JS Scripts -->
     <script src="{{asset('assets')}}/js/app.min.js"></script>
     <!-- JS Libraie assets -->

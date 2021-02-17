@@ -12,10 +12,6 @@
                 <div class="card">
                     <div class="card-header">
                         <h4>Berita Utama</h4>
-
-                        <div class="left">
-                            <a href="index.html#" class="btn btn-outline-primary">Detail</a>
-                        </div>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive table-invoice">

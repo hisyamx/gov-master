@@ -18,4 +18,12 @@ class BeritaController extends Controller
     {
         return view('users.berita.pressrelease');
     }
+
+    //admin
+    public function kelolaBerita()
+    {
+        return view('admin.berita.beritautama');
+    }
+
+
 }
