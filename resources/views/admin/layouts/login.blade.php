@@ -25,6 +25,7 @@
                         class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                         <div class="login-brand login-brand-color">
                             <img alt="image" src="{{asset('assets') }}/images/logo.svg"/>
+                            {{-- <img alt="image" src="{{asset('assets') }}/images/logo.svg"/> --}}
                         </div>
                         <div class="card">
                             <div class="card-header card-header-auth">
@@ -67,7 +68,7 @@
                             </div>
                         </div>
                         <div class="mt-0 text-muted text-center">
-                            Don't have an account? <a href="admin/register">Register</a>
+                            Don't have an account? <a href="{{ route('register') }}">Register</a>
                         </div>
                     </div>
                 </div>

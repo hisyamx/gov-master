@@ -21,7 +21,7 @@ class BerandaController extends Controller
     public function kelolaLogo()
     {
         $beranda = Beranda::orderBy('name')->paginate(20);
-        return view("admin.beranda.banner",['beranda' => $beranda]);
+        return view("admin.beranda.logo",['beranda' => $beranda]);
     }
 
     public function editBanner($id)

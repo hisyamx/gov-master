@@ -40,10 +40,10 @@
             </div>
             <!-- Main Content -->
             @yield('content')
-            <footer class="main-footer">
-                @include('admin/layouts/footer')
-            </footer>
         </div>
+        <footer class="main-footer">
+            @include('admin/layouts/footer')
+        </footer>
     </div>
     <script>
         ClassicEditor

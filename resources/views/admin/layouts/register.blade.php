@@ -25,8 +25,7 @@
                     <div
                         class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
                         <div class="login-brand login-brand-color">
-                            <img alt="image" src="{{asset('assets') }}/img/logo.png" />
-                            Grexa
+                            <img alt="image" src="{{asset('assets') }}/img/logo.svg"/>
                         </div>
                         <div class="card">
                             <div class="card-header card-header-auth">
@@ -79,7 +78,7 @@
                                 </form>
                             </div>
                             <div class="mb-4 text-muted text-center">
-                                Already Registered? <a href="admin/login">Login</a>
+                                Already Registered? <a href="{{ route('register') }}">Login</a>
                             </div>
                         </div>
                     </div>

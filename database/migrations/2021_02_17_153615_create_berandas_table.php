@@ -16,9 +16,12 @@ class CreateBerandasTable extends Migration
         Schema::create('berandas', function (Blueprint $table) {
             $table->id();
             $table->string('logoname');
-            $table->string('fotologo');
+            $table->string('logosatu');
+            $table->string('logodua');
             $table->string('bannername');
-            $table->string('fotobanner');
+            $table->string('bannersatu');
+            $table->string('bannerdua');
+            $table->string('bannertiga');
             $table->timestamps();
         });
     }
