@@ -13,13 +13,15 @@ Route::group(['middleware' => 'auth'], function () {
     // Show Kelola Banner
     Route::get('admin/kelola-banner', 'BerandaController@kelolaBanner')->name('banner.index');
     Route::get('admin/edit-banner', 'BerandaController@showEditBanner')->name('banner.show');
-    Route::post('admin/edit-banner', 'BerandaController@editBanner')->name('banner.edit');
-    Route::get('admin/hapus-banner', 'BerandaController@deleteBanner')->name('banner.delete');
+    Route::post("admin/create",'BerandaController@store');
+	Route::post("admin/edit-banner",'BerandaController@update_record')->name("banner.edit");
+    Route::delete('admin/hapus-banner', 'BerandaController@deleteBanner')->name('banner.delete');
     // Show Kelola Logo
     Route::get('admin/kelola-logo', 'BerandaController@kelolaLogo')->name('logo.index');
     Route::get('admin/edit-logo', 'BerandaController@showEditLogo')->name('logo.show');
-    Route::post('admin/edit-logo', 'BerandaController@editLogo')->name('logo.edit');
-    Route::get('admin/hapus-logo', 'BerandaController@deleteLogo')->name('logo.delete');
+    Route::post("admin/create",'BerandaController@store');
+	Route::post("admin/edit-logo",'BerandaController@update_record')->name("logo.edit");
+    Route::delete('admin/hapus-logo', 'BerandaController@deleteLogo')->name('logo.delete');
     // Profil
     // Show Kelola tentang
     Route::get('admin/kelola-tentangdprd', 'ProfilController@showKelolaTentang')->name('tentang.index');

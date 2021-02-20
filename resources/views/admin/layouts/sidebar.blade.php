@@ -13,8 +13,8 @@
     <li class="dropdown">
         <a href="#" class="nav-link has-dropdown"><i class="fab fa-gg"></i><span>Beranda</span></a>
         <ul class="dropdown-menu">
-            <li><a class="nav-link {{ request()->is('kelolabanner') ? 'active' : ''}}" href="{{ url('kelolabanner.index')}}">Kelola Banner</a></li>
-            <li><a class="nav-link {{ request()->is('kelolallogo') ? 'active' : ''}}" href="{{ url('/admin/kelolalogo')  }}">Kelola Logo</a></li>
+            <li><a class="nav-link {{ request()->is('kelolabanner') ? 'active' : ''}}" href="{{ route('banner.index')}}">Kelola Banner</a></li>
+            <li><a class="nav-link {{ request()->is('kelolallogo') ? 'active' : ''}}" href="{{ route('logo.index')  }}">Kelola Logo</a></li>
         </ul>
     </li>
     <li class="dropdown">
@@ -72,10 +72,6 @@
             <li><a class="nav-link {{ request()->is('dashboard') ? 'active' : ''}}" href="{{ url('/admin')  }}">Siaran Langsung</a></li>
         </ul>
     </li>
-    <li class="menu-header">Kontak</li>
-    <li class="dropdown">
-        <a class="nav-link {{ request()->is('dashboard') ? 'active' : ''}}" href="{{ url('/admin')  }}"><i class="fas fa-envelope"></i><span>Kontak</span></a>
-    </li>
     <li class="menu-header">Users & Author</li>
     <li class="dropdown">
         <a href="#" class="nav-link has-dropdown"><i class="fas fa-lock"></i><span>User</span></a>
@@ -88,5 +84,9 @@
         <ul class="dropdown-menu">
             <li><a class="nav-link {{ request()->is('dashboard') ? 'active' : ''}}" href="{{ url('/admin')  }}">Kelola Author</a></li>
         </ul>
+    </li>
+    <li class="menu-header">Kontak</li>
+    <li class="dropdown">
+        <a class="nav-link {{ request()->is('dashboard') ? 'active' : ''}}" href="{{ url('/admin')  }}"><i class="fas fa-envelope"></i><span>Kontak</span></a>
     </li>
 </ul>

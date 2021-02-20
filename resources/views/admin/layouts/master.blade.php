@@ -47,13 +47,14 @@
     </div>
     <script>
         ClassicEditor
-                .create( document.querySelector( '#editor' ) )
-                .then( editor => {
-                        console.log( editor );
-                } )
-                .catch( error => {
-                        console.error( error );
-                } );
+            .create(document.querySelector('#editor'))
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
     </script>
     <!-- General JS Scripts -->
     <script src="{{asset('assets')}}/js/app.min.js"></script>
@@ -66,6 +67,10 @@
     <script src="{{asset('assets')}}/js/page/index.js"></script>
     <!-- Template JS File -->
     <script src="{{asset('assets')}}/js/scripts.js"></script>
+    <!-- JS Libraies -->
+    <script src="{{asset('assets')}}/bundles/dropzonejs/min/dropzone.min.js"></script>
+    <!-- Page Specific JS File -->
+    <script src="{{asset('assets')}}/js/page/multiple-upload.js"></script>
     <!-- Data Table js -->
     <script src="{{asset('assets')}}/plugins/datatables/DataTables/js/dataTables.bootstrap4.min.js"></script>
     <script src="{{asset('assets')}}/plugins/datatables/datatables.min.js"></script>
