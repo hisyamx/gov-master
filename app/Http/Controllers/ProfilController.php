@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Profil;
+use App\Tentang;
+use App\Visimisi;
+use App\Tugasfungsi;
+use App\PejabatStruktural;
+use App\StrukturOrganisasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -33,48 +37,45 @@ class ProfilController extends Controller
     {
         $this->middleware('auth');
     }
+
     public function showKelolaTentang()
     {
-        $profil = Profil::orderBy('name')->paginate(20);
-        return view("admin.profil.tentang",['profil' => $profil]);
+        $tentang = Tentang::orderBy('title')->paginate(20);
+        return view("admin.profil.tentang",['tentang' => $tentang]);
     }
     public function showKelolaVisimisi()
     {
-        $profil = Profil::orderBy('name')->paginate(20);
-        return view("admin.profil.visimisi",['profil' => $profil]);
+        $visimisi = Visimisi::orderBy('title')->paginate(20);
+        return view("admin.profil.visimisi",['visimisi' => $visimisi]);
     }
     public function showKelolaTugasfungsi()
     {
-        $profil = Profil::orderBy('name')->paginate(20);
-        return view("admin.profil.tugasfungsi",['profil' => $profil]);
+        $tugasfungsi = Tugasfungsi::orderBy('title')->paginate(20);
+        return view("admin.profil.tugasfungsi",['tugasfungsi' => $tugasfungsi]);
     }
     public function showKelolaStukturorganisasi()
     {
-        $profil = Profil::orderBy('name')->paginate(20);
-        return view("admin.profil.stukturorganisasi",['profil' => $profil]);
+        $strukturorganisasi = StrukturOrganisasi::orderBy('title')->paginate(20);
+        return view("admin.profil.stukturorganisasi",['strukturorganisasi' => $strukturorganisasi]);
     }
     public function showKelolaPejabatstruktural()
     {
-        $profil = Profil::orderBy('name')->paginate(20);
-        return view("admin.profil.pejabatstruktural",['profil' => $profil]);
+        $pejabatstruktural = PejabatStruktural::orderBy('title')->paginate(20);
+        return view("admin.profil.pejabatstruktural",['pejabatstruktural' => $pejabatstruktural]);
     }
 
-    public function edit($id)
+    // tentang
+    public function showEditTentang($id)
     {
-        $profil = Profil::findOrFail($id);
+        $tentang = Tentang::findOrFail($id);
         // $karyawan = Karyawan::all();
-        return view("profil.edit",['profil' => $profil]);
+        return view("admin.profil.edittentang",['tentang' => $tentang]);
     }
 
-    public function store(Request $request)
+    public function storeTentang(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:50',
-            'status' =>  'required',
-            'division' =>  'required',
-            'pj' => 'required',
-            'start' =>  'required',
-            'finish' =>  'nullable',
+            'title' => 'required|max:50',
             'description' => 'required|max:999',
             'cover_image' => 'image|nullable|max:1999'
             ]);
@@ -82,105 +83,212 @@ class ProfilController extends Controller
         // Handle File Upload
         if($request->hasFile('cover_image')){
             // Get filename with the extension
-            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            $filenameWithExt = $request->file('cover_image')->getClientOriginaltitle();
             // Get just filename
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
             // Get just ext
             $extension = $request->file('cover_image')->getClientOriginalExtension();
             // Filename to store
-            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            $filenameToStore= $filename.'_'.time().'.'.$extension;
             // Upload Image
-            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $filenameToStore);
         } else {
-            $fileNameToStore = 'noimage.jpg';
+            $filenameToStore = 'noimage.jpg';
         }
 
-        $profil = new Profil();
+        $tentang = new Tentang();
 
-        $profil->name = request('name');
-        $profil->status = request('status');
-        $profil->division = request('division');
-        $profil->pj = request('pj');
-        $profil->start = request('start');
+        $tentang->title = request('title');
+        $tentang->description = request('description');
+        $tentang->cover_image = $filenameToStore;
 
-        $profil->finish = request('finish');
-        $profil->description = request('description');
-        $profil->cover_image = $fileNameToStore;
+        $tentang->save();
 
-        $profil->save();
-
-        return redirect("/profil")->with('success',"profil Created Successfully");
+        return redirect("/admin/profil/tentang")->with('success',"profil Created Successfully");
     }
 
-
-    public function show($id)
+    public function destroyTentang($id)
     {
-        $profil = Profil::findOrFail($id);
-        return view("profil.show",['profil' => $profil]);
-    }
+        $tentang = Tentang::findOrFail($id);
+        $tentang->delete();
 
-    public function destroy($id)
-    {
-        $profil = profil::findOrFail($id);
-        $profil->delete();
-
-        if($profil->cover_image != 'noimage.jpg'){
+        if($tentang->cover_image != 'noimage.jpg'){
             // Delete Image
-            Storage::delete('public/cover_images/'.$profil->cover_image);
+            Storage::delete('public/cover_images/'.$tentang->cover_image);
         }
 
-        return redirect("/profil")->with("success","profil Deleted Successfully");
+        return redirect("/admin/profil/kelola-tentang")->with("success","profil Deleted Successfully");
     }
 
-    public function update_record(Request $request,$id)
+    public function update_recordTentang(Request $request,$id)
     {
         $this->validate($request, [
-            'name' => 'required|max:50',
-            'status' =>  'required',
-            'division' =>  'required',
-            'pj' => 'required',
-            'start' =>  'required',
-            'finish' =>  'nullable',
+            'title' => 'required|max:50',
             'description' => 'required|max:999',
             'cover_image' => 'image|nullable|max:1999'
         ]);
 
-        $profil = Profil::findOrFail($id);
+        $tentang = Tentang::findOrFail($id);
         // Handle File Upload
         if($request->hasFile('cover_image')){
             // Get filename with the extension
-            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            $filenameWithExt = $request->file('cover_image')->getClientOriginaltitle();
             // Get just filename
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
             // Get just ext
             $extension = $request->file('cover_image')->getClientOriginalExtension();
             // Filename to store
-            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            $filenameToStore= $filename.'_'.time().'.'.$extension;
             // Upload Image
-            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $filenameToStore);
             // Delete file if exists
-            Storage::delete('public/cover_images/'.$profil->cover_image);
+            Storage::delete('public/cover_images/'.$tentang->cover_image);
         }
 
-        $profil->name = request('name');
-        $profil->status = request('status');
-        $profil->division = request('division');
-        $profil->pj = request('pj');
-        $profil->start = request('start');
-        $profil->finish = request('finish');
-        $profil->description = request('description');
+        $tentang->title = request('title');
+        $tentang->description = request('description');
         if($request->hasFile('cover_image')){
-            $profil->cover_image = $fileNameToStore;
+            $tentang->cover_image = $filenameToStore;
         }
 
-        $profil->save(); //this will UPDATE the record
+        $tentang->save(); //this will UPDATE the record
 
-        return redirect("/profil")->with("success","Account was updated successfully");
+        return redirect("/admin/profil/kelola-tentang")->with("success","Account was updated successfully");
     }
 
-    public function single($id)
+    // tugasfungsi
+    public function showEditTugasfungsi($id)
     {
-        $profil = Profil::where('division',$id)->orderBy('name') -> paginate(20);
-        return view('profil.single',['profil' => $profil]);
+        $tugasfungsi = Tugasfungsi::findOrFail($id);
+        return view("admin.profil.edittugasfungsi",['tugasfungsi' => $tugasfungsi]);
     }
+
+    public function storeTugasfungsi(Request $request)
+    {
+        $this->validate($request, [
+            'title' => 'required|max:50',
+            'description' => 'required|max:999'
+            ]);
+
+        $tugasfungsi = new Tugasfungsi();
+
+        $tugasfungsi->title = request('title');
+        $tugasfungsi->description = request('description');
+        $tugasfungsi->save();
+
+        return redirect("/admin/profil/kelola-tugasfungsi")->with('success',"Tugas fungsi Created Successfully");
+    }
+
+    public function destroyTugasfungsi($id)
+    {
+        $tugasfungsi = Tugasfungsi::findOrFail($id);
+        $tugasfungsi->delete();
+        return redirect("/admin/profil/kelola-tugasfungsi")->with("success","Tugas fungsi Deleted Successfully");
+    }
+
+    public function update_recordTugasfungsi(Request $request,$id)
+    {
+        $this->validate($request, [
+            'title' => 'required|max:50',
+            'description' => 'required|max:999'
+        ]);
+
+        $tugasfungsi = Tugasfungsi::findOrFail($id);
+        $tugasfungsi->title = request('title');
+        $tugasfungsi->description = request('description');
+        $tugasfungsi->save(); //this will UPDATE the record
+
+        return redirect("/admin/profil/kelola-tugasfungsi")->with("success","Tugas fungsi was updated successfully");
+    }
+
+    // Pejabatstruktural
+    public function showEditPejabatstruktural($id)
+    {
+        $pejabatstruktural = PejabatStruktural::findOrFail($id);
+        return view("admin.profil.editpejabatstruktural",['pejabatstruktural' => $pejabatstruktural]);
+    }
+
+    public function storePejabatstruktural(Request $request)
+    {
+        $this->validate($request, [
+            'title' => 'required|max:50',
+            'description' => 'required|max:999'
+            ]);
+
+        $pejabatstruktural = new PejabatStruktural();
+
+        $pejabatstruktural->title = request('title');
+        $pejabatstruktural->description = request('description');
+        $pejabatstruktural->save();
+
+        return redirect("/admin/profil/kelola-pejabatstruktural")->with('success',"profil Created Successfully");
+    }
+
+    public function destroyPejabatstruktural($id)
+    {
+        $pejabatstruktural = PejabatStruktural::findOrFail($id);
+        $pejabatstruktural->delete();
+        return redirect("/admin/profil/kelola-pejabatstruktural")->with("success","pejabatstruktural Deleted Successfully");
+    }
+
+    public function update_recordPejabatstruktural(Request $request,$id)
+    {
+        $this->validate($request, [
+            'title' => 'required|max:50',
+            'description' => 'required|max:999'
+        ]);
+
+        $pejabatstruktural = PejabatStruktural::findOrFail($id);
+        $pejabatstruktural->title = request('title');
+        $pejabatstruktural->description = request('description');
+        $pejabatstruktural->save(); //this will UPDATE the record
+
+        return redirect("/admin/profil/kelola-pejabatstruktural")->with("success","pejabatstruktural was updated successfully");
+    }
+
+    // strukturorganisasi
+    public function showEditstrukturorganisasi($id)
+    {
+        $strukturorganisasi = StrukturOrganisasi::findOrFail($id);
+        return view("admin.profil.editstrukturorganisasi",['strukturorganisasi' => $strukturorganisasi]);
+    }
+
+    public function storestrukturorganisasi(Request $request)
+    {
+        $this->validate($request, [
+            'title' => 'required|max:50',
+            'description' => 'required|max:999'
+            ]);
+
+        $strukturorganisasi = new StrukturOrganisasi();
+
+        $strukturorganisasi->title = request('title');
+        $strukturorganisasi->description = request('description');
+        $strukturorganisasi->save();
+
+        return redirect("/admin/profil/kelola-strukturorganisasi")->with('success',"Struktur Organisasi Created Successfully");
+    }
+
+    public function destroystrukturorganisasi($id)
+    {
+        $strukturorganisasi = StrukturOrganisasi::findOrFail($id);
+        $strukturorganisasi->delete();
+        return redirect("/admin/profil/kelola-strukturorganisasi")->with("success","Struktur Organisasi Deleted Successfully");
+    }
+
+    public function update_recordstrukturorganisasi(Request $request,$id)
+    {
+        $this->validate($request, [
+            'title' => 'required|max:50',
+            'description' => 'required|max:999'
+        ]);
+
+        $strukturorganisasi = StrukturOrganisasi::findOrFail($id);
+        $strukturorganisasi->title = request('title');
+        $strukturorganisasi->description = request('description');
+        $strukturorganisasi->save(); //this will UPDATE the record
+
+        return redirect("/admin/profil/kelola-strukturorganisasi")->with("success","Struktur Organisasi was updated successfully");
+    }
+
 }

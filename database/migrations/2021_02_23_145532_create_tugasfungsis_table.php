@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePejabatStrukturalsTable extends Migration
+class CreateTugasfungsisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,8 @@ class CreatePejabatStrukturalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pejabat_strukturals', function (Blueprint $table) {
+        Schema::create('tugasfungsis', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('description');
-            $table->string('name');
-            $table->string('jabatan');
-            $table->string('fraksi');
-
             $table->timestamps();
         });
     }
@@ -32,6 +26,6 @@ class CreatePejabatStrukturalsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pejabat_strukturals');
+        Schema::dropIfExists('tugasfungsis');
     }
 }
