@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Beranda;
+use App\BerandaLogo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -36,16 +37,10 @@ class BerandaController extends Controller
         return view("admin.beranda.editlogo",['beranda' => $beranda]);
     }
 
-    public function store(Request $request)
+    public function storeBanner(Request $request)
     {
         $this->validate($request, [
             'name' => 'required|max:50',
-            'status' =>  'required',
-            'division' =>  'required',
-            'pj' => 'required',
-            'start' =>  'required',
-            'finish' =>  'nullable',
-            'description' => 'required|max:999',
             'cover_image' => 'image|nullable|max:1999'
             ]);
 
@@ -66,32 +61,23 @@ class BerandaController extends Controller
         }
 
         $beranda = new beranda();
-
         $beranda->name = request('name');
-        $beranda->status = request('status');
-        $beranda->division = request('division');
-        $beranda->pj = request('pj');
-        $beranda->start = request('start');
-
-        $beranda->finish = request('finish');
-        $beranda->description = request('description');
         $beranda->cover_image = $fileNameToStore;
-
         $beranda->save();
 
-        return redirect("/beranda")->with('success',"beranda Created Successfully");
+        return redirect("/admin/kelola-banner")->with('success',"Banner Created Successfully");
     }
 
 
-    public function show($id)
+    public function showEditbanner($id)
     {
-        $P = P::findOrFail($id);
-        return view("beranda.show",['beranda' => $beranda]);
+        $beranda = Beranda::findOrFail($id);
+        return view("admin.beranda.editbanner",['beranda' => $beranda]);
     }
 
-    public function destroy($id)
+    public function destroyBanner($id)
     {
-        $beranda = beranda::findOrFail($id);
+        $beranda = Beranda::findOrFail($id);
         $beranda->delete();
 
         if($beranda->cover_image != 'noimage.jpg'){
@@ -99,23 +85,17 @@ class BerandaController extends Controller
             Storage::delete('public/cover_images/'.$beranda->cover_image);
         }
 
-        return redirect("/beranda")->with("success","beranda Deleted Successfully");
+        return redirect("/admin/kelola-banner")->with("success","Banner Deleted Successfully");
     }
 
-    public function update_record(Request $request,$id)
+    public function update_recordBanner(Request $request,$id)
     {
         $this->validate($request, [
             'name' => 'required|max:50',
-            'status' =>  'required',
-            'division' =>  'required',
-            'pj' => 'required',
-            'start' =>  'required',
-            'finish' =>  'nullable',
-            'description' => 'required|max:999',
             'cover_image' => 'image|nullable|max:1999'
         ]);
 
-        $beranda = beranda::findOrFail($id);
+        $beranda = Beranda::findOrFail($id);
         // Handle File Upload
         if($request->hasFile('cover_image')){
             // Get filename with the extension
@@ -131,28 +111,96 @@ class BerandaController extends Controller
             // Delete file if exists
             Storage::delete('public/cover_images/'.$beranda->cover_image);
         }
-
         $beranda->name = request('name');
-        $beranda->status = request('status');
-        $beranda->division = request('division');
-        $beranda->pj = request('pj');
-        $beranda->start = request('start');
-        $beranda->finish = request('finish');
-        $beranda->description = request('description');
         if($request->hasFile('cover_image')){
             $beranda->cover_image = $fileNameToStore;
         }
-
         $beranda->save(); //this will UPDATE the record
 
-        return redirect("/beranda")->with("success","Account was updated successfully");
+        return redirect("/admin/kelola-banner")->with("success","Banner was updated successfully");
     }
 
-    public function single($id)
+    public function storeLogo(Request $request)
     {
-        $beranda = beranda::where('division',$id)->orderBy('name') -> paginate(20);
-        $division = Division::orderBy('name') -> get();
+        $this->validate($request, [
+            'name' => 'required|max:50',
+            'cover_image' => 'image|nullable|max:1999'
+            ]);
 
-        return view('beranda.single',['beranda' => $beranda,'division' => $division]);
+        // Handle File Upload
+        if($request->hasFile('cover_image')){
+            // Get filename with the extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
+
+        $berandalogo = new berandalogo();
+        $berandalogo->name = request('name');
+        $berandalogo->cover_image = $fileNameToStore;
+        $berandalogo->save();
+
+        return redirect("/admin/kelola-logo")->with('success',"Logo Created Successfully");
     }
+
+
+    public function showEditLogo($id)
+    {
+        $berandalogo = BerandaLogo::findOrFail($id);
+        return view("admin.beranda.editlogo",['berandalogo' => $berandalogo]);
+    }
+
+    public function destroyLogo($id)
+    {
+        $berandalogo = BerandaLogo::findOrFail($id);
+        $berandalogo->delete();
+
+        if($berandalogo->cover_image != 'noimage.jpg'){
+            // Delete Image
+            Storage::delete('public/cover_images/'.$berandalogo->cover_image);
+        }
+
+        return redirect("/admin/kelola-logo")->with("success","Logo Deleted Successfully");
+    }
+
+    public function update_recordLogo(Request $request,$id)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:50',
+            'cover_image' => 'image|nullable|max:1999'
+        ]);
+
+        $berandalogo = BerandaLogo::findOrFail($id);
+        // Handle File Upload
+        if($request->hasFile('cover_image')){
+            // Get filename with the extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+            // Delete file if exists
+            Storage::delete('public/cover_images/'.$berandalogo->cover_image);
+        }
+        $berandalogo->name = request('name');
+        if($request->hasFile('cover_image')){
+            $berandalogo->cover_image = $fileNameToStore;
+        }
+        $berandalogo->save(); //this will UPDATE the record
+
+        return redirect("/admin/kelola-logo")->with("success","Logo was updated successfully");
+    }
+
 }

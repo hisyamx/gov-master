@@ -59,16 +59,11 @@ class ProfilController extends Controller
         return view("admin.profil.pejabatstruktural",['profil' => $profil]);
     }
 
-    public function create()
-    {
-        return view("admin.profil.create");
-    }
-
     public function edit($id)
     {
         $profil = Profil::findOrFail($id);
         // $karyawan = Karyawan::all();
-        return view("profil.edit",['profil' => $profil],['division' => $division]);
+        return view("profil.edit",['profil' => $profil]);
     }
 
     public function store(Request $request)
@@ -186,6 +181,6 @@ class ProfilController extends Controller
     public function single($id)
     {
         $profil = Profil::where('division',$id)->orderBy('name') -> paginate(20);
-        return view('profil.single',['profil' => $profil,'division' => $division]);
+        return view('profil.single',['profil' => $profil]);
     }
 }

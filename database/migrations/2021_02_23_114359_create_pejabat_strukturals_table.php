@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBerandasTable extends Migration
+class CreatePejabatStrukturalsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateBerandasTable extends Migration
      */
     public function up()
     {
-        Schema::create('berandas', function (Blueprint $table) {
+        Schema::create('pejabat_strukturals', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('cover_image');
+            $table->string('pejabatstruktural');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateBerandasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('berandas');
+        Schema::dropIfExists('pejabat_strukturals');
     }
 }
