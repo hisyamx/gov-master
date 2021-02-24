@@ -17,12 +17,11 @@
                     <div class="col-12 grid-margin">
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('banner.index') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('tentang.index') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                    <h6>Banner 1</h6>
                                     <div class="form-row">
-                                        <div class="form-group col-md-4">
-                                            <label for="title">Nama</label>
+                                        <div class="form-group col-md-12">
+                                            <label for="title">Title</label>
                                             <input required type="text" class="form-control" id="title" name="title"
                                                 value="{{ old('title') }}">
                                         </div>
@@ -31,10 +30,10 @@
                                             <input type="file" class="form-control" id="customFile" name="cover_image">
                                             <label for="customFile"></label>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group col-md-12">
                                             <label for="description">Description</label>
                                             <textarea required class="form-control" name="description" id="description"
-                                                rows="3" resize="none" placeholder="Deskripsi"
+                                                rows="5" placeholder="Deskripsi"
                                                 value="{{ old('description') }}"></textarea>
                                         </div>
                                     </div> <br>
@@ -56,13 +55,13 @@
                     <div class="table-responsive table-invoice">
                         <table class="table table-striped">
                             <tr>
-                                <th>Name</th>
+                                <th>Title</th>
                                 <th>File</th>
                                 <th>Description</th>
                                 <th>Action</th>
                             </tr>
                             <?php $i = 1; ?>
-                            @foreach($beranda AS $args)
+                            @foreach($tentang AS $args)
                             <tr>
                                 <td>{{$args->title}}</td>
                                 <td>
@@ -71,15 +70,14 @@
                                         <li class="media">
                                             <img alt="image" class="mr-3" width="250" height="150"
                                                 src="{{asset('storage/cover_images/'.$args->cover_image)}}">
-
                                         </li>
                                     </ul>
                                 </td>
                                 <td>{{$args->description}}</td>
                                 <td>
                                     <div class="media-cta-square">
-                                        <a href="{{route('banner.show',$args->id)}}" class="btn btn-info">Edit</a>
-                                        <form action="{{ route('banner.delete',$args->id) }}" method="POST">
+                                        <a href="{{route('tentang.show',$args->id)}}" class="btn btn-info">Edit</a>
+                                        <form action="{{ route('tentang.delete',$args->id) }}" method="POST">
                                             @csrf
                                             @method("DELETE")
                                             <button class="btn btn-danger" type="submit">Delete</button>

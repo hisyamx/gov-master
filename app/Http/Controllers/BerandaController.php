@@ -21,8 +21,8 @@ class BerandaController extends Controller
     }
     public function kelolaLogo()
     {
-        $beranda = Beranda::orderBy('name')->paginate(20);
-        return view("admin.beranda.logo",['beranda' => $beranda]);
+        $berandalogo = BerandaLogo::orderBy('name')->paginate(20);
+        return view("admin.beranda.logo",['berandalogo' => $berandalogo]);
     }
 
     public function editBanner($id)
@@ -33,8 +33,8 @@ class BerandaController extends Controller
 
     public function editLogo($id)
     {
-        $beranda = beranda::findOrFail($id);
-        return view("admin.beranda.editlogo",['beranda' => $beranda]);
+        $berandalogo = BerandaLogo::findOrFail($id);
+        return view("admin.beranda.editlogo",['berandalogo' => $berandalogo]);
     }
 
     public function storeBanner(Request $request)

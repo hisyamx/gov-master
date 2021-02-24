@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class StrukturOrganisasi extends Model
 {
-    //
+    protected $table = "struktur_organisasis";
 }

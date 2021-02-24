@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tugasfungsi extends Model
+class Tugas extends Model
 {
-    //
+    protected $table = "tugas";
 }

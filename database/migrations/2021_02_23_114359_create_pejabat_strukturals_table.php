@@ -15,12 +15,11 @@ class CreatePejabatStrukturalsTable extends Migration
     {
         Schema::create('pejabat_strukturals', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('description');
-            $table->string('name');
-            $table->string('jabatan');
-            $table->string('fraksi');
-
+            $table->longText('title');
+            $table->longText('description');
+            $table->longText('name');
+            $table->longText('jabatan');
+            $table->longText('fraksi');
             $table->timestamps();
         });
     }
