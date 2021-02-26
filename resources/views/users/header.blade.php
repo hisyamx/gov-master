@@ -55,9 +55,9 @@
                                 Profil <span class="fa fa-angle-down"></span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item {{ request()->is('tentang') ? 'active' : ''}}" href="/tentangdprd">Tentang</a>
-                                <a class="dropdown-item {{ request()->is('visimisi') ? 'active' : ''}}" href="/visimisi">Visi dan Misi</a>
-                                <a class="dropdown-item {{ request()->is('tugasfungsi') ? 'active' : ''}}" href="/tugasfungsi">Tugas dan Fungsi</a>
+                                <a class="dropdown-item {{ request()->is('tentang') ? 'active' : ''}}" href="/profil/tentangdprd">Tentang</a>
+                                <a class="dropdown-item {{ request()->is('visimisi') ? 'active' : ''}}" href="/profil/visimisi">Visi dan Misi</a>
+                                <a class="dropdown-item {{ request()->is('tugasfungsi') ? 'active' : ''}}" href="/profil/tugasfungsi">Tugas dan Fungsi</a>
                                 <a class="dropdown-item {{ request()->is('strukturorganisasi') ? 'active' : ''}}" href="/profil/strukturorganisasi">Struktur Organinasi</a>
                                 <a class="dropdown-item {{ request()->is('pejabatstruktural') ? 'active' : ''}}" href="/profil/pejabatstruktural">Profil Pejabat Struktural</a>
                             </div>

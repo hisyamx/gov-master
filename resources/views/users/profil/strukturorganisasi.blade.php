@@ -1,5 +1,5 @@
 @extends('users.master')
-@section('title', 'Pejabat Struktural - DPRD')
+@section('title', 'Struktur Organisasi - DPRD')
 
 @section('content')
 
@@ -8,22 +8,26 @@
     <div class="text11 py-lg-5 py-md-4">
         <div class="w3l-error-grid py-3 text-center mb-4">
             <div class="center-align">
-                <h2>Pejabat Struktural DPRD</h2>
-                <p>Pejabat Struktural DPRD Provinsi Kalimantan.</p>
+                <h2>Struktur Organisasi DPRD</h2>
+                <p>Struktur Organisasi DPRD Provinsi Kalimantan.</p>
             </div>
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="text11-content">
-                        <h4 class="mt-sm-3">Pejabat Struktural</h4>
-                        <p class="mt-4 mb-3">Description.</p>
+                        <h4 class="mt-sm-3">Struktur Organisasi.</h4>
+                        @foreach ($strukturorganisasi as $args)
+                        <p class="mt-4 mb-3">{{ $args->description }}.</p>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<!-- //single post -->
+
 <!-- Header -->
 <!-- Page content -->
 <div class="w3l-homeblock2 py-5">
@@ -34,7 +38,7 @@
                     <div class="card">
                         <!-- Card header -->
                         <div class="card-header border-0">
-                            <h3 class="py-2">Pejabat Struktural</h3>
+                            <h3 class="py-2">Struktur Organisasi</h3>
                         </div>
                         <!-- Light table -->
                         <div class="table-responsive">
@@ -46,7 +50,7 @@
                                         <th scope="col" class="sort" data-sort="status">Status</th>
                                     </tr>
                                 </thead>
-                                @foreach ($pejabatstruktural as $args)
+                                @foreach ($strukturorganisasi as $args)
                                 <tbody class="list">
                                     <tr>
                                         <th scope="row">

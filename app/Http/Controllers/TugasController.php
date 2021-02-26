@@ -8,10 +8,6 @@ use Illuminate\Http\Request;
 class TugasController extends Controller
 {
 
-    public function tugas()
-    {
-        return view('users.profil.tugas');
-    }
     public function __construct()
     {
         $this->middleware('auth');

@@ -11,10 +11,7 @@ class PejabatstrukturalController extends Controller
     {
         $this->middleware('auth');
     }
-    public function pejabatstruktural()
-    {
-        return view('users.profil.pejabatstruktural');
-    }
+
     public function showKelolaPejabat()
     {
         $pejabatstruktural = PejabatStruktural::orderBy('title')->paginate(20);

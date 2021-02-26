@@ -14,7 +14,6 @@
         <!-- Header -->
         <!-- Page content -->
         <div class="container py-lg-5 py-md-4">
-
             <div class="container-fluid mt--6">
                 <div class="row">
                     <div class="col">

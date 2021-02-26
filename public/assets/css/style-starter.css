@@ -9938,7 +9938,7 @@ input:checked + .mode-container i.gg-moon {
 
 .w3l-header .navbar-nav .nav-link {
   background: none;
-  text-transform: capitalize;
+  text-transform: none;
   font-size: 17px;
   font-weight: 500;
   display: block;
@@ -9966,7 +9966,7 @@ input:checked + .mode-container i.gg-moon {
 
 .w3l-header .dropdown-item {
   background: transparent;
-  text-transform: capitalize;
+  text-transform: none;
   font-size: 18px;
   font-weight: 500;
   display: block;
@@ -11286,13 +11286,13 @@ button.owl-next {
       display: inline-block;
       font-size: 16px;
       line-height: 25px;
-      text-transform: capitalize;
+      text-transform: none;
       font-weight: normal;
       letter-spacing: .5px;
     }
 
     .text-11 .text11-content a.category {
-      text-transform: uppercase;
+      text-transform: none;
       font-size: 16px;
       letter-spacing: 1px;
       color: #999;
@@ -11386,7 +11386,7 @@ button.owl-next {
       border-radius: 0;
       margin-top: 20px;
       display: inline-block;
-      text-transform: capitalize;
+      text-transform: none;
     }
 
     .text-11 a.read:hover {
@@ -12261,7 +12261,7 @@ ul.blog-cat li a span.fa {
   margin-bottom: 20px;
   color: var(--heading-color);
   font-weight: 600;
-  text-transform: capitalize; }
+  text-transform: none; }
 
 .w3l-error-grid .form-control {
   width: 100%;

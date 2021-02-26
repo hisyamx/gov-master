@@ -1,21 +1,22 @@
 <?php
 
 use Illuminate\Auth\Events\Logout;
-use Illuminate\Support\Facades\Route;;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthController;
 
 Auth::routes();
-
 Route::get('register', 'Auth\AuthController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\AuthController@storeUser');
 
 Route::get('login', 'Auth\AuthController@showLoginForm')->name('login');
 Route::post('login', 'Auth\AuthController@authenticate');
 Route::get('logout', 'Auth\AuthController@logout')->name('logout');
+// Show Welcome
+Route::get('admin', 'AdminController@index')->name('dashboard.index');
 
 /// Admin Route
 Route::group(['middleware' => 'auth'], function () {
-    // Show Welcome
-    Route::get('admin', 'AdminController@index')->name('dashboard.index');
     // Beranda
     // Show Kelola Banner
     Route::get('admin/kelola-banner', 'BerandaController@kelolaBanner')->name('banner.index');
@@ -232,15 +233,16 @@ Route::group(['middleware' => 'auth'], function () {
 //     Route::get('kelola-artikel', 'AuthorController@showKelolaArtikel');
 // });
 
+
 ///User Route
 Route::get('/', 'MainController@beranda');
 Route::get('/beranda', 'MainController@beranda');
 //profil
-Route::get('/tentangdprd', 'TentangController@tentangdprd');
-Route::get('/visimisi', 'VisimisiController@visimisi');
-Route::get('/tugasfungsi', 'TugasfungsiController@tugasfungsi');
-Route::get('/profil/strukturorganisasi', 'StrukturorganisasiController@struktur');
-Route::get('/profil/pejabatstruktural', 'PejabatstrukturalController@pejabat');
+Route::get('/profil/tentangdprd', 'ProfilController@tentangdprd');
+Route::get('/profil/visimisi', 'ProfilController@visimisi');
+Route::get('/profil/tugasfungsi', 'ProfilController@tugas');
+Route::get('/profil/strukturorganisasi', 'ProfilController@struktur');
+Route::get('/profil/pejabatstruktural', 'ProfilController@pejabatstruktural');
 //agenda
 Route::get('/agenda', 'AgendaController@agenda');
 Route::get('/agenda/dprd', 'AgendaController@agendadprd');

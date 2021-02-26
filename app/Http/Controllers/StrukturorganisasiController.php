@@ -13,11 +13,6 @@ class StrukturorganisasiController extends Controller
         $this->middleware('auth');
     }
 
-    public function struktur()
-    {
-        return view('users.profil.strukturorg');
-    }
-
     // strukturorganisasi
     public function showKelolaStruktur()
     {

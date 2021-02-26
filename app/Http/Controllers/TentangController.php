@@ -8,12 +8,6 @@ use Illuminate\Support\Facades\Storage;
 
 class TentangController extends Controller
 {
-
-    public function tentangdprd()
-    {
-        return view('users.profil.tentang');
-    }
-
     public function __construct()
     {
         $this->middleware('auth');

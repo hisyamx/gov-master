@@ -8,11 +8,6 @@ use Illuminate\Http\Request;
 class VisimisiController extends Controller
 {
 
-    public function visimisi()
-    {
-        return view('users.profil.visimisi');
-    }
-
     public function __construct()
     {
         $this->middleware('auth');
