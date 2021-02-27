@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{asset('assets') }}/plugins/bootstrap-social/bootstrap-social.css">
     <link rel="stylesheet" href="{{asset('assets') }}/plugins/flag-icon-css/css/flag-icon.min.css">
     <!-- Custom style CSS -->
-    <link rel='shortcut icon' type='image/x-icon' href="{{asset('assets') }}/images/favicon.ico">
+    <link rel='shortcut icon' type='image/x-icon' href="{{asset('assets') }}/images/logo.svg">
     <!-- icons css -->
     <link rel="stylesheet" href="{{asset('assets') }}/plugins/ionicons/css/ionicons.min.css">
     <!-- Font css -->
@@ -21,8 +21,9 @@
     <!-- Data Tables css -->
     <link rel="stylesheet" href="{{asset('assets')}}/plugins/datatables/DataTables/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="{{asset('assets')}}/plugins/datatables/datatables.min.css">
-    <!-- izitoast css -->
-    <link rel="{{asset('assets')}}/plugins/izitoast/css/iziToast.min.css"></link>
+    {{-- CKeditor --}}
+    <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
+
 </head>
 
 <body>
@@ -33,19 +34,30 @@
             <nav class="navbar navbar-expand-lg main-navbar">
                 @include('admin/layouts/header')
             </nav>
-            <div class="main-sidebar sidebar-style-2">
+            <div class="main-sidebar sidebar-style-1">
                 <aside id="sidebar-wrapper">
                     @include('admin/layouts/sidebar')
                 </aside>
             </div>
             <!-- Main Content -->
             @yield('content')
-            <footer class="main-footer">
-                @include('admin/layouts/footer')
-            </footer>
         </div>
+        <footer class="main-footer">
+            @include('admin/layouts/footer')
+        </footer>
     </div>
-    
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+    </script>
     <!-- General JS Scripts -->
     <script src="{{asset('assets')}}/js/app.min.js"></script>
     <!-- JS Libraie assets -->
@@ -57,6 +69,10 @@
     <script src="{{asset('assets')}}/js/page/index.js"></script>
     <!-- Template JS File -->
     <script src="{{asset('assets')}}/js/scripts.js"></script>
+    <!-- JS Libraies -->
+    <script src="{{asset('assets')}}/bundles/dropzonejs/min/dropzone.min.js"></script>
+    <!-- Page Specific JS File -->
+    <script src="{{asset('assets')}}/js/page/multiple-upload.js"></script>
     <!-- Data Table js -->
     <!-- <script src="{{asset('assets')}}/plugins/datatables/DataTables/js/dataTables.bootstrap4.min.js"></script> -->
     <script src="{{asset('assets')}}/plugins/datatables/datatables.min.js"></script>

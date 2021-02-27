@@ -15,4 +15,5 @@ class AdminController extends Controller
         // $division = Division::orderBy('name')->paginate(10);
         return view("admin.layouts.home");
     }
+
 }

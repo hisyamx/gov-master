@@ -18,7 +18,7 @@ class InformasiController extends Controller
     {
         return view('users.informasi.pengumuman');
     }
-    public function kunjungan()
+    public function formulirkunjungan()
     {
         return view('users.informasi.kunjungan');
     }

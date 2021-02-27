@@ -9,19 +9,25 @@
         <div class="w3l-error-grid py-3 text-center mb-4">
             <div class="center-align">
                 <h2>Tentang DPRD</h2>
-                <p>Tentang DPRD Provinsi Kalimantan.</p>
+                @foreach ($tentang as $args)
+                <p>{{ $args->title }}.</p>
+                @endforeach
             </div>
         </div>
         <!-- /main-slider -->
         <div class="image mb-sm-5 mb-4">
-            <img src="assets/images/blogsingle.jpg" alt="" class="img-fluid radius-image-full">
+            @foreach ($tentang as $args)
+            <img src="{{asset('storage/cover_images/'.$args->cover_image)}}" alt="" class="img-fluid radius-image-full">
+            @endforeach
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="text11-content">
-                        <h4 class="mb-md-4 mb-3">Sub Title</h4>
-                        <p class="mb-4">Description</p>
+                        @foreach ($tentang as $args)
+                        <h4 class="mb-md-4 mb-3">{{ $args->title }}</h4>
+                        <p class="mb-4">{{ $args->description }}</p>
+                        @endforeach
                     </div>
                 </div>
             </div>

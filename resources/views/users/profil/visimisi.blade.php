@@ -9,7 +9,9 @@
         <div class="w3l-error-grid py-3 text-center mb-4">
             <div class="center-align">
                 <h2>Visi dan Misi DPRD</h2>
-                <p>Visi dan Misi DPRD Provinsi Kalimantan.</p>
+                @foreach($visimisi as $args)
+                <p>{{ $args->title }}.</p>
+                @endforeach
             </div>
         </div>
         <div class="container">
@@ -17,7 +19,9 @@
                 <div class="col-lg-12">
                     <div class="text11-content">
                         <h4 class="mt-sm-3">Visi.</h4>
-                        <p class="mt-4 mb-3">Description.</p>
+                        @foreach($visimisi as $args)
+                        <p class="mt-4 mb-3">{{ $args->descriptionvisi }}.</p>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -27,12 +31,13 @@
                 <div class="col-lg-12 mt-4">
                     <div class="text11-content">
                         <h4 class="mt-sm-3">Misi.</h4>
-                        <p class="mt-4 mb-3">Description.</p>
+                        @foreach($visimisi as $args)
+                        <p class="mt-4 mb-3">{{ $args->descriptionmisi }}.</p>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </section>
 <!-- //single post -->

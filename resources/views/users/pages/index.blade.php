@@ -147,7 +147,7 @@
                 <div class="col-lg-12">
                     <div class="row">
                         {{-- section berita --}}
-                        <div class="col-lg-4 col-md-6 mt-4 mb-4 item">
+                        <div class="col-lg-4 col-md-6 mt-4 mb-2 item">
                             <div class="card">
                                 <div class="card-header p-0 position-relative">
                                     <a href="blog-single.html">
@@ -181,6 +181,11 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <!-- block -->
+            <div class="left-right">
+                <h3 class="section-title-left mb-0"></h3>
+                <a href="/fraksi" class="more btn btn-small mt-2 mb-0">View more</a>
             </div>
         </div>
     </div>

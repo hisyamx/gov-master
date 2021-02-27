@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Fraksi;
 
-class FraksiController extends Controller
-{
+class FraksiController extends Controller{
+
     /**
      * Display a listing of the resource.
      *
@@ -28,7 +28,7 @@ class FraksiController extends Controller
                         ->addIndexColumn()
                         ->make(true);
         }
-        return datatables()->of(Fraksi::query())->toJson();
+        return response()->json($data);
         return view('admin.fraksi.fraksi');
     }
 
@@ -75,7 +75,6 @@ class FraksiController extends Controller
     {
         $where = array('id' => $id);
         $post  = Fraksi::where($where)->first();
-     
         return response()->json($post);
     }
 
@@ -100,7 +99,6 @@ class FraksiController extends Controller
     public function destroy($id)
     {
         $post = Fraksi::where('id',$id)->delete();
-     
         return response()->json($post);
     }
 }
