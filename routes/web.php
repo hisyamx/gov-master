@@ -6,8 +6,10 @@ Auth::routes();
 
 /// Admin Route
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
+    Route::get('/', 'HomeController@index');
+    Route::get('/home', 'HomeController@index');
     // Show Welcome
-    Route::get('admin', 'AdminController@index')->name('dashboard.index');
+    Route::get('/admin', 'AdminController@index')->name('dashboard.index');
     Route::get('admin/kelola-banner', 'AdminController@kelolaBeranda');
     Route::get('admin/kelola-logo', 'AdminController@kelolaLogo');
     // Show Kelola beranda
@@ -26,6 +28,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('admin/hapus-profil/{id}', 'ProfilController@delete');
     Route::get('admin/draft-profil', 'ProfilController@showDraft');
     // Show Kelola agenda
+    Route::resource('/agenda', 'AgendaController@agenda');
+    Route::resource('/agendasekre', 'AgendaController@agendasekre');
     Route::get('admin/kelola-agenda', 'AgendaController@showKelola');
     Route::get('admin/terbit-agenda/{id}', 'AgendaController@terbit');
     Route::get('admin/tunda-agenda/{id}', 'AgendaController@tunda');
@@ -50,6 +54,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('admin/hapus-akd/{id}', 'AkdController@delete');
     Route::get('admin/draft-akd', 'AkdController@showDraft');
     // Show Kelola fraksi
+    Route::resource('/fraksi', 'FraksiController')->except(['show', 'update']);
     Route::get('admin/kelola-fraksi', 'FraksiController@showKelola');
     Route::get('admin/edit-fraksi/{id}', 'FraksiController@showEdit');
     Route::post('admin/edit-fraksi/{id}', 'FraksiController@edit');

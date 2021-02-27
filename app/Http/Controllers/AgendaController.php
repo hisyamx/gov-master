@@ -14,4 +14,12 @@ class AgendaController extends Controller
     {
         return view('users.agenda.agendasekre');
     }
+    public function agenda(){
+        return view('admin.agenda.agendadprd');
+    }
+    public function agendasekre(){
+        return view('admin.agenda.agendasekre');
+    }
+
+
 }

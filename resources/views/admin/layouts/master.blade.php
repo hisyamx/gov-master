@@ -21,6 +21,8 @@
     <!-- Data Tables css -->
     <link rel="stylesheet" href="{{asset('assets')}}/plugins/datatables/DataTables/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="{{asset('assets')}}/plugins/datatables/datatables.min.css">
+    <!-- izitoast css -->
+    <link rel="{{asset('assets')}}/plugins/izitoast/css/iziToast.min.css"></link>
 </head>
 
 <body>
@@ -43,6 +45,7 @@
             </footer>
         </div>
     </div>
+    
     <!-- General JS Scripts -->
     <script src="{{asset('assets')}}/js/app.min.js"></script>
     <!-- JS Libraie assets -->
@@ -55,8 +58,20 @@
     <!-- Template JS File -->
     <script src="{{asset('assets')}}/js/scripts.js"></script>
     <!-- Data Table js -->
-    <script src="{{asset('assets')}}/plugins/datatables/DataTables/js/dataTables.bootstrap4.min.js"></script>
+    <!-- <script src="{{asset('assets')}}/plugins/datatables/DataTables/js/dataTables.bootstrap4.min.js"></script> -->
     <script src="{{asset('assets')}}/plugins/datatables/datatables.min.js"></script>
-</body>
+    <script src="{{asset('assets')}}/plugins/datatables/export-tables/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" language="javascript"
+        src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 
+    <!-- chart js -->
+    <script src="{{asset('assets')}}/plugins/chartjs/chart.min.js"></script>
+    <script src="{{asset('assets')}}/plugins/echart/echarts.js"></script>
+
+    <!-- izitoast js -->
+    <script src="{{asset('assets')}}/plugins/izitoast/js/iziToast.min.js"></script>
+</body>
+<script>
+    @yield('script')
+</script>
 </html>
