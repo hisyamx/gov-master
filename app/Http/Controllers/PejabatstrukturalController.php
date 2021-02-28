@@ -12,7 +12,7 @@ class PejabatstrukturalController extends Controller
         $this->middleware('auth');
     }
 
-    public function showKelolaPejabat()
+    public function showKelola()
     {
         $pejabatstruktural = PejabatStruktural::orderBy('title')->paginate(20);
         return view("admin.profil.pejabatstruktural",['pejabatstruktural' => $pejabatstruktural]);
@@ -20,13 +20,13 @@ class PejabatstrukturalController extends Controller
 
 
     // Pejabatstruktural
-    public function showEditPejabat($id)
+    public function showEdit($id)
     {
         $pejabatstruktural = PejabatStruktural::findOrFail($id);
         return view("admin.profil.editpejabatstruktural",['pejabatstruktural' => $pejabatstruktural]);
     }
 
-    public function storePejabat(Request $request)
+    public function store(Request $request)
     {
         $this->validate($request, [
             'title' => 'required',
@@ -42,14 +42,14 @@ class PejabatstrukturalController extends Controller
         return redirect("/admin/kelola-pejabatstruktural")->with('success',"profil Created Successfully");
     }
 
-    public function destroyPejabat($id)
+    public function destroy($id)
     {
         $pejabatstruktural = PejabatStruktural::findOrFail($id);
         $pejabatstruktural->delete();
         return redirect("/admin/kelola-pejabatstruktural")->with("success","pejabatstruktural Deleted Successfully");
     }
 
-    public function editPejabat(Request $request,$id)
+    public function edit(Request $request,$id)
     {
         $this->validate($request, [
             'title' => 'required',

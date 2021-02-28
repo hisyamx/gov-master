@@ -14,19 +14,19 @@ class StrukturorganisasiController extends Controller
     }
 
     // strukturorganisasi
-    public function showKelolaStruktur()
+    public function showKelola()
     {
         $strukturorganisasi = StrukturOrganisasi::orderBy('title')->paginate(20);
         return view("admin.profil.strukturorganisasi",['strukturorganisasi' => $strukturorganisasi]);
     }
 
-    public function showEditStruktur($id)
+    public function showEdit($id)
     {
         $strukturorganisasi = StrukturOrganisasi::findOrFail($id);
         return view("admin.profil.editstrukturorganisasi",['strukturorganisasi' => $strukturorganisasi]);
     }
 
-    public function storeStruktur(Request $request)
+    public function store(Request $request)
     {
         $this->validate($request, [
             'title' => 'required',
@@ -42,14 +42,14 @@ class StrukturorganisasiController extends Controller
         return redirect("/admin/kelola-strukturorganisasi")->with('success',"Struktur Organisasi Created Successfully");
     }
 
-    public function destroyStruktur($id)
+    public function destroy($id)
     {
         $strukturorganisasi = StrukturOrganisasi::findOrFail($id);
         $strukturorganisasi->delete();
         return redirect("/admin/kelola-strukturorganisasi")->with("success","Struktur Organisasi Deleted Successfully");
     }
 
-    public function editStruktur(Request $request,$id)
+    public function edit(Request $request,$id)
     {
         $this->validate($request, [
             'title' => 'required',

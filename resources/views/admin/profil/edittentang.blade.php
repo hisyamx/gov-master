@@ -12,12 +12,11 @@
         </div>
         <div class="section-body">
             <div class="container-fluid">
-                @include('admin.layouts.message')
                 <div class="row">
                     <div class="col-12 grid-margin">
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('tentang.edit') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('tentang.edit',$tentang->id) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
@@ -30,7 +29,7 @@
                                             <input type="file" class="form-control" id="customFile" name="cover_image">
                                             <label for="customFile"></label>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group col-md-12">
                                             <label for="description">Description</label>
                                             <textarea required class="form-control editormce" name="description" id="description" rows="3"
                                                 resize="none" placeholder="{{ $tentang->description }}"></textarea>

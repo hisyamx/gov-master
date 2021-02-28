@@ -52,7 +52,7 @@
                             <tr>
                                 <th>Title</th>
                                 <th>Description</th>
-                                <th>Action</th>
+                                <th width="15%">Action</th>
                             </tr>
                             <?php $i = 1; ?>
                             @foreach($strukturorganisasi AS $args)
@@ -60,7 +60,7 @@
                                 <td>{{$args->title}}</td>
                                 <td>{{$args->description}}</td>
                                 <td>
-                                    <div class="media-cta-square">
+                                    <div class="btn-group">
                                         <a href="{{route('strukturorganisasi.show',$args->id)}}" class="btn btn-info">Edit</a>
                                         <form action="{{ route('strukturorganisasi.delete',$args->id) }}" method="POST">
                                             @csrf

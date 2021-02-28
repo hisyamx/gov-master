@@ -53,7 +53,7 @@
                             <tr>
                                 <th>Title</th>
                                 <th>Description</th>
-                                <th>Action</th>
+                                <th width="15%">Action</th>
                             </tr>
                             <?php $i = 1; ?>
                             @foreach($pejabatstruktural AS $args)
@@ -61,7 +61,7 @@
                                 <td>{{$args->title}}</td>
                                 <td>{{$args->description}}</td>
                                 <td>
-                                    <div class="media-cta-square">
+                                    <div class="btn-group">
                                         <a href="{{route('pejabatstruktural.show',$args->id)}}" class="btn btn-info">Edit</a>
                                         <form action="{{ route('pejabatstruktural.delete',$args->id) }}" method="POST">
                                             @csrf

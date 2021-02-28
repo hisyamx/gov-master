@@ -12,19 +12,19 @@ class TugasController extends Controller
     {
         $this->middleware('auth');
     }
-    public function showKelolaTugas()
+    public function showKelola()
     {
         $tugas = Tugas::orderBy('title')->paginate(20);
         return view("admin.profil.tugasfungsi",['tugas' => $tugas]);
     }
     // tugas
-    public function showEditTugas($id)
+    public function showEdit($id)
     {
         $tugas = Tugas::findOrFail($id);
         return view("admin.profil.edittugasfungsi",['tugas' => $tugas]);
     }
 
-    public function storeTugas(Request $request)
+    public function store(Request $request)
     {
         $this->validate($request, [
             'title' => 'required',
@@ -40,14 +40,14 @@ class TugasController extends Controller
         return redirect("/admin/kelola-tugasfungsidprd")->with('success',"Tugas  Created Successfully");
     }
 
-    public function destroyTugas($id)
+    public function destroy($id)
     {
         $tugas = Tugas::findOrFail($id);
         $tugas->delete();
         return redirect("/admin/kelola-tugasfungsidprd")->with("success","Tugas  Deleted Successfully");
     }
 
-    public function editTugas(Request $request,$id)
+    public function edit(Request $request,$id)
     {
         $this->validate($request, [
             'title' => 'required',

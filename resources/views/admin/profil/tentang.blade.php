@@ -76,15 +76,12 @@
                                 <td>{{$args->description}}</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="{{route('tentang.show',$args->id)}}"
-                                            class="btn btn-success btn-sm" target="_blank"><i class="fa fa-eye"></i></a>
-
+                                        <a href="{{route('tentang.show',$args->id)}}" class="btn btn-info">Edit</a>
                                         <form action="{{ route('tentang.delete',$args->id) }}" method="POST">
                                             @csrf
                                             @method("DELETE")
-                                            <button class="btn btn-danger" class="fas fa-trash-alt" type="submit">Delete</button>
+                                            <button class="btn btn-danger" type="submit">Delete</button>
                                         </form>
-
                                     </div>
                                 </td>
                             </tr>
