@@ -21,8 +21,8 @@
     <!-- Data Tables css -->
     <link rel="stylesheet" href="{{asset('assets')}}/plugins/datatables/DataTables/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="{{asset('assets')}}/plugins/datatables/datatables.min.css">
-    {{-- CKeditor --}}
-    <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
+    {{-- Tiny MCE editor --}}
+    <script src="https://cdn.tiny.cloud/1/gz7dxy3cdxgn8mmaiqvzfc946r68pwukt3nce3dwdnfvoavk/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 
 <body>
@@ -74,6 +74,60 @@
     <!-- Data Table js -->
     <script src="{{asset('assets')}}/plugins/datatables/DataTables/js/dataTables.bootstrap4.min.js"></script>
     <script src="{{asset('assets')}}/plugins/datatables/datatables.min.js"></script>
+    <script>
+        $(".datepicker").datepicker({
+            inline: true,
+            changeYear: true,
+            changeMonth: true,
+            dateFormat: "yy-mm-dd"
+        });
+
+        $(".tanggal").datepicker({
+            inline: true,
+            changeYear: true,
+            changeMonth: true,
+            dateFormat: "dd-mm-yy"
+        });
+
+    </script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: '.editormce'
+        });
+
+    </script>
+    <script>
+        // TINYMCE
+        tinymce.init({
+            selector: '.konten',
+            height: 300,
+            content_css: '{{ asset("public/template/assets/vendor/bootstrap/css/bootstrap.min.css") }}',
+            content_css_cors: true,
+            content_style: 'div { margin: 10px; border: 5px solid red; padding: 10px; }',
+            plugins: 'print preview paste searchreplace autolink directionality visualblocks visualchars code fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount imagetools colorpicker textpattern code preview help',
+            toolbar: 'formatselect | fontsizeselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | image | table | hr media removeformat code preview',
+            visual_table_class: 'tiny-table',
+            fontsize_formats: "8px 10px 12px 14px 18px 24px 36px"
+        });
+        // Simpple
+        tinymce.init({
+            selector: '.simple',
+            menubar: false,
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount image media'
+            ],
+            toolbar: 'undo redo | formatselect | media | image | ' +
+                'bold italic backcolor | alignleft aligncenter ' +
+                'alignright alignjustify | bullist numlist outdent indent | ' +
+                'removeformat | help',
+            content_css: '{{ asset("public/template/assets/vendor/bootstrap/css/bootstrap.min.css") }}',
+            content_css_cors: true
+        });
+
+    </script>
+
 </body>
 
 </html>

@@ -32,7 +32,7 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="description">Description</label>
-                                            <textarea required class="form-control" name="description" id="description"
+                                            <textarea required class="form-control editormce" name="description" id="description"
                                                 rows="5" placeholder="Deskripsi"
                                                 value="{{ old('description') }}"></textarea>
                                         </div>
@@ -58,7 +58,7 @@
                                 <th>Title</th>
                                 <th>File</th>
                                 <th>Description</th>
-                                <th>Action</th>
+                                <th width="15%">Action</th>
                             </tr>
                             <?php $i = 1; ?>
                             @foreach($tentang AS $args)
@@ -75,13 +75,16 @@
                                 </td>
                                 <td>{{$args->description}}</td>
                                 <td>
-                                    <div class="media-cta-square">
-                                        <a href="{{route('tentang.show',$args->id)}}" class="btn btn-info">Edit</a>
+                                    <div class="btn-group">
+                                        <a href="{{route('tentang.show',$args->id)}}"
+                                            class="btn btn-success btn-sm" target="_blank"><i class="fa fa-eye"></i></a>
+
                                         <form action="{{ route('tentang.delete',$args->id) }}" method="POST">
                                             @csrf
                                             @method("DELETE")
-                                            <button class="btn btn-danger" type="submit">Delete</button>
+                                            <button class="btn btn-danger" class="fas fa-trash-alt" type="submit">Delete</button>
                                         </form>
+
                                     </div>
                                 </td>
                             </tr>

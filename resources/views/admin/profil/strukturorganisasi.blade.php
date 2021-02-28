@@ -27,7 +27,7 @@
                                         </div>
                                         <div class="form-group col-lg-12">
                                             <label for="description">Description</label>
-                                            <textarea required class="form-control" name="description" id="description"
+                                            <textarea required class="form-control editormce" name="description" id="description"
                                                 rows="3" resize="none" placeholder="Deskripsi"
                                                 value="{{ old('description') }}"></textarea>
                                         </div>

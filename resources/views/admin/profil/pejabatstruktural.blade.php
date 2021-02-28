@@ -22,13 +22,13 @@
                                     <h6>Banner 1</h6>
                                     <div class="form-row">
                                         <div class="form-group col-lg-12">
-                                            <label for="title">Nama</label>
+                                            <label for="title">Title</label>
                                             <input required type="text" class="form-control" id="title" name="title"
                                                 value="{{ old('title') }}">
                                         </div>
                                         <div class="form-group col-lg-12">
                                             <label for="description">Description</label>
-                                            <textarea required class="form-control" name="description" id="description"
+                                            <textarea required class="form-control editormce" name="description" id="description"
                                                 rows="3" resize="none" placeholder="Deskripsi"
                                                 value="{{ old('description') }}"></textarea>
                                         </div>

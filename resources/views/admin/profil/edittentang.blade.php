@@ -32,7 +32,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="description">Description</label>
-                                            <textarea required class="form-control" name="description" id="description" rows="3"
+                                            <textarea required class="form-control editormce" name="description" id="description" rows="3"
                                                 resize="none" placeholder="{{ $tentang->description }}"></textarea>
                                         </div>
                                     </div> <br>
