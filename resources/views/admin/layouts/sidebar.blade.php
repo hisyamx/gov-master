@@ -89,4 +89,5 @@
     <li class="dropdown">
         <a class="nav-link {{ request()->is('kontak') ? 'active' : ''}}" href="/admin/kelola-kontak"><i class="fas fa-envelope"></i><span>Kontak</span></a>
     </li>
+
 </ul>

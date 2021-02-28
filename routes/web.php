@@ -16,6 +16,66 @@ Route::get('logout', 'Auth\AuthController@logout')->name('logout');
 Route::get('admin', 'AdminController@index')->name('dashboard.index');
 
 /// Admin Route
+// <<<<<<< HEAD
+// Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
+//     Route::get('/', 'HomeController@index');
+//     Route::get('/home', 'HomeController@index');
+//     // Show Welcome
+//     Route::get('/admin', 'AdminController@index')->name('dashboard.index');
+//     Route::get('admin/kelola-banner', 'AdminController@kelolaBeranda');
+//     Route::get('admin/kelola-logo', 'AdminController@kelolaLogo');
+//     // Show Kelola beranda
+//     Route::get('admin/edit-banner', 'AdminController@showEditBanner');
+//     Route::post('admin/edit-banner', 'AdminController@editBanner');
+//     Route::get('admin/edit-logo', 'AdminController@showEditBanner');
+//     Route::post('admin/edit-logo', 'AdminController@editBanner');
+//     Route::get('admin/hapus-banner', 'AdminController@deleteBanner');
+//     Route::get('admin/hapus-logo', 'AdminController@deleteLogo');
+//     // Show Kelola profil
+//     Route::get('admin/kelola-profil', 'ProfilController@showKelola');
+//     Route::get('admin/terbit-profil/{id}', 'ProfilController@terbit');
+//     Route::get('admin/tunda-profil/{id}', 'ProfilController@tunda');
+//     Route::get('admin/edit-profil/{id}', 'ProfilController@showEdit');
+//     Route::post('admin/edit-profil/{id}', 'ProfilController@edit');
+//     Route::get('admin/hapus-profil/{id}', 'ProfilController@delete');
+//     Route::get('admin/draft-profil', 'ProfilController@showDraft');
+//     // Show Kelola agenda
+//     Route::resource('/agenda', 'AgendaController@agenda');
+//     Route::resource('/agendasekre', 'AgendaController@agendasekre');
+//     Route::get('admin/kelola-agenda', 'AgendaController@showKelola');
+//     Route::get('admin/terbit-agenda/{id}', 'AgendaController@terbit');
+//     Route::get('admin/tunda-agenda/{id}', 'AgendaController@tunda');
+//     Route::get('admin/edit-agenda/{id}', 'AgendaController@showEdit');
+//     Route::post('admin/edit-agenda/{id}', 'AgendaController@edit');
+//     Route::get('admin/hapus-agenda/{id}', 'AgendaController@delete');
+//     Route::get('admin/draft-agenda', 'AgendaController@showDraft');
+//     // Show Kelola berita
+//     Route::get('admin/kelola-berita', 'BeritaController@showKelola');
+//     Route::get('admin/terbit-berita/{id}', 'BeritaController@terbit');
+//     Route::get('admin/tunda-berita/{id}', 'BeritaController@tunda');
+//     Route::get('admin/edit-berita/{id}', 'BeritaController@showEdit');
+//     Route::post('admin/edit-berita/{id}', 'BeritaController@edit');
+//     Route::get('admin/hapus-berita/{id}', 'BeritaController@delete');
+//     Route::get('admin/draft-berita', 'BeritaController@showDraft');
+//     // Show Kelola akd
+//     Route::get('admin/kelola-akd', 'AkdController@showKelola');
+//     Route::get('admin/terbit-akd/{id}', 'AkdController@terbit');
+//     Route::get('admin/tunda-akd/{id}', 'AkdController@tunda');
+//     Route::get('admin/edit-akd/{id}', 'AkdController@showEdit');
+//     Route::post('admin/edit-akd/{id}', 'AkdController@edit');
+//     Route::get('admin/hapus-akd/{id}', 'AkdController@delete');
+//     Route::get('admin/draft-akd', 'AkdController@showDraft');
+//     // Show Kelola fraksi
+//     Route::resource('/fraksi', 'FraksiController')->except(['show', 'update']);
+//     Route::get('admin/kelola-fraksi', 'FraksiController@showKelola');
+//     Route::get('admin/edit-fraksi/{id}', 'FraksiController@showEdit');
+//     Route::post('admin/edit-fraksi/{id}', 'FraksiController@edit');
+//     Route::get('admin/hapus-fraksi/{id}', 'FraksiController@delete');
+//     Route::get('admin/kelola-angota', 'FraksiController@showKelolaAnggota');
+//     Route::get('admin/edit-angota/{id}', 'FraksiController@showEditAnggota');
+//     Route::post('admin/edit-angota/{id}', 'FraksiController@editAnggota');
+//     Route::get('admin/hapus-angota/{id}', 'FraksiController@deleteAnggota');
+// =======
 Route::group(['middleware' => 'auth'], function () {
     // Beranda
     // Show Kelola Banner
@@ -155,6 +215,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('admin/edit-anggota/{id}', 'FraksiController@showEditAnggota')->name('anggota.show');
     Route::post('admin/edit-anggota/{id}', 'FraksiController@editAnggota')->name('anggota.edit');
     Route::delete('admin/hapus-angota/{id}', 'FraksiController@destroyAnggota')->name('anggota.delete');
+
     // Show Kelola informasi
     Route::get('admin/kelola-transparansianggaran', 'InformasiController@showKelolaInformasi')->name('anggaran.index');
     Route::get('admin/kelola-transparansikinerja', 'InformasiController@showKelolaInformasi')->name('kinerja.index');

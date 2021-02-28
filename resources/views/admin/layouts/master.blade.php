@@ -45,6 +45,7 @@
             @include('admin/layouts/footer')
         </footer>
     </div>
+
     <script>
         ClassicEditor
             .create(document.querySelector('#editor'))
@@ -72,7 +73,7 @@
     <!-- Page Specific JS File -->
     <script src="{{asset('assets')}}/js/page/multiple-upload.js"></script>
     <!-- Data Table js -->
-    <script src="{{asset('assets')}}/plugins/datatables/DataTables/js/dataTables.bootstrap4.min.js"></script>
+    <!-- <script src="{{asset('assets')}}/plugins/datatables/DataTables/js/dataTables.bootstrap4.min.js"></script> -->
     <script src="{{asset('assets')}}/plugins/datatables/datatables.min.js"></script>
     <script>
         $(".datepicker").datepicker({
@@ -130,4 +131,14 @@
 
 </body>
 
+    <!-- chart js -->
+    <script src="{{asset('assets')}}/plugins/chartjs/chart.min.js"></script>
+    <script src="{{asset('assets')}}/plugins/echart/echarts.js"></script>
+
+    <!-- izitoast js -->
+    <script src="{{asset('assets')}}/plugins/izitoast/js/iziToast.min.js"></script>
+</body>
+<script>
+    @yield('script')
+</script>
 </html>
