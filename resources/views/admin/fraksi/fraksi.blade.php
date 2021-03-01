@@ -14,11 +14,11 @@
                         <div class="card-header">
                             <h4>Table Fraksi</h4>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body card-body-table">
                             <div class="table-responsive">
-                                <button type="button" id="btnFraksi" class="btn btn-outline-primary">Add Fraksi
+                                <button type="button" id="btnFraksi" class="float-right ml-4 btn btn-outline-primary">Add Fraksi
                                 </button>
-                                <table class="table table-striped table-hover" id="table-fraksi">
+                                <table class="table table-custom table-striped w-100 table-hover" id="table-fraksi">
                                     <thead>
                                         <tr>
                                             <th>Name</th>
@@ -112,4 +112,8 @@
         </div>
     </div>
 </div>
+
+@endsection
+@section('script')
+    @include('admin.fraksi.script')
 @endsection

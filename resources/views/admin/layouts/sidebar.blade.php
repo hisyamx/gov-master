@@ -11,7 +11,6 @@
     </li>
     <li class="menu-header">Pages</li>
     <li class="dropdown">
-<<<<<<< HEAD
         <a href="{{ url('/fraksi') }}" class="nav-link {{ (request()->is('fraksi*'))?'active':'' }}" class="nav-link">
             <i class="fab fa-gg"></i>
             <span>Fraksi</span>
@@ -22,29 +21,6 @@
         <ul class="dropdown-menu">
             <li><a href="{{ url('/agenda') }}"  class="nav-link {{ (request()->is('agenda*'))?'active':'' }} ">Agenda DPRD</a></li>
             <li><a href="{{ url('/agendasekre') }}" class="nav-link {{ (request()->is('agendasekre*'))?'active':'' }} ">Agenda Sekretariat</a></li>
-=======
-        <a href="#" class="nav-link has-dropdown"><i class="fab fa-gg"></i><span>Beranda</span></a>
-        <ul class="dropdown-menu">
-            <li><a class="nav-link {{ request()->is('kelolabanner') ? 'active' : ''}}" href="/admin/kelola-banner">Kelola Banner</a></li>
-            <li><a class="nav-link {{ request()->is('kelolallogo') ? 'active' : ''}}" href="/admin/kelola-logo">Kelola Logo</a></li>
-        </ul>
-    </li>
-    <li class="dropdown">
-        <a href="#" class="nav-link has-dropdown"><i class="fas fa-anchor"></i><span>Profil</span></a>
-        <ul class="dropdown-menu">
-            <li><a class="nav-link {{ request()->is('tentang') ? 'active' : ''}}" href="/admin/kelola-tentangdprd">Tentang</a></li>
-            <li><a class="nav-link {{ request()->is('visimisi') ? 'active' : ''}}" href="/admin/kelola-visimisi">Visi dan Misi</a></li>
-            <li><a class="nav-link {{ request()->is('tugasfungsi') ? 'active' : ''}}" href="/admin/kelola-tugasfungsidprd">Tugas dan Fungsi</a></li>
-            <li><a class="nav-link {{ request()->is('strukturorganisasi') ? 'active' : ''}}" href="admin/kelola-strukturorganisasi">Struktur Organisasi</a></li>
-            <li><a class="nav-link {{ request()->is('pejabatstruktural') ? 'active' : ''}}" href="/admin/kelola-pejabatstruktural">Pejabat Struktural</a></li>
->>>>>>> 7391ac843a547ca3df2fccaf43d9d2564c1f4db4
-        </ul>
-    </li>
-    <li class="dropdown">
-        <a href="#" class="nav-link has-dropdown"><i class="far fa-list-alt"></i><span>Agenda</span></a>
-        <ul class="dropdown-menu">
-            <li><a class="nav-link {{ request()->is('agendadprd') ? 'active' : ''}}" href="/admin/kelola-agendadprd">Agenda DPRD</a></li>
-            <li><a class="nav-link {{ request()->is('agendasekretariat') ? 'active' : ''}}" href="/admin/kelola-agendasekretariat">Agenda Sekretariat</a></li>
         </ul>
     </li>
     <li class="dropdown">
@@ -52,13 +28,6 @@
         <ul class="dropdown-menu">
             <li><a class="nav-link {{ request()->is('beritautama') ? 'active' : ''}}" href="/admin/kelola-beritautama">Berita Utama</a></li>
             <li><a class="nav-link {{ request()->is('pressrelease') ? 'active' : ''}}" href="/admin/kelola-pressrelease">Press Release</a></li>
-        </ul>
-    </li>
-    <li class="dropdown">
-        <a href="#" class="nav-link has-dropdown"><i class="fab fa-buromobelexperte"></i><span>Fraksi</span></a>
-        <ul class="dropdown-menu">
-            <li><a class="nav-link  {{ request()->is('fraksi') ? 'active' : ''}}" href="/admin/kelola-fraksi">Fraksi</a></li>
-            <li><a class="nav-link {{ request()->is('anggotafraksi') ? 'active' : ''}}" href="/admin/kelola-anggota">Anggota Fraksi</a></li>
         </ul>
     </li>
     <li class="dropdown">
@@ -102,8 +71,4 @@
     <li class="dropdown">
         <a class="nav-link {{ request()->is('kontak') ? 'active' : ''}}" href="/admin/kelola-kontak"><i class="fas fa-envelope"></i><span>Kontak</span></a>
     </li>
-<<<<<<< HEAD
-
-=======
->>>>>>> 7391ac843a547ca3df2fccaf43d9d2564c1f4db4
 </ul>
