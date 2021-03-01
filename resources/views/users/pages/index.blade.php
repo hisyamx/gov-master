@@ -10,34 +10,15 @@
                 <div class="owl-testimonial owl-carousel owl-theme mb-md-0 mb-sm-5 mb-4">
                     <div class="item">
                         <div class="rowslider slider-info">
+                            @foreach ($beranda as $args)
                             <div class="col-lg-8 message-info align-self">
-                                <h3 class="title-big mb-4">Selamat Datang di website DPRD Provinsi Kalimantan.
-                                </h3>
-                                <p class="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea
-                                    sit id accusantium officia quod quasi necessitatibus perspiciatis Harum error
-                                    provident quibusdam tenetur. Ut fermentum leo quis sapienet faucibus, at
-                                    scelerisque sem feugiat. Nulla in eros purus.</p>
+                                <h3 class="title-big mb-4">{{ $args->name }}.</h3>
+                                <p class="message">{{ $args->description }}.</p>
                             </div>
                             <div class="col-lg-4 col-md-8 img-circle mt-lg-0 mt-4">
-                                <img src="assets/images/beauty.jpg" class="img-fluid radius-image-full"
-                                    alt="client image">
+                                <img src="{{asset('storage/cover_images/'.$args->cover_image)}}" alt="client image" class="img-fluid radius-image-full">
                             </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="rowslider slider-info">
-                            <div class="col-lg-8 message-info align-self">
-                                <h3 class="title-big mb-4">Selamat Datang di website DPRD Provinsi Kalimantan.
-                                </h3>
-                                <p class="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea
-                                    sit id accusantium officia quod quasi necessitatibus perspiciatis Harum error
-                                    provident quibusdam tenetur. Ut fermentum leo quis sapienet faucibus, at
-                                    scelerisque sem feugiat. Nulla in eros purus.</p>
-                            </div>
-                            <div class="col-lg-4 col-md-8 img-circle mt-lg-0 mt-4">
-                                <img src="assets/images/fashion.jpg" class="img-fluid radius-image-full"
-                                    alt="client image">
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

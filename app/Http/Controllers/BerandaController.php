@@ -40,7 +40,7 @@ class BerandaController extends Controller
     public function storeBanner(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:50',
+            'name' => 'required|nullable',
             'cover_image' => 'image|nullable|max:1999'
             ]);
 
@@ -91,7 +91,7 @@ class BerandaController extends Controller
     public function update_recordBanner(Request $request,$id)
     {
         $this->validate($request, [
-            'name' => 'required|max:50',
+            'name' => 'required|nullable',
             'cover_image' => 'image|nullable|max:1999'
         ]);
 
@@ -123,7 +123,7 @@ class BerandaController extends Controller
     public function storeLogo(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:50',
+            'name' => 'required|nullable',
             'cover_image' => 'image|nullable|max:1999'
             ]);
 
@@ -174,7 +174,7 @@ class BerandaController extends Controller
     public function update_recordLogo(Request $request,$id)
     {
         $this->validate($request, [
-            'name' => 'required|max:50',
+            'name' => 'required|nullable',
             'cover_image' => 'image|nullable|max:1999'
         ]);
 

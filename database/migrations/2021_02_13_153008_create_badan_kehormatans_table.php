@@ -15,11 +15,13 @@ class CreateBadanKehormatansTable extends Migration
     {
         Schema::create('badan_kehormatans', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('fraksi');
-            $table->string('jabatan');
-            $table->string('komisi');
-            $table->string('tingkat');
+            $table->longText('title');
+            $table->longText('description');
+            $table->longText('nama');
+            $table->longText('fraksi');
+            $table->longText('jabatan');
+            $table->longText('komisi');
+            $table->longText('tingkat');
             $table->timestamps();
         });
     }

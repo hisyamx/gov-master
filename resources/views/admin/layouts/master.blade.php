@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="{{asset('assets')}}/plugins/datatables/datatables.min.css">
     {{-- Tiny MCE editor --}}
     <script src="https://cdn.tiny.cloud/1/gz7dxy3cdxgn8mmaiqvzfc946r68pwukt3nce3dwdnfvoavk/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    {{-- editable table --}}
+    <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 </head>
 
 <body>

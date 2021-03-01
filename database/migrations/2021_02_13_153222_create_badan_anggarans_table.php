@@ -15,6 +15,13 @@ class CreateBadanAnggaransTable extends Migration
     {
         Schema::create('badan_anggarans', function (Blueprint $table) {
             $table->id();
+            $table->longText('title');
+            $table->longText('description');
+            $table->longText('nama');
+            $table->longText('fraksi');
+            $table->longText('jabatan');
+            $table->longText('komisi');
+            $table->longText('tingkat');
             $table->timestamps();
         });
     }

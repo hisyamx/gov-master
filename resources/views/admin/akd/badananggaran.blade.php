@@ -26,11 +26,6 @@
                                                 value="{{ old('title') }}">
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label>Banner</label>
-                                            <input type="file" class="form-control" id="customFile" name="cover_image">
-                                            <label for="customFile"></label>
-                                        </div>
-                                        <div class="form-group col-md-12">
                                             <label for="description">Description</label>
                                             <textarea required class="form-control editormce" name="description" id="description"
                                                 rows="5" placeholder="Deskripsi"
@@ -87,10 +82,49 @@
                             </tr>
                             @endforeach
                         </table>
+                        <table class="table table-bordered table-striped table-condensed">
+                            <tr>
+                                <td>NAME</td>
+                                <td>PHONE</td>
+                            </tr>
+
+                            @foreach($strukturorganisasi as $row)
+                            <tr>
+                                <td>
+                                    <a href="#" class="xedit" data-pk="{{$row->id}}" data-name="name">
+                                        {{$row->name}}</a>
+                                </td>
+
+                                <td>
+                                    <a href="#" class="xedit" data-pk="{{$row->id}}" data-name="phone">
+                                        {{$row->phone}}</a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function () {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': '{{csrf_token()}}'
+                    }
+                });
 
+                $('.xedit').editable({
+                    url: '{{url("contacts/update")}}',
+                    title: 'Update',
+                    success: function (response, newValue) {
+                        console.log('Updated', response)
+                    }
+                });
+
+            })
+
+        </script>
     </section>
-    @endsection
+
+@endsection

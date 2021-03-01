@@ -51,30 +51,31 @@
                             <div class="map-content-5">
                                 <section class="tab-content">
                                     <div class="contact-type">
+                                        @foreach ($kontak as $args)
                                         <div class="address-grid mb-4">
                                             <h6>Alamat</h6>
-                                            <p>Kawasan Kantor Pusat Pemerintahan Provinsi Kalimantan, Kota Kalimantan,
-                                                Kalimantan.</p>
+                                            <p>{{ $args->alamat }}.</p>
                                         </div>
                                         <div class="address-grid mb-4">
                                             <h6>Email DPRD</h6>
-                                            <a href="mailto:mail@example.com"
-                                                class="link1">dprd@kalimantanprov.go.id</a>
+                                            <a href="mailto:{{ $args->emailsatu }}"
+                                                class="link1">{{ $args->emailsatu }}</a>
                                         </div>
                                         <div class="address-grid mb-4">
                                             <h6>Email Sekwan</h6>
-                                            <a href="mailto:mail@example.com"
-                                                class="link1">setdprd@kalimantanprov.go.id</a>
+                                            <a href="mailto:{{ $args->emaildua }}"
+                                                class="link1">{{ $args->emaildua }}</a>
                                         </div>
                                         <div class="address-grid mb-4">
                                             <h6>Email Admin</h6>
-                                            <a href="mailto:mail@example.com"
-                                                class="link1">dprdkalimantanprov@gmail.com</a>
+                                            <a href="mailto:{{ $args->emailtiga }}"
+                                                class="link1">{{ $args->emailtiga }}</a>
                                         </div>
                                         <div class="address-grid">
                                             <h6>Nomor Telepon</h6>
-                                            <a href="tel:+6200000000" class="link1">+6200000000</a>
+                                            <a href="tel:{{ $args->telephone }}" class="link1">{{ $args->telephone }}</a>
                                         </div>
+                                        @endforeach
                                     </div>
                                 </section>
                             </div>

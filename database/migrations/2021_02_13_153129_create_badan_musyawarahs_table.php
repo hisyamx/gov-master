@@ -14,8 +14,13 @@ class CreateBadanMusyawarahsTable extends Migration
     public function up()
     {
         Schema::create('badan_musyawarahs', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->longText('title');
+            $table->longText('description');
+            $table->longText('nama');
+            $table->longText('fraksi');
+            $table->longText('jabatan');
+            $table->longText('komisi');
+            $table->longText('tingkat');
         });
     }
 

@@ -189,7 +189,7 @@ Route::group(['middleware' => 'auth'], function () {
     // Show Kelola Badan Pembentukan Perda
     Route::get('admin/kelola-badanperda', 'BadanPerdaController@showKelola')->name('badanperda.index');
     Route::get('admin/edit-badanperda/{id}', 'BadanPerdaController@showEditBadanPerda')->name('badanperda.show');
-    Route::post('admin/kelola-badanperda', 'BadanPerdanController@store');
+    Route::post('admin/kelola-badanperda', 'BadanPerdaController@store');
     Route::post('admin/edit-badanperda/{id}', 'BadanPerdaController@edit')->name('badanperda.edit');
     Route::delete('admin/hapus-badanperda/{id}', 'BadanPerdaController@destroy')->name('badanperda.delete');
     // Fraksi
@@ -256,6 +256,7 @@ Route::group(['middleware' => 'auth'], function () {
     // Show Kelola kontak
     Route::get('admin/kelola-kontak', 'KontakController@showKelola')->name('kontak.index');
     Route::get('admin/edit-kontak/{id}', 'KontakController@showEdit')->name('kontak.show');
+    Route::post('admin/kelola-kontak', 'KontakController@store');
     Route::post('admin/edit-kontak/{id}', 'KontakController@edit')->name('kontak.edit');
     Route::delete('admin/hapus-kontak/{id}', 'KontakController@destroy')->name('kontak.delete');
     // Show Kelola User
