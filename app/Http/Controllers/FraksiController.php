@@ -13,7 +13,7 @@ class FraksiController extends Controller{
      *
      * @return \Illuminate\Http\Response
      */
-    public function fraksi(Request $request)
+    public function showKelola(Request $request)
     {
         if($request->ajax()){
             $data = Fraksi::get();
@@ -23,7 +23,7 @@ class FraksiController extends Controller{
                         ->addColumn('action', function($row){
                             $button = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-info btn-sm edit-post"><i class="far fa-edit"></i> Edit</a>';
                             $button .= '&nbsp;&nbsp;';
-                            $button .= '<button type="button" name="delete" id="'.$row->id.'" class="delete btn btn-danger btn-sm"><i class="far fa-trash-alt"></i> Delete</button>';     
+                            $button .= '<button type="button" name="delete" id="'.$row->id.'" class="delete btn btn-danger btn-sm"><i class="far fa-trash-alt"></i> Delete</button>';
                             return $button;
                         })
                         ->addColumn('fraksi_foto', function($row){
@@ -55,12 +55,12 @@ class FraksiController extends Controller{
         $model->fraksi_foto = $filename;
         $model->save();
         // $id = $request->id;
-        
+
         // $post   =   Fraksi::updateOrCreate(['id' => $id],
         //             [
         //                 'fraksi_name' => $request->fraksi_name,
         //                 'fraksi_foto' => $filename,
-        //             ]); 
+        //             ]);
 
         return response()->json('Berhasil Disimpan');
     }

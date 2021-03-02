@@ -68,16 +68,6 @@ Route::post('admin/tambah-fraksi', 'FraksiController@store');
 //     Route::post('admin/edit-akd/{id}', 'AkdController@edit');
 //     Route::get('admin/hapus-akd/{id}', 'AkdController@delete');
 //     Route::get('admin/draft-akd', 'AkdController@showDraft');
-//     // Show Kelola fraksi
-//     Route::resource('/fraksi', 'FraksiController')->except(['show', 'update']);
-//     Route::get('admin/kelola-fraksi', 'FraksiController@showKelola');
-//     Route::get('admin/edit-fraksi/{id}', 'FraksiController@showEdit');
-//     Route::post('admin/edit-fraksi/{id}', 'FraksiController@edit');
-//     Route::get('admin/hapus-fraksi/{id}', 'FraksiController@delete');
-//     Route::get('admin/kelola-angota', 'FraksiController@showKelolaAnggota');
-//     Route::get('admin/edit-angota/{id}', 'FraksiController@showEditAnggota');
-//     Route::post('admin/edit-angota/{id}', 'FraksiController@editAnggota');
-//     Route::get('admin/hapus-angota/{id}', 'FraksiController@deleteAnggota');
 
 Route::group(['middleware' => 'auth'], function () {
     // Beranda
@@ -197,17 +187,28 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('admin/hapus-badanperda/{id}', 'BadanPerdaController@destroy')->name('badanperda.delete');
     // Fraksi
     // Show Kelola fraksi
-    // Route::get('admin/kelola-fraksi', 'FraksiController@showKelola')->name('fraksi.index');
-    // Route::get('admin/edit-fraksi/{id}', 'FraksiController@showEdit')->name('fraksi.show');
-    // Route::post('admin/kelola-fraksi', 'BadanPerdanController@store');
-    // Route::post('admin/edit-fraksi/{id}', 'FraksiController@edit')->name('fraksi.edit');
-    // Route::delete('admin/hapus-fraksi/{id}', 'FraksiController@destroy')->name('fraksi.delete');
+    // Route::resource('/fraksi', 'FraksiController')->except(['show', 'update']);
+    // Route::get('admin/kelola-fraksi', 'FraksiController@showKelola');
+    // Route::get('admin/edit-fraksi/{id}', 'FraksiController@showEdit');
+    // Route::post('admin/edit-fraksi/{id}', 'FraksiController@edit');
+    // Route::get('admin/hapus-fraksi/{id}', 'FraksiController@delete');
+    // Route::get('admin/kelola-angota', 'FraksiController@showKelolaAnggota');
+    // Route::get('admin/edit-angota/{id}', 'FraksiController@showEditAnggota');
+    // Route::post('admin/edit-angota/{id}', 'FraksiController@editAnggota');
+    // Route::get('admin/hapus-angota/{id}', 'FraksiController@deleteAnggota');
+
+    // Show Kelola fraksi
+    Route::get('admin/kelola-fraksi', 'FraksiController@showKelola')->name('fraksi.index');
+    Route::get('admin/edit-fraksi/{id}', 'FraksiController@showEdit')->name('fraksi.show');
+    Route::post('admin/kelola-fraksi', 'BadanPerdanController@store');
+    Route::post('admin/edit-fraksi/{id}', 'FraksiController@edit')->name('fraksi.edit');
+    Route::delete('admin/hapus-fraksi/{id}', 'FraksiController@destroy')->name('fraksi.delete');
     // Show Kelola Anggota fraksi
-    // Route::get('admin/kelola-angota', 'FraksiController@showKelolaAnggota')->name('anggota.index');
-    // Route::get('admin/edit-anggota/{id}', 'FraksiController@showEditAnggota')->name('anggota.show');
-    // Route::post('admin/kelola-anggota', 'FraksiPerdanController@store');
-    // Route::post('admin/edit-anggota/{id}', 'FraksiController@editAnggota')->name('anggota.edit');
-    // Route::delete('admin/hapus-angota/{id}', 'FraksiController@destroyAnggota')->name('anggota.delete');
+    Route::get('admin/kelola-angota', 'FraksiController@showKelolaAnggota')->name('anggota.index');
+    Route::get('admin/edit-anggota/{id}', 'FraksiController@showEditAnggota')->name('anggota.show');
+    Route::post('admin/kelola-anggota', 'FraksiPerdanController@store');
+    Route::post('admin/edit-anggota/{id}', 'FraksiController@editAnggota')->name('anggota.edit');
+    Route::delete('admin/hapus-angota/{id}', 'FraksiController@destroyAnggota')->name('anggota.delete');
 
     // Show Kelola informasi
     Route::get('admin/kelola-transparansianggaran', 'InformasiController@showKelolaInformasi')->name('anggaran.index');

@@ -18,7 +18,7 @@
             $('#tambah').val("create-post"); //valuenya menjadi create-post
             $('#fraksi_id').val(''); //valuenya menjadi kosong
             $('#form-fraksi').trigger("reset"); //mereset semua input dll didalamnya
-            $('#modal-judul').html("Tambah Pegawai Baru"); //valuenya tambah pegawai baru
+            $('#modal-judul').html("Tambah Fraksi Baru"); //valuenya tambah baru
             $('#modalInputFraksi').modal('show'); //modal tampil
         });
         //MULAI DATATABLE
@@ -36,9 +36,9 @@
         $(document).ready(function () {
             var table = $('#table-fraksi').DataTable({
                 processing: true,
-                serverSide: true, //aktifkan server-side 
+                serverSide: true, //aktifkan server-side
                 ajax: {
-                    url: "{{ url('/fraksi') }}",
+                    url: "{{ url('/admin/kelola-fraksi') }}",
                     type: 'GET',
                     dataType:"json",
                     data: function (d) {
@@ -59,7 +59,7 @@
                     },
                     {
                         data: 'fraksi_foto',
-                        name: 'fraksi_foto', 
+                        name: 'fraksi_foto',
                         render : function (data, type, full, meta){
                             return "<img src="+data+" class='thumbnail'/>";
                         }
@@ -92,12 +92,12 @@
                     });
                 $.ajax({
                     data : formdata,
-                    url : "{{ url('admin/tambah-fraksi') }}",
+                    url : "{{ url('admin/kelola-fraksi') }}",
                     type : "POST",
                     dataType : 'json',
                     processData: false,
                     contentType: false,
-                    success: function (data) { //jika berhasil 
+                    success: function (data) { //jika berhasil
                             $('#form-fraksi').trigger("reset"); //form reset
                             $('#modalInputFraksi').modal('hide'); //modal hide
                             $('#tambah').html('Simpan'); //tombol simpan
@@ -114,7 +114,7 @@
                             console.log('Error:', data);
                             $('#tambah').html('Simpan');
                         }
-                })  
+                })
             }
         });
         // if ($("#form-fraksi").length > 0) {
@@ -128,7 +128,7 @@
         //                 url: "{{ url('/fraksi') }}", //url simpan data
         //                 type: "POST", //karena simpan kita pakai method POST
         //                 dataType: 'json', //data tipe kita kirim berupa JSON
-        //                 success: function (data) { //jika berhasil 
+        //                 success: function (data) { //jika berhasil
         //                     $('#form-fraksi').trigger("reset"); //form reset
         //                     $('#modalInputFraksi').modal('hide'); //modal hide
         //                     $('#tambah').html('Simpan'); //tombol simpan
@@ -153,11 +153,11 @@
         //ketika class edit-post yang ada pada tag body di klik maka
         $('body').on('click', '.edit-post', function () {
             var data_id = $(this).data('id');
-            $.get('admin/fraksi/' + data_id + '/edit', function (data) {
+            $.get('admin/edit-fraksi/' + data_id , function (data) {
                 $('#modal-judul').html("Edit Post");
                 $('#tambah').val("edit-post");
                 $('#modalInputFraksi').modal('show');
-                //set value masing-masing id berdasarkan data yg diperoleh dari ajax get request diatas               
+                //set value masing-masing id berdasarkan data yg diperoleh dari ajax get request diatas
                 $('#fraksi_id').val(data.result['fraksi_id']);
                 $('#fraksi_name').val(data.result['fraksi_name']);
                 $('#fraksi_foto').val(data.result['fraksi_foto']);
@@ -171,7 +171,7 @@
         //jika tombol hapus pada modal konfirmasi di klik maka
         $('#tombol-hapus').click(function () {
             $.ajax({
-                url: "/fraksi/" + dataId, //eksekusi ajax ke url ini
+                url: "/admin/hapus-fraksi/" + dataId, //eksekusi ajax ke url ini
                 type: 'delete',
                 beforeSend: function () {
                     $('#tombol-hapus').text('Hapus Data'); //set text untuk tombol hapus

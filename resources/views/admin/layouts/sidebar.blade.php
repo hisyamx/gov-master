@@ -7,7 +7,7 @@
 <ul class="sidebar-menu">
     <li class="menu-header">Main</li>
     <li class="Dropdown">
-        <a class="nav-link {{ request()->is('dashboard') ? 'active' : ''}}" href="/admin/kelola-banner"><i class="fas fa-home"></i><span>Dashboard</span></a>
+        <a class="nav-link {{ request()->is('dashboard') ? 'active' : ''}}" href="/admin"><i class="fas fa-home"></i><span>Dashboard</span></a>
     </li>
     <li class="menu-header">Pages</li>
     <li class="dropdown">
@@ -35,10 +35,28 @@
         </ul>
     </li>
     <li class="dropdown">
+        <a href="#" class="nav-link has-dropdown"><i class="fab fa-gg"></i><span>Fraksi</span></a>
+        <ul class="dropdown-menu">
+            <li><a class="nav-link {{ request()->is('fraksi') ? 'active' : ''}}" href="/admin/kelola-fraksi">Fraksi</a></li>
+            <li><a class="nav-link {{ request()->is('anggotafraki') ? 'active' : ''}}" href="/admin/kelola-anggota">Anggota Fraksi</a></li>
+        </ul>
+    </li>
+    <li class="dropdown">
         <a href="#" class="nav-link has-dropdown"><i class="far fa-list-alt"></i><span>Berita</span></a>
         <ul class="dropdown-menu">
             <li><a class="nav-link {{ request()->is('beritautama') ? 'active' : ''}}" href="/admin/kelola-beritautama">Berita Utama</a></li>
             <li><a class="nav-link {{ request()->is('pressrelease') ? 'active' : ''}}" href="/admin/kelola-pressrelease">Press Release</a></li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a href="#" class="nav-link has-dropdown"><i class="fas fa-anchor"></i><span>Akd</span></a>
+        <ul class="dropdown-menu">
+            <li><a class="nav-link {{ request()->is('komisi') ? 'active' : ''}}" href="/admin/kelola-komisi">Komisi</a></li>
+            <li><a class="nav-link {{ request()->is('pimpinan') ? 'active' : ''}}" href="/admin/kelola-pimpinandprd">Pimpinan DPRD</a></li>
+            <li><a class="nav-link {{ request()->is('badankehormatan') ? 'active' : ''}}" href="/admin/kelola-badankehormatan">Badan Kehormatan</a></li>
+            <li><a class="nav-link {{ request()->is('badanmusyawarah') ? 'active' : ''}}" href="admin/kelola-badanmusyawarah">Badan Musyawarah</a></li>
+            <li><a class="nav-link {{ request()->is('badananggaran') ? 'active' : ''}}" href="/admin/kelola-badananggaran">Badan Anggaran</a></li>
+            <li><a class="nav-link {{ request()->is('badanperda') ? 'active' : ''}}" href="/admin/kelola-badanperda">Badan Perda</a></li>
         </ul>
     </li>
     <li class="dropdown">
