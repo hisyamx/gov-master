@@ -42,13 +42,6 @@
         </ul>
     </li>
     <li class="dropdown">
-        <a href="#" class="nav-link has-dropdown"><i class="fab fa-buromobelexperte"></i><span>Fraksi</span></a>
-        <ul class="dropdown-menu">
-            <li><a class="nav-link  {{ request()->is('fraksi') ? 'active' : ''}}" href="/admin/kelola-fraksi">Fraksi</a></li>
-            <li><a class="nav-link {{ request()->is('anggotafraksi') ? 'active' : ''}}" href="/admin/kelola-anggota">Anggota Fraksi</a></li>
-        </ul>
-    </li>
-    <li class="dropdown">
         <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-down"></i><span>Sekretariat</span></a>
         <ul class="dropdown-menu">
             <li><a class="nav-link {{ request()->is('rencanalaporan') ? 'active' : ''}}" href="/admin/kelola-rencanalaporan">Rencana dan Laporan</a></li>

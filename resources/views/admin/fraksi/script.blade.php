@@ -23,14 +23,24 @@
         });
         //MULAI DATATABLE
         //script untuk memanggil data json dari server dan menampilkannya berupa datatable
+        $('#fraksi_foto').change(function(e) {
+            // console.log('sasa', e);
+            var fileName = e.target.files[0].name;
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#preview').attr('src', e.target.result);
+                $('#file_upload').val(fileName);
+            };
+            reader.readAsDataURL(this.files[0]);
+        });
         $(document).ready(function () {
             var table = $('#table-fraksi').DataTable({
                 processing: true,
                 serverSide: true, //aktifkan server-side 
                 ajax: {
-                    url: "{{ route('/fraksi.fraksi') }}",
-                    type: 'POST',
-                    dataType:"json"
+                    url: "{{ url('/fraksi') }}",
+                    type: 'GET',
+                    dataType:"json",
                     data: function (d) {
                         d.action = 'load';
                     },
@@ -49,7 +59,10 @@
                     },
                     {
                         data: 'fraksi_foto',
-                        name: 'fraksi_foto'
+                        name: 'fraksi_foto', 
+                        render : function (data, type, full, meta){
+                            return "<img src="+data+" class='thumbnail'/>";
+                        }
                     },
                     {
                         data: 'action',
@@ -64,18 +77,27 @@
         //SIMPAN & UPDATE DATA DAN VALIDASI (SISI CLIENT)
         //jika id = form-tambah-edit panjangnya lebih dari 0 atau bisa dibilang terdapat data dalam form tersebut maka
         //jalankan jquery validator terhadap setiap inputan dll dan eksekusi script ajax untuk simpan data
-        if ($("#form-fraksi").length > 0) {
-            $("#form-fraksi").validate({
-                submitHandler: function (form) {
-                    var actionType = $('#tambah').val();
-                    $('#tambah').html('Sending..');
-                    $.ajax({
-                        data: $('#form-fraksi')
-                            .serialize(), //function yang dipakai agar value pada form-control seperti input, textarea, select dll dapat digunakan pada URL query string ketika melakukan ajax request
-                        url: "{{ route('/fraksi.store') }}", //url simpan data
-                        type: "POST", //karena simpan kita pakai method POST
-                        dataType: 'json', //data tipe kita kirim berupa JSON
-                        success: function (data) { //jika berhasil 
+        $('#tambah').click(function(){
+            var id = $('#fraksi_id').val();
+            if(id == ''){
+                var formdata = new FormData();
+                    var nama = $('#fraksi_name').val();
+                    var gambar = $('#fraksi_foto')[0].files[0];
+                    formdata.append('fraksi_name', nama);
+                    formdata.append('foto', gambar);
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                $.ajax({
+                    data : formdata,
+                    url : "{{ url('admin/tambah-fraksi') }}",
+                    type : "POST",
+                    dataType : 'json',
+                    processData: false,
+                    contentType: false,
+                    success: function (data) { //jika berhasil 
                             $('#form-fraksi').trigger("reset"); //form reset
                             $('#modalInputFraksi').modal('hide'); //modal hide
                             $('#tambah').html('Simpan'); //tombol simpan
@@ -92,10 +114,41 @@
                             console.log('Error:', data);
                             $('#tambah').html('Simpan');
                         }
-                    });
-                }
-            })
-        }
+                })  
+            }
+        });
+        // if ($("#form-fraksi").length > 0) {
+        //     $("#form-fraksi").validate({
+        //         submitHandler: function (form) {
+        //             var actionType = $('#tambah').val();
+        //             $('#tambah').html('Sending..');
+        //             $.ajax({
+        //                 data: $('#form-fraksi')
+        //                     .serialize(), //function yang dipakai agar value pada form-control seperti input, textarea, select dll dapat digunakan pada URL query string ketika melakukan ajax request
+        //                 url: "{{ url('/fraksi') }}", //url simpan data
+        //                 type: "POST", //karena simpan kita pakai method POST
+        //                 dataType: 'json', //data tipe kita kirim berupa JSON
+        //                 success: function (data) { //jika berhasil 
+        //                     $('#form-fraksi').trigger("reset"); //form reset
+        //                     $('#modalInputFraksi').modal('hide'); //modal hide
+        //                     $('#tambah').html('Simpan'); //tombol simpan
+        //                     var oTable = $('#table-fraksi').dataTable(); //inialisasi datatable
+        //                     oTable.fnDraw(false); //reset datatable
+        //                     iziToast.success({ //tampilkan iziToast dengan notif data berhasil disimpan pada posisi kanan bawah
+        //                         title: 'Data Berhasil Disimpan',
+        //                         message: '{{ Session('
+        //                         success ')}}',
+        //                         position: 'bottomRight'
+        //                     });
+        //                 },
+        //                 error: function (data) { //jika error tampilkan error pada console
+        //                     console.log('Error:', data);
+        //                     $('#tambah').html('Simpan');
+        //                 }
+        //             });
+        //         }
+        //     })
+        // }
         //TOMBOL EDIT DATA PER FRAKSI DAN TAMPILKAN DATA BERDASARKAN ID FRAKSI KE MODAL
         //ketika class edit-post yang ada pada tag body di klik maka
         $('body').on('click', '.edit-post', function () {
@@ -105,9 +158,9 @@
                 $('#tambah').val("edit-post");
                 $('#modalInputFraksi').modal('show');
                 //set value masing-masing id berdasarkan data yg diperoleh dari ajax get request diatas               
-                $('#fraksi_id').val(data.fraksi_id);
-                $('#fraksi_name').val(data.fraksi_name);
-                $('#fraksi_foto').val(data.fraksi_foto);
+                $('#fraksi_id').val(data.result['fraksi_id']);
+                $('#fraksi_name').val(data.result['fraksi_name']);
+                $('#fraksi_foto').val(data.result['fraksi_foto']);
             })
         });
         //jika klik class delete (yang ada pada tombol delete) maka tampilkan modal konfirmasi hapus maka

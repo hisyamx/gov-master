@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Fraksi;
+use Yajra\DataTables\Facades\DataTables;
 
 class FraksiController extends Controller{
 
@@ -15,20 +16,24 @@ class FraksiController extends Controller{
     public function fraksi(Request $request)
     {
         if($request->ajax()){
-            $data = Fraksi::all()->get();
+            $data = Fraksi::get();
+            // dd($data);
             return datatables::of($data)
                         ->addIndexColumn()
                         ->addColumn('action', function($row){
-                            $button = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$data->id.'" data-original-title="Edit" class="edit btn btn-info btn-sm edit-post"><i class="far fa-edit"></i> Edit</a>';
+                            $button = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-info btn-sm edit-post"><i class="far fa-edit"></i> Edit</a>';
                             $button .= '&nbsp;&nbsp;';
-                            $button .= '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm"><i class="far fa-trash-alt"></i> Delete</button>';     
+                            $button .= '<button type="button" name="delete" id="'.$row->id.'" class="delete btn btn-danger btn-sm"><i class="far fa-trash-alt"></i> Delete</button>';     
                             return $button;
+                        })
+                        ->addColumn('fraksi_foto', function($row){
+                            $image = url('public/storage/images/'.$row->fraksi_foto);
+                            return $image;
                         })
                         ->rawColumns(['action'])
                         ->addIndexColumn()
                         ->make(true);
         }
-        return response()->json($data);
         return view('admin.fraksi.fraksi');
     }
 
@@ -39,19 +44,25 @@ class FraksiController extends Controller{
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         if($request->hasFile('foto')){
             $filename = $request->foto->getClientOriginalName();
+            $filename = str_replace(' ','_',$filename);
             $request->foto->storeAs('images', $filename ,'public');
         }
-        $id = $request->id;
+        $model = new Fraksi();
+        $model->fraksi_name = $request->fraksi_name;
+        $model->fraksi_foto = $filename;
+        $model->save();
+        // $id = $request->id;
         
-        $post   =   Fraksi::updateOrCreate(['id' => $id],
-                    [
-                        'fraksi_name' => $request->fraksi_name,
-                        'fraksi_foto' => $filename,
-                    ]); 
+        // $post   =   Fraksi::updateOrCreate(['id' => $id],
+        //             [
+        //                 'fraksi_name' => $request->fraksi_name,
+        //                 'fraksi_foto' => $filename,
+        //             ]); 
 
-        return response()->json($post);
+        return response()->json('Berhasil Disimpan');
     }
 
     /**

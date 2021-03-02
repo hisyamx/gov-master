@@ -13,10 +13,13 @@ Route::get('login', 'Auth\AuthController@showLoginForm')->name('login');
 Route::post('login', 'Auth\AuthController@authenticate');
 Route::get('logout', 'Auth\AuthController@logout')->name('logout');
 // Show Welcome
+Route::get('/home', 'HomeController@index');
 Route::get('admin', 'AdminController@index')->name('dashboard.index');
 
-/// Admin Route
-// <<<<<<< HEAD
+Route::get('/fraksi', 'FraksiController@fraksi');
+Route::post('admin/tambah-fraksi', 'FraksiController@store');
+
+// // Admin Route
 // Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 //     Route::get('/', 'HomeController@index');
 //     Route::get('/home', 'HomeController@index');
@@ -66,16 +69,16 @@ Route::get('admin', 'AdminController@index')->name('dashboard.index');
 //     Route::get('admin/hapus-akd/{id}', 'AkdController@delete');
 //     Route::get('admin/draft-akd', 'AkdController@showDraft');
 //     // Show Kelola fraksi
-    Route::resource('/fraksi', 'FraksiController')->except(['show', 'update']);
-    Route::get('admin/kelola-fraksi', 'FraksiController@showKelola');
-    Route::get('admin/edit-fraksi/{id}', 'FraksiController@showEdit');
-    Route::post('admin/edit-fraksi/{id}', 'FraksiController@edit');
-    Route::get('admin/hapus-fraksi/{id}', 'FraksiController@delete');
-    Route::get('admin/kelola-angota', 'FraksiController@showKelolaAnggota');
-    Route::get('admin/edit-angota/{id}', 'FraksiController@showEditAnggota');
-    Route::post('admin/edit-angota/{id}', 'FraksiController@editAnggota');
-    Route::get('admin/hapus-angota/{id}', 'FraksiController@deleteAnggota');
-// =======
+//     Route::resource('/fraksi', 'FraksiController')->except(['show', 'update']);
+//     Route::get('admin/kelola-fraksi', 'FraksiController@showKelola');
+//     Route::get('admin/edit-fraksi/{id}', 'FraksiController@showEdit');
+//     Route::post('admin/edit-fraksi/{id}', 'FraksiController@edit');
+//     Route::get('admin/hapus-fraksi/{id}', 'FraksiController@delete');
+//     Route::get('admin/kelola-angota', 'FraksiController@showKelolaAnggota');
+//     Route::get('admin/edit-angota/{id}', 'FraksiController@showEditAnggota');
+//     Route::post('admin/edit-angota/{id}', 'FraksiController@editAnggota');
+//     Route::get('admin/hapus-angota/{id}', 'FraksiController@deleteAnggota');
+
 Route::group(['middleware' => 'auth'], function () {
     // Beranda
     // Show Kelola Banner
@@ -277,15 +280,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('admin/buat-author', 'AdminController@buatauthor')->name('author.create');
 });
 
-/// Author Route
-// Route::group(['prefix' => 'author', 'middleware' => 'author'], function () {
-//     //
-//     Route::get('', 'AuthorController@showWelcome');
-//     Route::get('welcome', 'AuthorController@showWelcome');
-//     Route::get('profil', 'AuthorController@showProfil');
-//     Route::get('buat-artikel', 'AuthorController@showBuatArtikel');
-//     Route::get('kelola-artikel', 'AuthorController@showKelolaArtikel');
-// });
+// Author Route
+Route::group(['prefix' => 'author', 'middleware' => 'author'], function () {
+    //
+    Route::get('', 'AuthorController@showWelcome');
+    Route::get('welcome', 'AuthorController@showWelcome');
+    Route::get('profil', 'AuthorController@showProfil');
+    Route::get('buat-artikel', 'AuthorController@showBuatArtikel');
+    Route::get('kelola-artikel', 'AuthorController@showKelolaArtikel');
+});
 
 
 ///User Route
