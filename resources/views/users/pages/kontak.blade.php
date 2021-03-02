@@ -10,8 +10,8 @@
                 <div class="w3l-error-grid py-3 text-center mb-4">
                     <div class="center-align">
                         <h2>Hubungi Kami</h2>
-                        <p>Jika Anda memiliki pertanyaan tentang layanan kami, silakan untuk
-                        menghubungi kami menggunakan formulir di bawah ini.</p>
+                        <p>Jika Anda memiliki pertanyaan tentang kami, silakan untuk
+                        menghubungi kami menggunakan formulir di bawah ini atau melalui Kontak yang tertera.</p>
                     </div>
                 </div>
                 <div class="row">
@@ -54,7 +54,7 @@
                                         @foreach ($kontak as $args)
                                         <div class="address-grid mb-4">
                                             <h6>Alamat</h6>
-                                            <p>{{ $args->alamat }}.</p>
+                                            <p>{{ $args->alamat }}</p>
                                         </div>
                                         <div class="address-grid mb-4">
                                             <h6>Email DPRD</h6>

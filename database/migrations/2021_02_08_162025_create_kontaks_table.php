@@ -15,10 +15,10 @@ class CreateKontaksTable extends Migration
     {
         Schema::create('kontaks', function (Blueprint $table) {
             $table->id();
-            $table->string('alamat', 200);
-            $table->string('emailsatu', 50);
-            $table->string('emaildua', 50);
-            $table->string('emailtiga', 50);
+            $table->string('alamat');
+            $table->string('emailsatu');
+            $table->string('emaildua');
+            $table->string('emailtiga');
             $table->string('telephone');
             $table->timestamps();
         });

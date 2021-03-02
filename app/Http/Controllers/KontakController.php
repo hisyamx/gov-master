@@ -15,7 +15,7 @@ class KontakController extends Controller
 
     public function showKelola()
     {
-        $kontak = Kontak::orderBy('title')->paginate(20);
+        $kontak = Kontak::orderBy('id')->paginate(20);
         return view("admin.pages.kontak",['kontak' => $kontak]);
     }
     // kontak

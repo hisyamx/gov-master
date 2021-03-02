@@ -21,19 +21,29 @@
                                     @csrf
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
-                                            <label for="title">Title</label>
-                                            <input required type="text" class="form-control" id="title" name="title"
-                                            value="{{ $kontak->title }}">
+                                            <label for="alamat">Alamat</label>
+                                            <input required type="text" class="form-control" id="alamat" name="alamat"
+                                            value="{{ $kontak->alamat }}">
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label>Banner</label>
-                                            <input type="file" class="form-control" id="customFile" name="cover_image">
-                                            <label for="customFile"></label>
+                                            <label for="emailsatu">Email DPRD</label>
+                                            <input required type="text" class="form-control" id="emailsatu" name="emailsatu"
+                                            value="{{ $kontak->emailsatu }}">
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label for="description">Description</label>
-                                            <textarea required class="form-control editormce" name="description" id="description" rows="3"
-                                                resize="none" placeholder="{{ $kontak->description }}"></textarea>
+                                            <label for="emaildua">Email Sekwan</label>
+                                            <input required type="text" class="form-control" id="emaildua" name="emaildua"
+                                            value="{{ $kontak->emaildua }}">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="emailtiga">Email Admin</label>
+                                            <input required type="text" class="form-control" id="emailtiga" name="emailtiga"
+                                            value="{{ $kontak->emailtiga }}">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="telephone">Telephone</label>
+                                            <input required type="text" class="form-control" id="telephone" name="telephone"
+                                            value="{{ $kontak->telephone }}">
                                         </div>
                                     </div> <br>
                                     <button type="submit" class="btn btn-primary">Submit</button>
