@@ -15,7 +15,8 @@ class CreateBerandasTable extends Migration
     {
         Schema::create('berandas', function (Blueprint $table) {
             $table->id();
-            $table->longText('name');
+            $table->longText('title');
+            $table->longText('description');
             $table->string('cover_image');
             $table->timestamps();
         });

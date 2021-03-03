@@ -15,7 +15,7 @@ class CreateBerandaLogosTable extends Migration
     {
         Schema::create('beranda_logos', function (Blueprint $table) {
             $table->id();
-            $table->longText('name');
+            $table->longText('title');
             $table->string('cover_image');
             $table->timestamps();
         });

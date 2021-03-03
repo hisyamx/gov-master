@@ -1,130 +1,119 @@
 @extends('admin.layouts.master')
-@section('title', 'Dashboard - Badan Anggaran')
+@section('title', 'Fraksi')
+
 @section('content')
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Badan Anggaran DPRD</h1>
-            <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="/admin">Dashboard</a></div>
-                <div class="breadcrumb-item"><a href="{{route('badananggaran.index')}}">Badan Anggaran</a></div>
-            </div>
+            <h1>Fraksi</h1>
         </div>
         <div class="section-body">
-            <div class="container-fluid">
-                @include('admin.layouts.message')
-                <div class="row">
-                    <div class="col-12 grid-margin">
-                        <div class="card">
-                            <div class="card-body">
-                                <form action="{{ route('badananggaran.index') }}" method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label for="title">Title</label>
-                                            <input required type="text" class="form-control" id="title" name="title"
-                                                value="{{ old('title') }}">
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <label for="description">Description</label>
-                                            <textarea required class="form-control editormce" name="description" id="description"
-                                                rows="5" placeholder="Deskripsi"
-                                                value="{{ old('description') }}"></textarea>
-                                        </div>
-                                    </div> <br>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </form>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Table Fraksi</h4>
+                        </div>
+                        <div class="card-body card-body-table">
+                            <div class="table-responsive">
+                                <button type="button" id="btnFraksi" class="float-right ml-4 btn btn-outline-primary">Add Fraksi
+                                </button>
+                                <table class="table table-custom table-striped w-100 table-hover" id="table-fraksi">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Fraksi</th>
+                                            <th>Gambar</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>James Smith</td>
+                                            <td>Accountant</td>
+                                            <td>Durham</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        {{-- Section --}}
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-12 col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Badan Anggaran DPRD</h4>
+    </section>
+</div>
+<!-- modal main -->
+<div class="modal fade" id="modalInputFraksi" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-judul"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form-fraksi">
+                    <div class="form-group">
+                        <input type="hidden" class="form-control d-none" name="fraksi_id" id="fraksi_id">
                     </div>
-                    <div class="table-responsive table-invoice">
-                        <table class="table table-striped">
-                            <tr>
-                                <th>Title</th>
-                                <th>File</th>
-                                <th>Description</th>
-                                <th width="15%">Action</th>
-                            </tr>
-                            <?php $i = 1; ?>
-                            @foreach($badananggaran AS $args)
-                            <tr>
-                                <td>{{$args->title}}</td>
-                                <td>
-                                    <ul
-                                        class="list-unstyled user-progress list-unstyled-border list-unstyled-noborder mt-2">
-                                        <li class="media">
-                                            <img alt="image" class="mr-3" width="250" height="150"
-                                                src="{{asset('storage/cover_images/'.$args->cover_image)}}">
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td>{{$args->description}}</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a href="{{route('badananggaran.show',$args->id)}}" class="btn btn-info">Edit</a>
-                                        <form action="{{ route('badananggaran.delete',$args->id) }}" method="POST">
-                                            @csrf
-                                            @method("DELETE")
-                                            <button class="btn btn-danger" type="submit">Delete</button>
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </table>
-                        <table class="table table-bordered table-striped table-condensed">
-                            <tr>
-                                <td>NAME</td>
-                                <td>PHONE</td>
-                            </tr>
-
-                            @foreach($strukturorganisasi as $row)
-                            <tr>
-                                <td>
-                                    <a href="#" class="xedit" data-pk="{{$row->id}}" data-name="name">
-                                        {{$row->name}}</a>
-                                </td>
-
-                                <td>
-                                    <a href="#" class="xedit" data-pk="{{$row->id}}" data-name="phone">
-                                        {{$row->phone}}</a>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </table>
+                    @csrf
+                    <div class="form-group">
+                        <label for="namaSekolah">Nama Fraksi</label>
+                        <input type="text" id="fraksi_name" name="fraksi_name" class="form-control"
+                            placeholder="Masukkan Nama Fraksi">
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="logo">Upload Foto</label>
+                        <div class="input-button" data-button="right">
+                            <input type="file" class="form-control" readonly placeholder="Upload File"
+                                name="fraksi_foto" id="fraksi_foto">
+                            <input type="text" name="file" class="file" id="file_upload" hidden>
+                            <span class="btn-addon">
+                                <a href="#" id="browse_file">
+                                    <i class="ti-folder text-muted"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Preview</label>
+                        <div class="preview-container input-preview mt-0">
+                            <img id="preview" class="img-fluid">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" type="button" id="tambah">Tambah</button>
+                <button class="btn btn-primary d-none" type="button" id="update">Update</button>
+                <button type="reset" class="btn btn-danger d-none">Reset</button>
             </div>
         </div>
-        <script>
-            $(document).ready(function () {
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': '{{csrf_token()}}'
-                    }
-                });
+    </div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="konfirmasi-modal" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">PERHATIAN</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p><b>Perhatian</b></p>
+                <p>*data fraksi hilang selamanya, apakah anda yakin?</p>
+            </div>
+            <div class="modal-footer bg-whitesmoke br">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" name="tombol-hapus" id="tombol-hapus">Hapus Data</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-                $('.xedit').editable({
-                    url: '{{url("contacts/update")}}',
-                    title: 'Update',
-                    success: function (response, newValue) {
-                        console.log('Updated', response)
-                    }
-                });
-
-            })
-
-        </script>
-    </section>
-
+@endsection
+@section('script')
+    @include('admin.fraksi.script')
 @endsection

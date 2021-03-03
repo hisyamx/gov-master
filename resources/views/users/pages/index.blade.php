@@ -7,20 +7,20 @@
         <!-- main-slider -->
         <div class="testimonials pt-5 pb-5">
             <div class="container pb-lg-5">
-                <div class="owl-testimonial owl-carousel owl-theme mb-md-0 mb-sm-5 mb-4">
-                    <div class="item">
+                <div class="owl-testimonial owl-carousel owl-theme mb-md-0 mb-sm-5 mt-4 mb-4">
+                    @foreach( $beranda as $args )
+                    <div class="item {{ $loop->first ? 'active' : '' }}">
                         <div class="rowslider slider-info">
-                            @foreach ($beranda as $args)
-                            <div class="col-lg-8 message-info align-self">
+                            <div class="col-lg-4 message-info align-self">
                                 <h3 class="title-big mb-4">{{ $args->name }}.</h3>
                                 <p class="message">{{ $args->description }}.</p>
                             </div>
-                            <div class="col-lg-4 col-md-8 img-circle mt-lg-0 mt-4">
-                                <img src="{{asset('storage/cover_images/'.$args->cover_image)}}" alt="client image" class="img-fluid radius-image-full">
+                            <div class="col-lg-8 col-md-8 img-circle mt-lg-0 mt-4">
+                                <img src="{{asset('storage/cover_images/'.$args->cover_image)}}" alt="client image" width="700px" height="400px" class="radius-image-full">
                             </div>
-                            @endforeach
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
