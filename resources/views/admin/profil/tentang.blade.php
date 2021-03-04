@@ -32,7 +32,7 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="description">Description</label>
-                                            <textarea required class="form-control" name="description" id="description"
+                                            <textarea required class="form-control editormce" name="description" id="description"
                                                 rows="5" placeholder="Deskripsi"
                                                 value="{{ old('description') }}"></textarea>
                                         </div>
@@ -58,7 +58,7 @@
                                 <th>Title</th>
                                 <th>File</th>
                                 <th>Description</th>
-                                <th>Action</th>
+                                <th width="15%">Action</th>
                             </tr>
                             <?php $i = 1; ?>
                             @foreach($tentang AS $args)
@@ -75,7 +75,7 @@
                                 </td>
                                 <td>{{$args->description}}</td>
                                 <td>
-                                    <div class="media-cta-square">
+                                    <div class="btn-group">
                                         <a href="{{route('tentang.show',$args->id)}}" class="btn btn-info">Edit</a>
                                         <form action="{{ route('tentang.delete',$args->id) }}" method="POST">
                                             @csrf

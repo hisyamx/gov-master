@@ -13,19 +13,19 @@ class TentangController extends Controller
         $this->middleware('auth');
     }
 
-    public function showKelolaTentang()
+    public function showKelola()
     {
         $tentang = Tentang::orderBy('title')->paginate(20);
         return view("admin.profil.tentang",['tentang' => $tentang]);
     }
     // tentang
-    public function showEditTentang($id)
+    public function showEdit($id)
     {
         $tentang = Tentang::findOrFail($id);
         return view("admin.profil.edittentang",['tentang' => $tentang]);
     }
 
-    public function storeTentang(Request $request)
+    public function store(Request $request)
     {
         $this->validate($request, [
             'title' => 'required|nullable',
@@ -60,7 +60,7 @@ class TentangController extends Controller
         return redirect("/admin/kelola-tentangdprd")->with('success',"profil Created Successfully");
     }
 
-    public function destroyTentang($id)
+    public function destroy($id)
     {
         $tentang = Tentang::findOrFail($id);
         $tentang->delete();
@@ -73,7 +73,7 @@ class TentangController extends Controller
         return redirect("/admin/kelola-tentangdprd")->with("success","profil Deleted Successfully");
     }
 
-    public function editTentang(Request $request,$id)
+    public function edit(Request $request,$id)
     {
         $this->validate($request, [
             'title' => 'required|nullable',

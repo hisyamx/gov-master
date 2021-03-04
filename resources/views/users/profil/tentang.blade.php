@@ -17,7 +17,7 @@
         <!-- /main-slider -->
         <div class="image mb-sm-5 mb-4">
             @foreach ($tentang as $args)
-            <img src="{{asset('storage/cover_images/'.$args->cover_image)}}" alt="" class="img-fluid radius-image-full">
+            <img src="{{asset('storage/cover_images/'.$args->cover_image)}}" alt="bannerdprd" class="img-fluid radius-image-full">
             @endforeach
         </div>
         <div class="container">

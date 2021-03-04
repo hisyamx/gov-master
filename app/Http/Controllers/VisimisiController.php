@@ -13,20 +13,20 @@ class VisimisiController extends Controller
         $this->middleware('auth');
     }
 
-    public function showKelolaVisimisi()
+    public function showKelola()
     {
         $visimisi = Visimisi::orderBy('title')->paginate(20);
         return view("admin.profil.visimisi",['visimisi' => $visimisi]);
     }
 
     // visimisi
-    public function showEditVisimisi($id)
+    public function showEdit($id)
     {
         $visimisi = Visimisi::findOrFail($id);
         return view("admin.profil.editvisimisi",['visimisi' => $visimisi]);
     }
 
-    public function storeVisimisi(Request $request)
+    public function store(Request $request)
     {
         $this->validate($request, [
             'title' => 'required',
@@ -44,14 +44,14 @@ class VisimisiController extends Controller
         return redirect("/admin/kelola-visimisi")->with('success',"Visi misi Created Successfully");
     }
 
-    public function destroyVisimisi($id)
+    public function destroy($id)
     {
         $visimisi = Visimisi::findOrFail($id);
         $visimisi->delete();
         return redirect("/admin/kelola-visimisi")->with("success","Visi misi Deleted Successfully");
     }
 
-    public function editVisimisi(Request $request,$id)
+    public function edit(Request $request,$id)
     {
         $this->validate($request, [
             'title' => 'required',

@@ -22,13 +22,13 @@
                                     <h6>Banner 1</h6>
                                     <div class="form-row">
                                         <div class="form-group col-lg-12">
-                                            <label for="title">Nama</label>
+                                            <label for="title">Title</label>
                                             <input required type="text" class="form-control" id="title" name="title"
                                                 value="{{ old('title') }}">
                                         </div>
                                         <div class="form-group col-lg-12">
                                             <label for="description">Description</label>
-                                            <textarea required class="form-control" name="description" id="description"
+                                            <textarea required class="form-control editormce" name="description" id="description"
                                                 rows="3" resize="none" placeholder="Deskripsi"
                                                 value="{{ old('description') }}"></textarea>
                                         </div>
@@ -53,7 +53,7 @@
                             <tr>
                                 <th>Title</th>
                                 <th>Description</th>
-                                <th>Action</th>
+                                <th width="15%">Action</th>
                             </tr>
                             <?php $i = 1; ?>
                             @foreach($pejabatstruktural AS $args)
@@ -61,7 +61,7 @@
                                 <td>{{$args->title}}</td>
                                 <td>{{$args->description}}</td>
                                 <td>
-                                    <div class="media-cta-square">
+                                    <div class="btn-group">
                                         <a href="{{route('pejabatstruktural.show',$args->id)}}" class="btn btn-info">Edit</a>
                                         <form action="{{ route('pejabatstruktural.delete',$args->id) }}" method="POST">
                                             @csrf

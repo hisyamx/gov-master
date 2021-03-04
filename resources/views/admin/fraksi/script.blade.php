@@ -18,7 +18,7 @@
             $('#tambah').val("create-post"); //valuenya menjadi create-post
             $('#fraksi_id').val(''); //valuenya menjadi kosong
             $('#form-fraksi').trigger("reset"); //mereset semua input dll didalamnya
-            $('#modal-judul').html("Tambah Pegawai Baru"); //valuenya tambah pegawai baru
+            $('#modal-judul').html("Tambah Fraksi Baru"); //valuenya tambah baru
             $('#modalInputFraksi').modal('show'); //modal tampil
         });
         //MULAI DATATABLE
@@ -36,7 +36,7 @@
         $(document).ready(function () {
             var table = $('#table-fraksi').DataTable({
                 processing: true,
-                serverSide: true, //aktifkan server-side 
+                serverSide: true, //aktifkan server-side
                 ajax: {
                     url: "{{ url('admin/fraksi') }}",
                     type: 'GET',
@@ -59,7 +59,7 @@
                     },
                     {
                         data: 'fraksi_foto',
-                        name: 'fraksi_foto', 
+                        name: 'fraksi_foto',
                         render : function (data, type, full, meta){
                             return "<img src="+data+" class='thumbnail'/>";
                         }
@@ -92,12 +92,12 @@
                     });
                 $.ajax({
                     data : formdata,
-                    url : "{{ url('admin/tambah-fraksi') }}",
+                    url : "{{ url('admin/kelola-fraksi') }}",
                     type : "POST",
                     dataType : 'json',
                     processData: false,
                     contentType: false,
-                    success: function (data) { //jika berhasil 
+                    success: function (data) { //jika berhasil
                             $('#form-fraksi').trigger("reset"); //form reset
                             $('#modalInputFraksi').modal('hide'); //modal hide
                             $('#tambah').html('Simpan'); //tombol simpan
@@ -114,19 +114,19 @@
                             console.log('Error:', data);
                             $('#tambah').html('Simpan');
                         }
-                })  
+                })
             }
         });
-        
         //TOMBOL EDIT DATA PER FRAKSI DAN TAMPILKAN DATA BERDASARKAN ID FRAKSI KE MODAL
         //ketika class edit-post yang ada pada tag body di klik maka
         $('body').on('click', '.edit-post', function () {
             var data_id = $(this).data('id');
             $.get('admin/edit-fraksi' + data_id + '/{id}', function (data_id) {
+
                 $('#modal-judul').html("Edit Post");
                 $('#tambah').val("edit-post");
                 $('#modalInputFraksi').modal('show');
-                //set value masing-masing id berdasarkan data yg diperoleh dari ajax get request diatas               
+                //set value masing-masing id berdasarkan data yg diperoleh dari ajax get request diatas
                 $('#fraksi_id').val(data.result['fraksi_id']);
                 $('#fraksi_name').val(data.result['fraksi_name']);
                 $('#fraksi_foto').val(data.result['fraksi_foto']);

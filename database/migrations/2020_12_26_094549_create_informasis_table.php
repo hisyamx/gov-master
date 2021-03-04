@@ -15,6 +15,10 @@ class CreateInformasisTable extends Migration
     {
         Schema::create('informasis', function (Blueprint $table) {
             $table->id();
+            $table->string('linksatu');
+            $table->string('linkdua');
+            $table->string('linktiga');
+            $table->string('linkkunjungan');
             $table->timestamps();
         });
     }

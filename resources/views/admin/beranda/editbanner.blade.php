@@ -22,8 +22,12 @@
                                     <h6>Banner</h6>
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
-                                            <label for="name">Name</label>
-                                            <input required type="text" class="form-control" id="name" name="name" value="{{ $beranda->name }}">
+                                            <label for="title">Title</label>
+                                            <input required type="text" class="form-control" id="title" name="title" value="{{ $beranda->title }}">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="description">Description</label>
+                                            <input required type="text" class="form-control" id="description" name="description" value="{{ $beranda->description }}">
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label> Tambahkan Banner</label>

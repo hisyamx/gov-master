@@ -5,28 +5,31 @@
                 <div class="container py-lg-3">
                     <div class="row footer-top-28">
                         <div class="col-lg-4 footer-list-28 copy-right mb-lg-0 mb-sm-5 mt-sm-0 mt-4">
-                            <a class="navbar-brand mb-3" href="index.html">
-                                <img src="{{asset('/assets')}}/images/logodprd.svg" alt="Logo DPRD" title="DPRD" style="height:35px;" />
+                            <a class="navbar-brand mb-3" href="/beranda">
+                                @foreach ($logo as $args)
+                                <img src="{{asset('storage/cover_images/'.$args->cover_image)}}" alt="Logo DPRD" title="DPRD" style="height:35px;" />
+                                {{-- <img src="{{asset('/assets')}}/images/logodprd.svg" alt="Logo DPRD" title="DPRD" style="height:35px;" /> --}}
+                                @endforeach
                             </a>
-                            <p class="copy-footer-28"> © 2020. All Rights Reserved. </p>
+                            <p class="copy-footer-28"> © 2021. All Rights Reserved. </p>
                         </div>
                         <div class="col-lg-8 row">
                             <div class="col-sm-4 col-6 footer-list-28">
                                 <h6 class="footer-title-28">Link Terkait</h6>
                                 <ul>
                                     <li><a href="/beranda">Beranda</a></li>
-                                    <li><a href="/tentangdprd">Tentang DRPD</a></li>
-                                    <li><a href="/gallery">Gallery</a></li>
+                                    <li><a href="/profil/tentangdprd">Tentang DRPD</a></li>
+                                    <li><a href="/publikasi/gallery">Gallery</a></li>
                                     <li><a href="/kontak">Kontak</a></li>
                                 </ul>
                             </div>
                             <div class="col-sm-4 col-6 footer-list-28">
                                 <h6 class="footer-title-28">Informasi</h6>
                                 <ul>
-                                    <li><a href="/agddprd">Agenda Sekretariat</a></li>
-                                    <li><a href="/agddprd">Agenda DPRD</a></li>
-                                    <li><a href="/agddprd">Rencana dan Laporan</a></li>
-                                    <li><a href="/agddprd">Siaran Langsung</a></li>
+                                    <li><a href="/agenda/sekretariat">Agenda Sekretariat</a></li>
+                                    <li><a href="/agenda/dprd">Agenda DPRD</a></li>
+                                    <li><a href="/sekretariat/rencanalaporan">Rencana dan Laporan</a></li>
+                                    <li><a href="/publikasi/live">Siaran Langsung</a></li>
                                 </ul>
                             </div>
                             <div class="col-sm-4 col-6 footer-list-28 mt-sm-0 mt-4">

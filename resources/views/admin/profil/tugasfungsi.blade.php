@@ -27,7 +27,7 @@
                                         </div>
                                         <div class="form-group col-lg-12">
                                             <label for="description">Description</label>
-                                            <textarea required class="form-control" name="description" id="description"
+                                            <textarea required class="form-control editormce" name="description" id="description"
                                                 rows="3" resize="none" placeholder="Deskripsi"
                                                 value="{{ old('description') }}"></textarea>
                                         </div>
@@ -52,7 +52,7 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Description</th>
-                                <th>Action</th>
+                                <th width="15%">Action</th>
                             </tr>
                             <?php $i = 1; ?>
                             @foreach($tugas AS $args)
@@ -60,7 +60,7 @@
                                 <td>{{$args->title}}</td>
                                 <td>{{$args->description}}</td>
                                 <td>
-                                    <div class="media-cta-square">
+                                    <div class="btn-group">
                                         <a href="{{route('tugasfungsidprd.show',$args->id)}}" class="btn btn-info">Edit</a>
                                         <form action="{{ route('tugasfungsidprd.delete',$args->id) }}" method="POST">
                                             @csrf

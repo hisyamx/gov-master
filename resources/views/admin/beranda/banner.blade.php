@@ -22,8 +22,8 @@
                                     <h6>Banner</h6>
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
-                                            <label for="name">Name</label>
-                                            <input required type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
+                                            <label for="title">Title</label>
+                                            <input required type="text" class="form-control" id="title" name="title" value="{{ old('title') }}">
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label> Tambahkan Banner</label>
@@ -45,7 +45,7 @@
                             <div class="card-header">
                                 <h4>Banner</h4>
                             </div>
-                            @if(count($beranda) >= 1)
+                            @if(count($banner) >= 1)
                             <div class="table-responsive table-invoice">
                                 <table class="table table-striped">
                                     <tr>
@@ -54,9 +54,9 @@
                                         <th>Action</th>
                                     </tr>
                                     <?php $i = 1; ?>
-                                    @foreach($beranda AS $args)
+                                    @foreach($banner AS $args)
                                     <tr>
-                                        <td>{{$args->name}}</td>
+                                        <td>{{$args->title}}</td>
                                         <td>
                                             <ul class="list-unstyled user-progress list-unstyled-border list-unstyled-noborder mt-2">
                                                 <li class="media">

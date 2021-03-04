@@ -5,7 +5,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>FRAKSI</h1>
+            <h1>Fraksi</h1>
         </div>
         <div class="section-body">
             <div class="row">
@@ -21,7 +21,7 @@
                                 <table class="table table-custom table-striped w-100 table-hover" id="table-fraksi">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
+                                            <th>Nama Fraksi</th>
                                             <th>Gambar</th>
                                             <th>Status</th>
                                         </tr>
@@ -102,8 +102,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p><b>Jika menghapus Pegawai maka</b></p>
-                <p>*data pegawai tersebut hilang selamanya, apakah anda yakin?</p>
+                <p><b>Perhatian</b></p>
+                <p>*data fraksi hilang selamanya, apakah anda yakin?</p>
             </div>
             <div class="modal-footer bg-whitesmoke br">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -13,9 +13,12 @@
             <!--/nav-->
             <nav class="navbar navbar-expand-lg navbar-light fill px-lg-0 py-0 px-sm-3 px-0">
                 <!-- if logo is image enable this    -->
-                    <a class="navbar-brand" href="#index.html">
-                        <img src="{{asset('/assets')}}/images/logodprd.svg" alt="Logo DPRD" title="DPRD" style="height:35px;" />
-                    </a>
+                <a class="navbar-brand" href="/beranda">
+                    {{-- <img src="{{asset('/assets')}}/images/logodprd.svg" alt="Logo DPRD" title="DPRD" style="height:35px;" /> --}}
+                    @foreach ($logo as $args)
+                    <img src="{{asset('storage/cover_images/'.$args->cover_image)}}" alt="Logo DPRD" title="DPRD" style="height:35px;" />
+                    @endforeach
+                </a>
 
                 <!-- toggle switch for light and dark theme -->
                 <div class="mobile-position">
@@ -33,7 +36,7 @@
                 </div>
                 <!-- //toggle switch for light and dark theme -->
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
                     <!-- <span class="navbar-toggler-icon"></span> -->
                     <span class="fa icon-expand fa-bars"></span>
