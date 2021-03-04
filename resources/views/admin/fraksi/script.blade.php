@@ -38,7 +38,7 @@
                 processing: true,
                 serverSide: true, //aktifkan server-side
                 ajax: {
-                    url: "{{ url('admin/fraksi') }}",
+                    url: "{{ url('/fraksi') }}",
                     type: 'GET',
                     dataType:"json",
                     data: function (d) {

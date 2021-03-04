@@ -16,12 +16,12 @@ Route::get('logout', 'Auth\AuthController@logout')->name('logout');
 Route::get('/home', 'HomeController@index');
 Route::get('admin', 'AdminController@index')->name('dashboard.index');
 //fraksi
-Route::get('admin/fraksi', 'FraksiController@fraksi');
+Route::get('/fraksi', 'FraksiController@fraksi');
 Route::post('admin/tambah-fraksi', 'FraksiController@store');
 Route::get('admin/edit-fraksi/{id}', 'FraksiController@edit');
 Route::get('admin/hapus-fraksi/{id}', 'FraksiController@destroy');
 
-Route::get('admin/anggota', 'AnggotaController@anggota');
+Route::get('/anggota', 'AnggotaController@anggota');
 Route::post('admin/tambah-anggota', 'AnggotaController@store');
 Route::get('admin/edit-anggota/{id}', 'AnggotaController@edit');
 Route::get('admin/hapus-anggota/{id}', 'AnggotaController@destroy');

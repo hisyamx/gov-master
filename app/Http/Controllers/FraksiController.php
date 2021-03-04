@@ -13,7 +13,7 @@ class FraksiController extends Controller{
      *
      * @return \Illuminate\Http\Response
      */
-    public function showKelola(Request $request)
+    public function fraksi(Request $request)
     {
         if($request->ajax()){
             $data = Fraksi::get();
