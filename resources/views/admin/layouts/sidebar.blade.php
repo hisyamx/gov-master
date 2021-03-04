@@ -11,11 +11,18 @@
     </li>
     <li class="menu-header">Pages</li>
     <li class="dropdown">
+        <a href="#" class="nav-link has-dropdown {{ (request()->is(['fraksi*','anggota*']))?'active':'' }}"><i class="fab fa-gg"></i><span>Fraksi</span></a>
+        <ul class="dropdown-menu">
+            <li><a href="{{ url('/fraksi') }}"  class="nav-link {{ (request()->is('fraksi*'))?'active':'' }} ">Fraksi</a></li>
+            <li><a href="{{ url('/anggota') }}" class="nav-link {{ (request()->is('anggota*'))?'active':'' }} ">Anggota Fraksi</a></li>
+        </ul>
+    </li>
+    <!-- <li class="dropdown">
         <a href="{{ url('/fraksi') }}" class="nav-link {{ (request()->is('fraksi*'))?'active':'' }}" class="nav-link">
             <i class="fab fa-gg"></i>
             <span>Fraksi</span>
         </a>
-    </li>
+    </li> -->
     <li class="dropdown">
         <a href="#" class="nav-link has-dropdown {{ (request()->is(['agenda*','agendasekre*']))?'active':'' }}"><i class="fab fa-gg"></i><span>Agenda</span></a>
         <ul class="dropdown-menu">

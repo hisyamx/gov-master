@@ -35,6 +35,7 @@ class FraksiController extends Controller{
                         ->make(true);
         }
         return view('admin.fraksi.fraksi');
+        
     }
 
     /**
@@ -84,7 +85,7 @@ class FraksiController extends Controller{
      */
     public function edit($id)
     {
-        $where = array('id' => $id);
+        $where = array('fraksi_id' => $id);
         $post  = Fraksi::where($where)->first();
         return response()->json($post);
     }
