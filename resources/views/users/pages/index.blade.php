@@ -12,11 +12,11 @@
                     <div class="item {{ $loop->first ? 'active' : '' }}">
                         <div class="rowslider slider-info">
                             <div class="col-lg-4 message-info align-self">
-                                <h3 class="title-big mb-4">{{ $args->name }}.</h3>
+                                <h3 class="title-big mb-4">{{ $args->title }}.</h3>
                                 <p class="message">{{ $args->description }}.</p>
                             </div>
                             <div class="col-lg-8 col-md-8 img-circle mt-lg-0 mt-4">
-                                <img src="{{asset('storage/cover_images/'.$args->cover_image)}}" alt="client image" width="700px" height="400px" class="radius-image-full">
+                                <img src="{{asset('storage/cover_images/'.$args->cover_image)}}" alt="client image" class="img-fluid radius-image-full">
                             </div>
                         </div>
                     </div>
@@ -80,17 +80,21 @@
             <div class="container py-md-4">
                 <div class="grids-area-hny main-cont-wthree-fea row">
                     <div class="col-lg-6 col-6 grids-feature">
-                        <a href="beauty.html">
+                        <a href="/agenda/dprd">
+                            @foreach ( $banner as $args )
                             <div class="custom-box">
-                                <img src="assets/images/set1.jpeg" alt="" class="card-body blogcustom-details">
+                                <img src="{{asset('storage/cover_images/'.$args->cover_image(1))}}" alt="banneragenda" class="card-body blogcustom-details">
                             </div>
+                            @endforeach
                         </a>
                     </div>
                     <div class="col-lg-6 col-6 grids-feature">
-                        <a href="fashion.html">
+                        <a href="/agenda/dprd">
+                            @foreach ( $banner as $args )
                             <div class="custom-box">
-                                <img src="assets/images/set1.jpeg" alt="" class="card-body blogcustom-details">
+                                <img src="{{asset('storage/cover_images/'.$args->cover_image(2))}}" alt="banneragenda" class="card-body blogcustom-details">
                             </div>
+                            @endforeach
                         </a>
                     </div>
                 </div>
@@ -102,10 +106,12 @@
             <div class="container py-md-4">
                 <div class="grids-area-hny main-cont-wthree-fea row">
                     <div class="col-12 grids-feature">
-                        <a href="fashion.html">
+                        <a href="/agenda/sekretariat">
+                            @foreach ( $banner as $args )
                             <div class="custom-box">
-                                <img src="assets/images/set.jpeg" alt="" class="card-body blogcustom-details">
+                                <img src="{{asset('storage/cover_images/'.$args->cover_image(3))}}" alt="bannersekre" class="card-body blogcustom-details">
                             </div>
+                            @endforeach
                         </a>
                     </div>
                 </div>

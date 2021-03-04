@@ -17,13 +17,13 @@
                     <div class="col-12 grid-margin">
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('logo.edit',$beranda->id) }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('logo.edit',$logo->id) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <h6>Logo</h6>
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
-                                            <label for="name">Name</label>
-                                            <input required type="text" class="form-control" id="name" name="name" value="{{ $beranda->name }}">
+                                            <label for="title">title</label>
+                                            <input required type="text" class="form-control" id="title" name="title" value="{{ $logo->title }}">
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label> Tambahkan Logo</label>

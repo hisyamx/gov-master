@@ -71,6 +71,12 @@ Route::post('admin/tambah-fraksi', 'FraksiController@store');
 
 Route::group(['middleware' => 'auth'], function () {
     // Beranda
+    // Show Kelola slider
+    Route::get('admin/kelola-slider', 'BerandaController@kelolaSlider')->name('slider.index');
+    Route::get('admin/edit-slider/{id}', 'BerandaController@showEditSlider')->name('slider.show');
+    Route::post('admin/kelola-slider','BerandaController@storeSlider');
+	Route::post('admin/edit-slider/{id}','BerandaController@update_recordSlider')->name('slider.edit');
+    Route::delete('admin/kelola-slider/{id}', 'BerandaController@destroySlider')->name('slider.delete');
     // Show Kelola Banner
     Route::get('admin/kelola-banner', 'BerandaController@kelolaBanner')->name('banner.index');
     Route::get('admin/edit-banner/{id}', 'BerandaController@showEditBanner')->name('banner.show');

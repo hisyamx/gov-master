@@ -13,6 +13,7 @@
     <li class="dropdown">
         <a href="#" class="nav-link has-dropdown"><i class="fab fa-gg"></i><span>Beranda</span></a>
         <ul class="dropdown-menu">
+            <li><a class="nav-link {{ request()->is('kelolaslider') ? 'active' : ''}}" href="/admin/kelola-slider">Kelola Slider</a></li>
             <li><a class="nav-link {{ request()->is('kelolabanner') ? 'active' : ''}}" href="/admin/kelola-banner">Kelola Banner</a></li>
             <li><a class="nav-link {{ request()->is('kelolallogo') ? 'active' : ''}}" href="/admin/kelola-logo">Kelola Logo</a></li>
         </ul>

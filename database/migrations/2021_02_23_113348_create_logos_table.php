@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBerandaLogosTable extends Migration
+class CreateLogosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateBerandaLogosTable extends Migration
      */
     public function up()
     {
-        Schema::create('beranda_logos', function (Blueprint $table) {
+        Schema::create('logos', function (Blueprint $table) {
             $table->id();
             $table->longText('title');
             $table->string('cover_image');
@@ -28,6 +28,6 @@ class CreateBerandaLogosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('beranda_logos');
+        Schema::dropIfExists('logos');
     }
 }
