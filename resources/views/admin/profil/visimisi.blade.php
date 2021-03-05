@@ -27,18 +27,18 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="descriptionvisi">Visi</label>
-                                            <textarea required class="form-control" name="descriptionvisi" id="descriptionvisi"
+                                            <textarea required class="form-control konten" name="descriptionvisi" id="descriptionvisi"
                                                 rows="3" resize="none" placeholder="Visi"
                                                 value="{{ old('descriptionvisi') }}"></textarea>
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="descriptionmisi">Misi</label>
-                                            <textarea required class="form-control editormce" name="descriptionmisi" id="descriptionmisi"
+                                            <textarea required class="form-control konten" name="descriptionmisi" id="descriptionmisi"
                                                 rows="3" resize="none" placeholder="Misi"
                                                 value="{{ old('descriptionmisi') }}"></textarea>
                                         </div>
+                                        <button type="button" class="btn btn-primary">Submit</button>
                                     </div> <br>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>
                             </div>
                         </div>
@@ -56,7 +56,7 @@
                     <div class="table-responsive table-invoice">
                         <table class="table table-striped">
                             <tr>
-                                <th>Name</th>
+                                <th>Title</th>
                                 <th>Visi</th>
                                 <th>Misi</th>
                                 <th>Action</th>
@@ -73,7 +73,7 @@
                                         <form action="{{ route('banner.delete',$args->id) }}" method="POST">
                                             @csrf
                                             @method("DELETE")
-                                            <button class="btn btn-danger" type="submit">Delete</button>
+                                            <button class="btn btn-danger tambah" type="submit">Delete</button>
                                         </form>
                                     </div>
                                 </td>
@@ -86,4 +86,67 @@
         </div>
 
     </section>
+    <script>
+        $('#tambah').click(function(){
+            var id = $('#fraksi_id').val();
+            if(id == ''){
+                var formdata = new FormData();
+                    var nama = $('#fraksi_name').val();
+                    formdata.append('fraksi_name', nama);
+                    formdata.append('foto', gambar);
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                $.ajax({
+                    data : formdata,
+                    url : "{{ url('admin/kelola-fraksi') }}",
+                    type : "POST",
+                    dataType : 'json',
+                    processData: false,
+                    contentType: false,
+                    success: function (data) { //jika berhasil
+                            $('#form-fraksi').trigger("reset"); //form reset
+                            $('#modalInputFraksi').modal('hide'); //modal hide
+                            $('#tambah').html('Simpan'); //tombol simpan
+                            var oTable = $('#table-fraksi').dataTable(); //inialisasi datatable
+                            oTable.fnDraw(false); //reset datatable
+                            iziToast.success({ //tampilkan iziToast dengan notif data berhasil disimpan pada posisi kanan bawah
+                                title: 'Data Berhasil Disimpan',
+                                message: '{{ Session('
+                                success ')}}',
+                                position: 'bottomRight'
+                            });
+                        },
+                        error: function (data) { //jika error tampilkan error pada console
+                            console.log('Error:', data);
+                            $('#tambah').html('Simpan');
+                        }
+                })
+            }
+        });
+        $('#tombol-hapus').click(function () {
+            $.ajax({
+                url: "/admin/hapus-fraksi/" + dataId, //eksekusi ajax ke url ini
+                type: 'delete',
+                beforeSend: function () {
+                    $('#tombol-hapus').text('Hapus Data'); //set text untuk tombol hapus
+                },
+                success: function (data) { //jika sukses
+                    setTimeout(function () {
+                        $('#konfirmasi-modal').modal('hide'); //sembunyikan konfirmasi modal
+                        var oTable = $('#table-fraksi').dataTable();
+                        oTable.fnDraw(false); //reset datatable
+                    });
+                    iziToast.warning({ //tampilkan izitoast warning
+                        title: 'Data Berhasil Dihapus',
+                        message: '{{ Session('
+                        delete ')}}',
+                        position: 'bottomRight'
+                    });
+                }
+            })
+        });
+    </script>
     @endsection

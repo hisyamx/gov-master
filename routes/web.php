@@ -12,13 +12,6 @@ Route::post('register', 'Auth\AuthController@storeUser');
 Route::get('login', 'Auth\AuthController@showLoginForm')->name('login');
 Route::post('login', 'Auth\AuthController@authenticate');
 Route::get('logout', 'Auth\AuthController@logout')->name('logout');
-// Show Welcome
-Route::get('/home', 'HomeController@index');
-Route::get('admin', 'AdminController@index')->name('dashboard.index');
-
-Route::get('/fraksi', 'FraksiController@fraksi');
-Route::post('admin/tambah-fraksi', 'FraksiController@store');
-
 // // Admin Route
 // Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 //     Route::get('/', 'HomeController@index');
@@ -204,6 +197,9 @@ Route::group(['middleware' => 'auth'], function () {
     // Route::get('admin/hapus-angota/{id}', 'FraksiController@deleteAnggota');
 
     // Show Kelola fraksi
+
+    // Route::get('/fraksi', 'FraksiController@fraksi');
+    // Route::post('admin/tambah-fraksi', 'FraksiController@store');
     Route::get('admin/kelola-fraksi', 'FraksiController@showKelola')->name('fraksi.index');
     Route::get('admin/edit-fraksi/{id}', 'FraksiController@showEdit')->name('fraksi.show');
     Route::post('admin/kelola-fraksi', 'BadanPerdanController@store');

@@ -25,12 +25,12 @@
     {{-- Tiny MCE editor --}}
     <script src="https://cdn.tiny.cloud/1/gz7dxy3cdxgn8mmaiqvzfc946r68pwukt3nce3dwdnfvoavk/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     {{-- editable table --}}
-    <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+    {{-- <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script> --}}
 </head>
 
 <body>
-    <div class="loader"></div>
+    <div></div>
     <div id="app">
         <div class="main-wrapper main-wrapper-1">
             <div class="navbar-bg"></div>
@@ -49,18 +49,6 @@
             @include('admin/layouts/footer')
         </footer>
     </div>
-
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#editor'))
-            .then(editor => {
-                console.log(editor);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-
-    </script>
     <!-- General JS Scripts -->
     <script src="{{asset('assets')}}/js/app.min.js"></script>
     <!-- JS Libraie assets -->
@@ -79,7 +67,7 @@
     <!-- Data Table js -->
     <!-- <script src="{{asset('assets')}}/plugins/datatables/DataTables/js/dataTables.bootstrap4.min.js"></script> -->
     <script src="{{asset('assets')}}/plugins/datatables/datatables.min.js"></script>
-    <script>
+    {{-- <script>
         $(".datepicker").datepicker({
             inline: true,
             changeYear: true,
@@ -93,20 +81,17 @@
             changeMonth: true,
             dateFormat: "dd-mm-yy"
         });
-
-    </script>
+    </script> --}}
     <script type="text/javascript">
         tinymce.init({
             selector: '.editormce'
         });
-
     </script>
     <script>
         // TINYMCE
         tinymce.init({
             selector: '.konten',
             height: 300,
-            content_css: '{{ asset("public/template/assets/vendor/bootstrap/css/bootstrap.min.css") }}',
             content_css_cors: true,
             content_style: 'div { margin: 10px; border: 5px solid red; padding: 10px; }',
             plugins: 'print preview paste searchreplace autolink directionality visualblocks visualchars code fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount imagetools colorpicker textpattern code preview help',
@@ -127,7 +112,6 @@
                 'bold italic backcolor | alignleft aligncenter ' +
                 'alignright alignjustify | bullist numlist outdent indent | ' +
                 'removeformat | help',
-            content_css: '{{ asset("public/template/assets/vendor/bootstrap/css/bootstrap.min.css") }}',
             content_css_cors: true
         });
 
