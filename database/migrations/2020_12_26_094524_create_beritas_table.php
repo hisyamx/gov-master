@@ -15,12 +15,13 @@ class CreateBeritasTable extends Migration
     {
         Schema::create('beritas', function (Blueprint $table) {
             $table->id();
-            $table->string('judul');
-            $table->string('tags');
-            $table->string('author');
+            $table->longText('judul');
+            $table->longText('slug');
+            $table->longText('tags');
+            $table->longText('author');
             $table->date('tanggal_buat');
             $table->date('tanggal_post');
-            $table->string('deskripsi');
+            $table->longText('deskripsi');
             $table->string('foto');
             $table->timestamps();
         });

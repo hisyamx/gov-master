@@ -49,6 +49,7 @@
             @include('admin/layouts/footer')
         </footer>
     </div>
+    @yield('script')
     <!-- General JS Scripts -->
     <script src="{{asset('assets')}}/js/app.min.js"></script>
     <!-- JS Libraie assets -->
@@ -67,7 +68,12 @@
     <!-- Data Table js -->
     <!-- <script src="{{asset('assets')}}/plugins/datatables/DataTables/js/dataTables.bootstrap4.min.js"></script> -->
     <script src="{{asset('assets')}}/plugins/datatables/datatables.min.js"></script>
-    {{-- <script>
+    <!-- chart js -->
+    <script src="{{asset('assets')}}/plugins/chartjs/chart.min.js"></script>
+    <script src="{{asset('assets')}}/plugins/echart/echarts.js"></script>
+    <!-- izitoast js -->
+    <script src="{{asset('assets')}}/plugins/izitoast/js/iziToast.min.js"></script>
+        {{-- <script>
         $(".datepicker").datepicker({
             inline: true,
             changeYear: true,
@@ -114,19 +120,7 @@
                 'removeformat | help',
             content_css_cors: true
         });
-
     </script>
 
 </body>
-
-    <!-- chart js -->
-    <script src="{{asset('assets')}}/plugins/chartjs/chart.min.js"></script>
-    <script src="{{asset('assets')}}/plugins/echart/echarts.js"></script>
-
-    <!-- izitoast js -->
-    <script src="{{asset('assets')}}/plugins/izitoast/js/iziToast.min.js"></script>
-</body>
-
-@yield('script')
-
 </html>

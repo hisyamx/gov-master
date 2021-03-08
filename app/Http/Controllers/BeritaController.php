@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Berita;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 
@@ -13,26 +14,20 @@ class BeritaController extends Controller
     // User
     public function berita()
     {
-    	$model 	= new Berita();
-		$berita = $model->listing();
-        return view('users.berita.beritautama',$berita);
+
+        return view('users.berita.beritautama');
     }
 
     // kontak
     public function detailberita($slug_berita)
     {
-        $model  = new Berita();
-        $berita = $model->read($slug_berita);
-
-        return view('users.berita.detailberita',$berita);
+        return view('users.berita.detailberita');
     }
 
     // Pressrelease
     public function pressrelease($slug_berita)
     {
-        $model  = new Berita();
-        $berita = $model->read($slug_berita);
-        return view('users.berita.detailberita',$berita);
+        return view('users.berita.detailberita');
     }
 
     //admin
@@ -48,115 +43,159 @@ class BeritaController extends Controller
 
     public function showKelolaBerita()
     {
-        $berita = Berita::orderBy('title')->paginate(20);
-        return view("admin.profil.berita",['berita' => $berita]);
+        $berita = berita::orderBy('id','desc')->paginate();
+        return view('users/berita/index', compact('berita'));
     }
-    // Berita
-    public function showEditBerita($id)
+    public function beritadetail($slug)
     {
-        $berita = Berita::findOrFail($id);
-        return view("admin.profil.editberita",['berita' => $berita]);
+        $berita = Berita::where('slug', $slug)->first();
+        return view('visitors/berita/show', compact('berita'));
     }
 
-    public function storeBerita(Request $request)
+    //dashboardberita
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        $this->validate($request, [
-            'judul' => 'required|nullable',
-            'tags' => 'required|nullable',
-            'author' => 'required|nullable',
-            'tanggal_buat' => 'required|nullable',
-            'tanggal_post' => 'required|nullable',
-            'description' => 'required|nullable',
-            'foto' => 'image|nullable'
-            ]);
+        $berita = berita::all();
+        return view('admin/berita/index',compact('berita'));
+    }
 
-        // Handle File Upload
-        if($request->hasFile('foto')){
-            // Get filename with the extension
-            $filenameWithExt = $request->file('foto')->getClientOriginalName();
-            // Get just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            // Get just ext
-            $extension = $request->file('foto')->getClientOriginalExtension();
-            // Filename to store
-            $fileNameToStore= $filename.'_'.time().'.'.$extension;
-            // Upload Image
-            $path = $request->file('foto')->storeAs('public/fotos', $fileNameToStore);
-        } else {
-            $fileNameToStore = 'noimage.jpg';
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('admin/berita/create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $judul = $request->judul;
+        $slug = Str::slug($request->judul, '-');
+        $detail = $request->deskripsi;
+        $tags = $request->tags;
+        $author = $request->author;
+        $tanggal_buat = $request->tanggal_buat;
+        $tanggal_post = $request->tanggal_post;
+        $foto = $request->foto;
+
+        $dom = new \domdocument();
+        $dom -> loadHTML($detail, LIBXML_HTML_NOIMPLIED|LIBXML_HTML_NODEFDTD);
+
+        $image = $dom->getElementsByTagName('img');
+
+        foreach ($image as $key => $img) {
+            $data = $img -> getattribute('src');
+            list($type, $data) = explode(';', $data);
+            list(, $data)      = explode(',', $data);
+
+            $data = base64_decode($data);
+            $image_name = time().$key.'.png'.'.jpeg'.'.jpg';
+            $path = public_path().'/storage/images/'.$image_name;
+
+            file_put_contents($path, $data);
+            $img->removeattribute('src');
+            $img->setattribute('src', '/storage/images/'.$image_name);
+
         }
+            $detail = $dom->savehtml();
+                if($request->hasFile('foto')){
+                    $filename = $request->foto->getClientOriginalName();
+                    $request->foto->storeAs('images', $filename ,'public');
+                }
+            $berita = new berita;
+            $berita -> judul = $judul;
+            $berita -> slug = $slug;
+            $berita -> tags = $tags;
+            $berita -> author = $author;
+            $berita -> tanggal_buat = $tanggal_buat;
+            $berita -> tanggal_post = $tanggal_post;
+            $berita -> foto = $filename;
+            $berita -> deskripsi = $detail;
 
-        $berita = new Berita();
+            $berita -> save();
+            return redirect('/admin/berita');
 
-        $berita->judul = request('judul');
-        $berita->tags = request('tags');
-        $berita->author = request('author');
-        $berita->tanggal_buat = request('tanggal_buat');
-        $berita->tanggal_post = request('tanggal_post');
-        $berita->description = request('description');
-        $berita->foto = $fileNameToStore;
+    }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\berita  $berita
+     * @return \Illuminate\Http\Response
+     */
+    public function show(berita $berita)
+    {
+        return view('admin/berita/show', compact('berita'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\berita  $berita
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(berita $berita)
+    {
+        return view('admin/berita/edit', compact('berita'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\berita  $berita
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, berita $berita)
+    {
+        if($request->hasFile('foto') == "")
+    	{
+            $berita->foto=$berita->foto;
+
+    	}
+    	else if($request->hasFile('foto'))
+    	{
+            $filename = $request->foto->getClientOriginalName();
+            $request->foto->storeAs('images', $filename ,'public');
+            $berita->foto = $filename;
+        }
         $berita->save();
-
-        return redirect("/admin/kelola-beritadprd")->with('success',"Berita Created Successfully");
+            berita::where('id', $berita->id)
+            ->update([
+                'judul' => $request->judul,
+                'slug' => $request->slug,
+                'tags' => $request->tags,
+                'author' => $request->author,
+                'tanggal_buat' => $request->tanggal_buat,
+                'tanggal_post' => $request->tanggal_post,
+                'deskripsi' => $request->deskripsi
+            ]);
+            return redirect('/admin/berita');
     }
 
-    public function destroyBerita($id)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\berita  $berita
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(berita $berita)
     {
-        $berita = Berita::findOrFail($id);
-        $berita->delete();
-
-        if($berita->foto != 'noimage.jpg'){
-            // Delete Image
-            Storage::delete('public/fotos/'.$berita->foto);
-        }
-
-        return redirect("/admin/kelola-beritadprd")->with("success","Berita Deleted Successfully");
+        berita::destroy($berita->id);
+        return redirect('/admin/berita')->with('sukses', 'Data berhasil dihapus');
     }
-
-    public function editBerita(Request $request,$id)
-    {
-        $this->validate($request, [
-            'judul' => 'required|nullable',
-            'tags' => 'required|nullable',
-            'author' => 'required|nullable',
-            'tanggal_buat' => 'required|nullable',
-            'tanggal_post' => 'required|nullable',
-            'description' => 'required|nullable',
-            'foto' => 'image|nullable'
-        ]);
-
-        $berita = Berita::findOrFail($id);
-        // Handle File Upload
-        if($request->hasFile('foto')){
-            // Get filename with the extension
-            $filenameWithExt = $request->file('foto')->getClientOriginalName();
-            // Get just filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            // Get just ext
-            $extension = $request->file('foto')->getClientOriginalExtension();
-            // Filename to store
-            $fileNameToStore= $filename.'_'.time().'.'.$extension;
-            // Upload Image
-            $path = $request->file('foto')->storeAs('public/fotos', $fileNameToStore);
-            // Delete file if exists
-            Storage::delete('public/fotos/'.$berita->foto);
-        }
-
-        $berita->judul = request('judul');
-        $berita->tags = request('tags');
-        $berita->author = request('author');
-        $berita->tanggal_buat = request('tanggal_buat');
-        $berita->tanggal_post = request('tanggal_post');
-        $berita->description = request('description');
-        if($request->hasFile('foto')){
-            $berita->foto = $fileNameToStore;
-        }
-
-        $berita->save(); //this will UPDATE the record
-
-        return redirect("/admin/kelola-beritadprd")->with("success","Berita was updated successfully");
-    }
-
 
 }
