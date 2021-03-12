@@ -4,7 +4,7 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>visimisi DPRD</h1>
+            <h1>Visi Misi DPRD</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="/admin">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="{{route('visimisi.index')}}">visimisi</a></div>
@@ -27,18 +27,18 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="descriptionvisi">Visi</label>
-                                            <textarea required class="form-control konten" name="descriptionvisi" id="descriptionvisi"
+                                            <textarea class="form-control summernote" name="descriptionvisi" id="descriptionmisi"
                                                 rows="3" resize="none" placeholder="Visi"
                                                 value="{{ old('descriptionvisi') }}"></textarea>
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="descriptionmisi">Misi</label>
-                                            <textarea required class="form-control konten" name="descriptionmisi" id="descriptionmisi"
+                                            <textarea class="form-control summernote" name="descriptionmisi" id="descriptionvisi"
                                                 rows="3" resize="none" placeholder="Misi"
                                                 value="{{ old('descriptionmisi') }}"></textarea>
                                         </div>
-                                        <button type="button" class="btn btn-primary">Submit</button>
                                     </div> <br>
+                                    <button type="submit" class="btn btn-primary tambah">Submit</button>
                                 </form>
                             </div>
                         </div>
@@ -69,11 +69,11 @@
                                 <td>{{$args->descriptionmisi}}</td>
                                 <td>
                                     <div class="media-cta-square">
-                                        <a href="{{route('banner.show',$args->id)}}" class="btn btn-info">Edit</a>
-                                        <form action="{{ route('banner.delete',$args->id) }}" method="POST">
+                                        <a href="{{route('visimisi.show',$args->id)}}" class="btn btn-info">Edit</a>
+                                        <form action="{{ route('visimisi.delete',$args->id) }}" method="POST">
                                             @csrf
                                             @method("DELETE")
-                                            <button class="btn btn-danger tambah" type="submit">Delete</button>
+                                            <button class="btn btn-danger hapusvisimisi" type="submit">Delete</button>
                                         </form>
                                     </div>
                                 </td>
@@ -84,69 +84,11 @@
                 </div>
             </div>
         </div>
-
     </section>
+    @endsection
     <script>
-        $('#tambah').click(function(){
-            var id = $('#fraksi_id').val();
-            if(id == ''){
-                var formdata = new FormData();
-                    var nama = $('#fraksi_name').val();
-                    formdata.append('fraksi_name', nama);
-                    formdata.append('foto', gambar);
-                    $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
-                $.ajax({
-                    data : formdata,
-                    url : "{{ url('admin/kelola-fraksi') }}",
-                    type : "POST",
-                    dataType : 'json',
-                    processData: false,
-                    contentType: false,
-                    success: function (data) { //jika berhasil
-                            $('#form-fraksi').trigger("reset"); //form reset
-                            $('#modalInputFraksi').modal('hide'); //modal hide
-                            $('#tambah').html('Simpan'); //tombol simpan
-                            var oTable = $('#table-fraksi').dataTable(); //inialisasi datatable
-                            oTable.fnDraw(false); //reset datatable
-                            iziToast.success({ //tampilkan iziToast dengan notif data berhasil disimpan pada posisi kanan bawah
-                                title: 'Data Berhasil Disimpan',
-                                message: '{{ Session('
-                                success ')}}',
-                                position: 'bottomRight'
-                            });
-                        },
-                        error: function (data) { //jika error tampilkan error pada console
-                            console.log('Error:', data);
-                            $('#tambah').html('Simpan');
-                        }
-                })
-            }
-        });
-        $('#tombol-hapus').click(function () {
-            $.ajax({
-                url: "/admin/hapus-fraksi/" + dataId, //eksekusi ajax ke url ini
-                type: 'delete',
-                beforeSend: function () {
-                    $('#tombol-hapus').text('Hapus Data'); //set text untuk tombol hapus
-                },
-                success: function (data) { //jika sukses
-                    setTimeout(function () {
-                        $('#konfirmasi-modal').modal('hide'); //sembunyikan konfirmasi modal
-                        var oTable = $('#table-fraksi').dataTable();
-                        oTable.fnDraw(false); //reset datatable
-                    });
-                    iziToast.warning({ //tampilkan izitoast warning
-                        title: 'Data Berhasil Dihapus',
-                        message: '{{ Session('
-                        delete ')}}',
-                        position: 'bottomRight'
-                    });
-                }
-            })
+        $('#summernote').summernote({
+            tabsize: 2,
+            height: 100
         });
     </script>
-    @endsection

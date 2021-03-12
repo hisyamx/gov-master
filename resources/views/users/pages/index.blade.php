@@ -11,11 +11,11 @@
                     @foreach( $beranda as $args )
                     <div class="item {{ $loop->first ? 'active' : '' }}">
                         <div class="rowslider slider-info">
-                            <div class="col-lg-4 message-info align-self">
+                            <div class="col-lg-8 message-info align-self">
                                 <h3 class="title-big mb-4">{{ $args->title }}.</h3>
                                 <p class="message">{{ $args->description }}.</p>
                             </div>
-                            <div class="col-lg-8 col-md-8 img-circle mt-lg-0 mt-4">
+                            <div class="col-lg-4 col-md-8 img-circle mt-lg-0 mt-4">
                                 <img src="{{asset('storage/cover_images/'.$args->cover_image)}}" alt="client image" class="img-fluid radius-image-full">
                             </div>
                         </div>

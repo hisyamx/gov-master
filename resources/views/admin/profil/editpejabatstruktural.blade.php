@@ -32,11 +32,11 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="description">Description</label>
-                                            <textarea required class="form-control editormce" name="description" id="description" rows="3"
+                                            <textarea required class="form-control konten" name="description" id="description" rows="3"
                                                 resize="none" placeholder="{{ $pejabatstruktural->description }}"></textarea>
                                         </div>
                                     </div> <br>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary edit">Submit</button>
                                 </form>
                             </div>
                         </div>

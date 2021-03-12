@@ -5,8 +5,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Fraksi;
 use Yajra\DataTables\Facades\DataTables;
+use App\Anggota;
+use App\Logo;
 
 class FraksiController extends Controller{
+
+    public function listfraksi()
+    {
+        $logo = Logo::all();
+        $fraksi = Fraksi::all();
+        $anggota = Anggota::all();
+        return view('users.fraksi.fraksi',compact('fraksi','anggota','logo'));
+    }
+    public function detailfraksi()
+    {
+        $logo = Logo::all();
+        $fraksi = Fraksi::all();
+        $anggota = Anggota::all();
+        return view('users.fraksi.fraksi',compact('fraksi','anggota','logo'));
+    }
 
     /**
      * Display a listing of the resource.
@@ -35,7 +52,7 @@ class FraksiController extends Controller{
                         ->make(true);
         }
         return view('admin.fraksi.fraksi');
-        
+
     }
 
     /**

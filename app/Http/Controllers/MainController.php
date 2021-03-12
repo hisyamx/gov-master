@@ -6,6 +6,9 @@ use App\Banner;
 use App\Beranda;
 use App\Logo;
 use App\Kontak;
+use App\Fraksi;
+use App\AgendaBlog;
+use App\Berita;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,8 +19,10 @@ class MainController extends Controller
         $banner = Banner::all();
         $beranda = Beranda::all();
         $logo = Logo::all();
-        return view('users.pages.index',compact('beranda','logo','banner'));
-        // return view('users.pages.index',['beranda'=>$beranda],['banner'=>$banner],['logo'=>$logo],compact('beranda','logo','banner'));
+        $agendablog = AgendaBlog::all();
+        $fraksi = Fraksi::all();
+        $berita = Berita::all();
+        return view('users.pages.index',compact('beranda','logo','banner','agendablog','fraksi','berita'));
     }
     public function kontak()
     {
@@ -27,10 +32,12 @@ class MainController extends Controller
     }
     public function jdih()
     {
-        return view('users.pages.jdih');
+        $logo = Logo::all();
+        return view('users.pages.jdih',compact('logo'));
     }
     public function ppid()
     {
-        return view('users.pages.ppid');
+        $logo = Logo::all();
+        return view('users.pages.ppid',compact('logo'));
     }
 }

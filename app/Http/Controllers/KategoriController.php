@@ -11,54 +11,42 @@ class KategoriController extends Controller
     // Index
     public function index()
     {
-    	if(Session()->get('username')=="") { return redirect('login')->with(['warning' => 'Mohon maaf, Anda belum login']);}
-		$kategori 	= Kategori::all()->orderBy('urutan','ASC')->get();
-
-		$data = array(  'title'     => 'Kategori Berita',
-						'kategori'	=> $kategori,
-                        'content'   => 'admin/kategori/index'
-                    );
-        return view('admin/layout/wrapper',$data);
+		$kategori 	= Kategori::all()->orderBy('id','ASC')->get();
+        return view('admin/kategori/index',compact('kategori'));
     }
 
     // tambah
-    public function tambah(Request $request)
+    public function store(Request $request)
     {
-    	if(Session()->get('username')=="") { return redirect('login')->with(['warning' => 'Mohon maaf, Anda belum login']);}
     	request()->validate([
-					        'nama_kategori' => 'required|unique:kategori'
+					        'kategori' => 'required|unique:kategori'
 					        ]);
-    	$slug = str_slug($request->nama_kategori, '-');
+    	$slug = str_slug($request->kategori, '-');
         Kategori::all()->insert([
-            'nama_kategori' => $request->nama_kategori,
-            'slug'	=> $slug,
-            'urutan'   		=> $request->urutan
+            'kategori' => $request->kategori,
+            'slug'	=> $slug
         ]);
-        return redirect('admin/kategori')->with(['sukses' => 'Data telah ditambah']);
+        return redirect('admin/kategori/index')->with(['sukses' => 'Data telah ditambah']);
     }
 
     // edit
     public function edit(Request $request)
     {
-    	if(Session()->get('username')=="") { return redirect('login')->with(['warning' => 'Mohon maaf, Anda belum login']);}
     	request()->validate([
-					        'nama_kategori' => 'required',
-					        'urutan' 		=> 'required',
+					        'kategori' => 'required'
 					        ]);
-    	$slug = str_slug($request->nama_kategori, '-');
+    	$slug = str_slug($request->kategori, '-');
         Kategori::all()->where('id',$request->id)->update([
-            'nama_kategori' => $request->nama_kategori,
-            'slug'	=> $slug,
-            'urutan'   		=> $request->urutan
+            'kategori' => $request->kategori,
+            'slug'	=> $slug
         ]);
-        return redirect('admin/kategori')->with(['sukses' => 'Data telah diupdate']);
+        return redirect('admin/kategori/edit')->with(['sukses' => 'Data telah diupdate']);
     }
 
     // Delete
     public function delete($id)
     {
-    	if(Session()->get('username')=="") { return redirect('login')->with(['warning' => 'Mohon maaf, Anda belum login']);}
     	Kategori::all()->where('id',$id)->delete();
-    	return redirect('admin/kategori')->with(['sukses' => 'Data telah dihapus']);
+    	return redirect('admin/kategori/index')->with(['sukses' => 'Data telah dihapus']);
     }
 }

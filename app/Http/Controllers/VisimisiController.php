@@ -29,9 +29,9 @@ class VisimisiController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required',
-            'descriptionvisi' => 'required',
-            'descriptionmisi' => 'required'
+            'title' => 'nullable',
+            'descriptionvisi' => 'nullable',
+            'descriptionmisi' => 'nullable'
             ]);
 
         $visimisi = new visimisi();
@@ -54,9 +54,9 @@ class VisimisiController extends Controller
     public function edit(Request $request,$id)
     {
         $this->validate($request, [
-            'title' => 'required',
-            'descriptionvisi' => 'required',
-            'descriptionmisi' => 'required'
+            'title' => 'nullable',
+            'descriptionvisi' => 'nullable',
+            'descriptionmisi' => 'nullable'
         ]);
 
         $visimisi = Visimisi::findOrFail($id);

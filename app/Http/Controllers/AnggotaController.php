@@ -5,9 +5,26 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Anggota;
 use Yajra\DataTables\Facades\DataTables;
+use App\Logo;
+use App\Fraksi;
 
 class AnggotaController extends Controller
 {
+    public function listanggota()
+    {
+        $logo = Logo::all();
+        $fraksi = Fraksi::all();
+        $anggota = Anggota::all();
+        return view('users.fraksi.detailanggota',compact('fraksi','anggota','logo'));
+    }
+    public function detailanggota()
+    {
+        $logo = Logo::all();
+        $fraksi = Fraksi::all();
+        $anggota = Anggota::all();
+        return view('users.fraksi.detailanggota',compact('fraksi','anggota','logo'));
+    }
+
     public function anggota(Request $request){
         if($request->ajax()){
             $data = Anggota::get();
@@ -17,7 +34,7 @@ class AnggotaController extends Controller
                         ->addColumn('action', function($row){
                             $button = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-info btn-sm edit-post"><i class="far fa-edit"></i> Edit</a>';
                             $button .= '&nbsp;&nbsp;';
-                            $button .= '<button type="button" name="delete" id="'.$row->id.'" class="delete btn btn-danger btn-sm"><i class="far fa-trash-alt"></i> Delete</button>';     
+                            $button .= '<button type="button" name="delete" id="'.$row->id.'" class="delete btn btn-danger btn-sm"><i class="far fa-trash-alt"></i> Delete</button>';
                             return $button;
                         })
                         ->addColumn('foto', function($row){

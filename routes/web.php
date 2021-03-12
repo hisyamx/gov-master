@@ -69,20 +69,28 @@ Route::group(['middleware' => 'auth'], function () {
     // Agenda
     // Show Kelola agendadprd
     Route::get('admin/kelola-agendadprd', 'AgendaController@showKelolaDprd')->name('agendadprd.index');
-    Route::get('admin/terbit-agendadprd/{id}', 'AgendaController@terbitDprd')->name('agendadprd.terbit');
-    Route::get('admin/tunda-agendadprd/{id}', 'AgendaController@tundaDprd')->name('agendadprd.tunda');
     Route::get('admin/edit-agendadprd/{id}', 'AgendaController@showEditDprd')->name('agendadprd.show');
     Route::post('admin/edit-agendadprd/{id}', 'AgendaController@editDprd')->name('agendadprd.edit');
     Route::delete('admin/hapus-agendadprd/{id}', 'AgendaController@destroyDprd')->name('agendadprd.delete');
-    Route::get('admin/draft-agendadprd', 'AgendaController@showDraftDprd')->name('agendadprd.draft');
     // Show Kelola agendasekretariat
     Route::get('admin/kelola-agendasekretariat', 'AgendaController@showKelolaSekretariat')->name('agendasekretariat.index');
-    Route::get('admin/terbit-agendasekretariat/{id}', 'AgendaController@terbitSekretariat')->name('agendasekretariat.terbit');
-    Route::get('admin/tunda-agendasekretariat/{id}', 'AgendaController@tundaSekretariat')->name('agendasekretariat.tunda');
     Route::get('admin/edit-agendasekretariat/{id}', 'AgendaController@showEditSekretariat')->name('agendasekretariat.show');
     Route::post('admin/edit-agendasekretariat/{id}', 'AgendaController@editSekretariat')->name('agendasekretariat.edit');
     Route::delete('admin/hapus-agendasekretariat/{id}', 'AgendaController@destroySekretariat')->name('agendasekretariat.delete');
-    Route::get('admin/draft-agendasekretariat', 'AgendaController@showDraftSekretariat')->name('agendasekretariat.draft');
+    // Show Kelola agendablog
+    Route::get('admin/kelola-blog', 'AgendaController@showKelola')->name('blog.index');
+    Route::get('admin/terbit-blog/{id}', 'AgendaController@terbit')->name('blog.terbit');
+    Route::get('admin/tunda-blog/{id}', 'AgendaController@tunda')->name('blog.tunda');
+    Route::get('admin/edit-blog/{id}', 'AgendaController@showEdit')->name('blog.show');
+    Route::post('admin/edit-blog/{id}', 'AgendaController@edit')->name('blog.edit');
+    Route::delete('admin/hapus-blog/{id}', 'AgendaController@destroy')->name('blog.delete');
+    Route::get('admin/draft-blog', 'AgendaController@showDraft')->name('blog.draft');
+    // Kategori
+    // Show Kelola Kategori
+    Route::get('admin/kelola-kategori/index', 'Kategori@index')->name('kategori.index');
+    Route::post('admin/kelola-kategori/index', 'Kategori@store');
+    Route::post('admin/kelola-kategori/edit/{id}', 'Kategori@edit')->name('kategori.edit');
+    Route::get('admin/kelola-kategori/delete/{id}', 'Kategori@delete')->name('kategori.delete');
     // Berita
     // Show Kelola beritautama
     Route::get('admin/kelola-berita', 'BeritaController@kelolaBerita')->name('berita.index');
@@ -254,9 +262,9 @@ Route::get('/akd/badanmusyawarah', 'AkdController@badanmusyawarah');
 Route::get('/akd/badananggaran', 'AkdController@badananggaran');
 Route::get('/akd/badanperda', 'AkdController@badanperda');
 //fraksi
-Route::get('/fraksi', 'FraksiController@fraksi');
-Route::get('/fraksi/{namafraksi}', 'FraksiController@detailfraksi');
-Route::get('/fraksi/{namafraksi}/{id}', 'FraksiController@detailanggotafraksi');
+Route::get('/fraksi/{fraksi_name}', 'FraksiController@detailfraksi');
+Route::get('/fraksi/{nama_anggota}', 'FraksiController@listanggota');
+Route::get('/fraksi/{nama_anggota}/{id}', 'FraksiController@detailanggota');
 //sekreatariat
 Route::get('/sekretariat/rencanalaporan', 'SekretariatController@rencanalaporan');
 Route::get('/sekretariat/tugasfungsi', 'SekretariatController@tugasfungsi');

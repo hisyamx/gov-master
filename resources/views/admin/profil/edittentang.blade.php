@@ -35,7 +35,7 @@
                                                 resize="none" placeholder="{{ $tentang->description }}"></textarea>
                                         </div>
                                     </div> <br>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary edit">Submit</button>
                                 </form>
                             </div>
                         </div>

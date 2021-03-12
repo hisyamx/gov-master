@@ -26,17 +26,17 @@
                                             value="{{ $visimisi->title }}">
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label>Banner</label>
-                                            <input type="file" class="form-control" id="customFile" name="cover_image">
-                                            <label for="customFile"></label>
+                                            <label for="descriptionvisi">Description</label>
+                                            <textarea class="form-control editormce" name="descriptionvisi" id="descriptionvisi" rows="3"
+                                                resize="none" >value="{{ $visimisi->descriptionvisi }}"</textarea>
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label for="description">Description</label>
-                                            <textarea required class="form-control editormce" name="description" id="description" rows="3"
-                                                resize="none" placeholder="{{ $visimisi->description }}"></textarea>
+                                            <label for="descriptionmisi">Description</label>
+                                            <textarea class="form-control editormce" name="descriptionmisi" id="descriptionmisi" rows="3"
+                                                resize="none" >value="{{ $visimisi->descriptionmisi }}"</textarea>
                                         </div>
                                     </div> <br>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary edit">Submit</button>
                                 </form>
                             </div>
                         </div>
