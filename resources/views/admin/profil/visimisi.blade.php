@@ -17,7 +17,8 @@
                     <div class="col-12 grid-margin">
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('visimisi.index') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('visimisi.index') }}" method="POST"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
@@ -27,14 +28,14 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="descriptionvisi">Visi</label>
-                                            <textarea class="form-control summernote" name="descriptionvisi" id="descriptionmisi"
-                                                rows="3" resize="none" placeholder="Visi"
+                                            <textarea class="form-control summernote" name="descriptionvisi"
+                                                id="descriptionmisi" rows="3" resize="none" placeholder="Visi"
                                                 value="{{ old('descriptionvisi') }}"></textarea>
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="descriptionmisi">Misi</label>
-                                            <textarea class="form-control summernote" name="descriptionmisi" id="descriptionvisi"
-                                                rows="3" resize="none" placeholder="Misi"
+                                            <textarea class="form-control summernote" name="descriptionmisi"
+                                                id="descriptionvisi" rows="3" resize="none" placeholder="Misi"
                                                 value="{{ old('descriptionmisi') }}"></textarea>
                                         </div>
                                     </div> <br>
@@ -85,10 +86,12 @@
             </div>
         </div>
     </section>
-    @endsection
-    <script>
-        $('#summernote').summernote({
-            tabsize: 2,
-            height: 100
-        });
-    </script>
+</div>
+@endsection
+<script>
+    $('#summernote').summernote({
+        tabsize: 2,
+        height: 100
+    });
+
+</script>

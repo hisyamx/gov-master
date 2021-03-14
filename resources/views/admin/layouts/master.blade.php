@@ -3,18 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <meta name="csrf-token" content="{{csrf_token() }}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets') }}/images/logo.svg">
     <title>@yield('title')</title>
-    <link rel='shortcut icon' type='image/x-icon' href="{{asset('assets') }}/images/logo.svg">
 
     @include('admin/layouts/header')
+
     @include('admin/layouts/sidebar')
     <!-- Main Content -->
+
     @yield('content')
-    </div>
     @include('admin/layouts/footer')
-    </div>
-    </div>
     </body>
 </html>

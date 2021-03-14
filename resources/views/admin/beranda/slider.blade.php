@@ -23,16 +23,18 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
                                             <label for="title">Title</label>
-                                            <input required type="text" class="form-control" id="title" name="title" value="{{ old('title') }}">
+                                            <input required type="text" class="form-control" id="title" name="title"
+                                                value="{{ old('title') }}">
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="description">Description</label>
-                                            <input required type="text" class="form-control" id="description" name="description" value="{{ old('description') }}">
+                                            <input required type="text" class="form-control" id="description"
+                                                name="description" value="{{ old('description') }}">
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label> Tambahkan slider</label>
-                                                <label for="customFile"></label>
-                                                <input type="file" class="form-control" id="customFile" name="cover_image">
+                                            <label for="customFile"></label>
+                                            <input type="file" class="form-control" id="customFile" name="cover_image">
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Tambahkan</button>
@@ -64,7 +66,8 @@
                                         <td>{{$args->title}}</td>
                                         <td>{{$args->description}}</td>
                                         <td>
-                                            <ul class="list-unstyled user-progress list-unstyled-border list-unstyled-noborder mt-2">
+                                            <ul
+                                                class="list-unstyled user-progress list-unstyled-border list-unstyled-noborder mt-2">
                                                 <li class="media">
                                                     <img alt="image" class="mr-3" width="250" height="100"
                                                         src="{{asset('storage/cover_images/'.$args->cover_image)}}">
@@ -74,7 +77,8 @@
                                         </td>
                                         <td>
                                             <div class="media-cta-square">
-                                                <a href="{{route('slider.show',$args->id)}}" class="btn btn-info">Edit</a>
+                                                <a href="{{route('slider.show',$args->id)}}"
+                                                    class="btn btn-info">Edit</a>
                                                 <form action="{{ route('slider.delete',$args->id) }}" method="POST">
                                                     @csrf
                                                     @method("DELETE")
@@ -93,4 +97,5 @@
             </div>
         </div>
     </section>
-    @endsection
+</div>
+@endsection

@@ -17,22 +17,25 @@
                     <div class="col-12 grid-margin">
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('slider.edit',$beranda->id) }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('slider.edit',$beranda->id) }}" method="POST"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <h6>slider</h6>
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
                                             <label for="title">Title</label>
-                                            <input required type="text" class="form-control" id="title" name="title" value="{{ $beranda->title }}">
+                                            <input required type="text" class="form-control" id="title" name="title"
+                                                value="{{ $beranda->title }}">
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="description">Description</label>
-                                            <input required type="text" class="form-control" id="description" name="description" value="{{ $beranda->description }}">
+                                            <input required type="text" class="form-control" id="description"
+                                                name="description" value="{{ $beranda->description }}">
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label> Tambahkan slider</label>
-                                                <label for="customFile"></label>
-                                                <input type="file" class="form-control" id="customFile" name="cover_image">
+                                            <label for="customFile"></label>
+                                            <input type="file" class="form-control" id="customFile" name="cover_image">
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Tambahkan</button>
@@ -44,4 +47,5 @@
             </div>
         </div>
     </section>
-    @endsection
+</div>
+@endsection
