@@ -32,7 +32,7 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="description">Description</label>
-                                            <textarea class="form-control editormce" name="description" id="description"
+                                            <textarea class="form-control konten" name="description" id="description"
                                                 rows="5" placeholder="Deskripsi"
                                                 value="{{ old('description') }}"></textarea>
                                         </div>
@@ -91,6 +91,27 @@
                 </div>
             </div>
         </div>
-
     </section>
-    @endsection
+</div>
+@endsection
+
+@section('texteditor')
+<script type="text/javascript">
+    tinymce.init({
+        selector: 'textarea.konten',
+        height: 500,
+        menubar: false,
+        plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table paste code help wordcount'
+        ],
+        toolbar: 'undo redo | formatselect | ' +
+            'bold italic backcolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'removeformat | help',
+        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+    });
+
+</script>
+@endsection

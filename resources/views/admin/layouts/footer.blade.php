@@ -9,28 +9,30 @@
 </div>
 
 @yield('script')
+@yield('texteditor')
 <!-- General JS Scripts -->
 <script src="{{asset('assets')}}/js/app.min.js"></script>
 <!-- JS Libraie assets -->
-<script src="{{asset('assets')}}/plugins/echart/echarts.js"></script>
+{{-- <script src="{{asset('assets')}}/plugins/echart/echarts.js"></script>
 <script src="{{asset('assets')}}/plugins/chartjs/chart.min.js"></script>
-<script src="{{asset('assets')}}/plugins/apexcharts/apexcharts.min.js"></script>
+<script src="{{asset('assets')}}/plugins/apexcharts/apexcharts.min.js"></script> --}}
 <!-- Page Specific JS File -->
 <script src="{{asset('assets')}}/js/page/index.js"></script>
 <!-- Template JS File -->
 <script src="{{asset('assets')}}/js/scripts.js"></script>
 <!-- JS Libraies -->
-<script src="{{asset('assets')}}/bundles/dropzonejs/min/dropzone.min.js"></script>
+{{-- <script src="{{asset('assets')}}/bundles/dropzonejs/min/dropzone.min.js"></script> --}}
 <!-- Page Specific JS File -->
-<script src="{{asset('assets')}}/js/page/multiple-upload.js"></script>
+{{-- <script src="{{asset('assets')}}/js/page/multiple-upload.js"></script> --}}
 <!-- Data Table js -->
 {{-- <script src="{{asset('assets')}}/plugins/datatables/DataTables/js/dataTables.bootstrap4.min.js"></script> --}}
 <script src="{{asset('assets')}}/plugins/datatables/datatables.min.js"></script>
 <!-- chart js -->
-<script src="{{asset('assets')}}/plugins/chartjs/chart.min.js"></script>
-<script src="{{asset('assets')}}/plugins/echart/echarts.js"></script>
+{{-- <script src="{{asset('assets')}}/plugins/chartjs/chart.min.js"></script>
+<script src="{{asset('assets')}}/plugins/echart/echarts.js"></script> --}}
 <!-- izitoast js -->
 <script src="{{asset('assets')}}/plugins/izitoast/js/iziToast.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 {{-- <script>
     $(".datepicker").datepicker({
         inline: true,
@@ -46,11 +48,11 @@
         dateFormat: "dd-mm-yy"
     });
 </script> --}}
+
 <script>
     $(document).ready(function () {
         var table = $('#example').DataTable();
     });
-
 </script>
 <script>
     $('.tambah').click(function () {

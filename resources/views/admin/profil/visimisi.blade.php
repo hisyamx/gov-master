@@ -88,10 +88,3 @@
     </section>
 </div>
 @endsection
-<script>
-    $('#summernote').summernote({
-        tabsize: 2,
-        height: 100
-    });
-
-</script>
