@@ -20,7 +20,7 @@
                     <div class="text11-content">
                         <h4 class="mt-sm-3">Visi.</h4>
                         @foreach($visimisi as $args)
-                        <p class="mt-4 mb-3">{{ $args->descriptionvisi }}.</p>
+                        <p class="mt-4 mb-3">{!! $args->descriptionvisi !!}.</p>
                         @endforeach
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                     <div class="text11-content">
                         <h4 class="mt-sm-3">Misi.</h4>
                         @foreach($visimisi as $args)
-                        <p class="mt-4 mb-3">{{ $args->descriptionmisi }}.</p>
+                        <p class="mt-4 mb-3">{!! $args->descriptionmisi !!}.</p>
                         @endforeach
                     </div>
                 </div>

@@ -20,7 +20,7 @@
                                     @csrf
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
-                                            <label for="title">Nama</label>
+                                            <label for="title">Title</label>
                                             <input required type="text" class="form-control" id="title" name="title"
                                             value="{{ $tentang->title }}">
                                         </div>
@@ -31,8 +31,8 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="description">Description</label>
-                                            <textarea required class="form-control editormce" name="description" id="description" rows="3"
-                                                resize="none" placeholder="{{ $tentang->description }}"></textarea>
+                                            <textarea class="form-control konten" name="description" id="description" rows="3"
+                                                resize="none">{{ $tentang->description }}</textarea>
                                         </div>
                                     </div> <br>
                                     <button type="submit" class="btn btn-primary edit">Submit</button>

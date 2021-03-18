@@ -12,12 +12,12 @@
         </div>
         <div class="section-body">
             <div class="container-fluid">
-                @include('admin.layouts.message')
                 <div class="row">
                     <div class="col-12 grid-margin">
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('pejabatstruktural.index') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('pejabatstruktural.index') }}" method="POST"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <h6>Banner 1</h6>
                                     <div class="form-row">
@@ -28,12 +28,12 @@
                                         </div>
                                         <div class="form-group col-lg-12">
                                             <label for="description">Description</label>
-                                            <textarea required class="form-control editormce" name="description" id="description"
+                                            <textarea class="form-control konten" name="description" id="description"
                                                 rows="3" resize="none" placeholder="Deskripsi"
                                                 value="{{ old('description') }}"></textarea>
                                         </div>
                                     </div> <br>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary tambah">Submit</button>
                                 </form>
                             </div>
                         </div>
@@ -62,11 +62,12 @@
                                 <td>{{$args->description}}</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="{{route('pejabatstruktural.show',$args->id)}}" class="btn btn-info">Edit</a>
+                                        <a href="{{route('pejabatstruktural.show',$args->id)}}"
+                                            class="btn btn-info">Edit</a>
                                         <form action="{{ route('pejabatstruktural.delete',$args->id) }}" method="POST">
                                             @csrf
                                             @method("DELETE")
-                                            <button class="btn btn-danger" type="submit">Delete</button>
+                                            <button class="btn btn-danger hapus" type="submit">Delete</button>
                                         </form>
                                     </div>
                                 </td>
@@ -77,6 +78,61 @@
                 </div>
             </div>
         </div>
+        {{-- Section --}}
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Struktur Organisasi DPRD</h4>
+                    </div>
+                    <div class="table-responsive table-invoice">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>Nama</td>
+                                <td>Jabatan</td>
+                                <td>Fraksi</td>
+                            </tr>
 
+                            @foreach($strukturorganisasi as $row)
+                            <tr>
+                                <td>
+                                    <a href="#" class="xedit" data-pk="{{$row->id}}" data-name="name">
+                                        {{$row->name}}</a>
+                                </td>
+
+                                <td>
+                                    <a href="#" class="xedit" data-pk="{{$row->id}}" data-name="jabatan">
+                                        {{$row->jabatan}}</a>
+                                </td>
+                                <td>
+                                    <a href="#" class="xedit" data-pk="{{$row->id}}" data-name="fraksi">
+                                        {{$row->fraksi}}</a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    @endsection
+</div>
+<script>
+    $(document).ready(function () {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': '{{csrf_token()}}'
+            }
+        });
+
+        $('.xedit').editable({
+            url: '{{url("contacts/update")}}',
+            title: 'Update',
+            success: function (response, newValue) {
+                console.log('Updated', response)
+            }
+        });
+
+    })
+</script>
+@endsection

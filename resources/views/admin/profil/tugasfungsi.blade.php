@@ -12,7 +12,6 @@
         </div>
         <div class="section-body">
             <div class="container-fluid">
-                @include('admin.layouts.message')
                 <div class="row">
                     <div class="col-12 grid-margin">
                         <div class="card">
@@ -27,12 +26,12 @@
                                         </div>
                                         <div class="form-group col-lg-12">
                                             <label for="description">Description</label>
-                                            <textarea required class="form-control editormce" name="description" id="description"
+                                            <textarea class="form-control konten" name="description" id="description"
                                                 rows="3" resize="none" placeholder="Deskripsi"
                                                 value="{{ old('description') }}"></textarea>
                                         </div>
                                     </div> <br>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary tambah">Submit</button>
                                 </form>
                             </div>
                         </div>
@@ -65,7 +64,7 @@
                                         <form action="{{ route('tugasfungsidprd.delete',$args->id) }}" method="POST">
                                             @csrf
                                             @method("DELETE")
-                                            <button class="btn btn-danger" type="submit">Delete</button>
+                                            <button class="btn btn-danger hapus" type="submit">Delete</button>
                                         </form>
                                     </div>
                                 </td>
@@ -78,4 +77,5 @@
         </div>
 
     </section>
+    </div>
     @endsection

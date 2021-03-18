@@ -26,7 +26,7 @@
                     <div class="text11-content">
                         @foreach ($tentang as $args)
                         <h4 class="mb-md-4 mb-3">{{ $args->title }}</h4>
-                        <p class="mb-4">{{ $args->description }}</p>
+                        <p class="mb-4">{!! $args->description !!}</p>
                         @endforeach
                     </div>
                 </div>

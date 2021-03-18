@@ -17,13 +17,14 @@
                     <div class="col-12 grid-margin">
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('informasi.index') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('informasi.index') }}" method="POST"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
                                             <label for="linksatu">link Transparansi Anggaran</label>
-                                            <input required type="text" class="form-control" id="linksatu" name="linksatu"
-                                                value="{{ old('linksatu') }}">
+                                            <input required type="text" class="form-control" id="linksatu"
+                                                name="linksatu" value="{{ old('linksatu') }}">
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="linkdua">link Transparansi Kinerja</label>
@@ -32,16 +33,16 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="linktiga">link Pengumuman</label>
-                                            <input required type="text" class="form-control" id="linktiga" name="linktiga"
-                                                value="{{ old('linktiga') }}">
+                                            <input required type="text" class="form-control" id="linktiga"
+                                                name="linktiga" value="{{ old('linktiga') }}">
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="linkkunjungan">Link Kunjungan</label>
-                                            <input required type="text" class="form-control" id="linkkunjungan" name="linkkunjungan"
-                                                value="{{ old('linkkunjungan') }}">
+                                            <input required type="text" class="form-control" id="linkkunjungan"
+                                                name="linkkunjungan" value="{{ old('linkkunjungan') }}">
                                         </div>
                                     </div> <br>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary tambah">Submit</button>
                                 </form>
                             </div>
                         </div>
@@ -80,7 +81,7 @@
                                         <form action="{{ route('banner.delete',$args->id) }}" method="POST">
                                             @csrf
                                             @method("DELETE")
-                                            <button class="btn btn-danger" type="submit">Delete</button>
+                                            <button class="btn btn-danger hapus" type="submit">Delete</button>
                                         </form>
                                     </div>
                                 </td>
@@ -93,4 +94,5 @@
         </div>
 
     </section>
-    @endsection
+</div>
+@endsection

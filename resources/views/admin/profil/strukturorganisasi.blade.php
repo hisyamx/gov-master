@@ -13,7 +13,6 @@
         </div>
         <div class="section-body">
             <div class="container-fluid">
-                @include('admin.layouts.message')
                 <div class="row">
                     <div class="col-12 grid-margin">
                         <div class="card">
@@ -29,12 +28,12 @@
                                         </div>
                                         <div class="form-group col-lg-12">
                                             <label for="description">Description</label>
-                                            <textarea required class="form-control editormce" name="description"
-                                                id="description" rows="3" resize="none" placeholder="Deskripsi"
+                                            <textarea class="form-control konten" name="description" id="description"
+                                                rows="3" resize="none" placeholder="Deskripsi"
                                                 value="{{ old('description') }}"></textarea>
                                         </div>
                                     </div> <br>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary tambah">Submit</button>
                                 </form>
                             </div>
                         </div>
@@ -60,7 +59,7 @@
                             @foreach($strukturorganisasi AS $args)
                             <tr>
                                 <td>{{$args->title}}</td>
-                                <td>{{$args->description}}</td>
+                                <td>{!! $args->description !!}</td>
                                 <td>
                                     <div class="btn-group">
                                         <a href="{{route('strukturorganisasi.show',$args->id)}}"
@@ -68,12 +67,12 @@
                                         <form action="{{ route('strukturorganisasi.delete',$args->id) }}" method="POST">
                                             @csrf
                                             @method("DELETE")
-                                            <button class="btn btn-danger" type="submit">Delete</button>
+                                            <button class="btn btn-danger hapus" type="submit">Delete</button>
                                         </form>
                                     </div>
                                 </td>
                             </tr>
-                            endforeach
+                            @endforeach
                         </table>
                     </div>
                 </div>
@@ -117,24 +116,24 @@
             </div>
         </div>
     </section>
-    <script>
-        $(document).ready(function () {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': '{{csrf_token()}}'
-                }
-            });
+</div>
+<script>
+    $(document).ready(function () {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': '{{csrf_token()}}'
+            }
+        });
 
-            $('.xedit').editable({
-                url: '{{url("contacts/update")}}',
-                title: 'Update',
-                success: function (response, newValue) {
-                    console.log('Updated', response)
-                }
-            });
+        $('.xedit').editable({
+            url: '{{url("contacts/update")}}',
+            title: 'Update',
+            success: function (response, newValue) {
+                console.log('Updated', response)
+            }
+        });
 
-        })
+    })
+</script>
 
-    </script>
-
-    @endsection
+@endsection

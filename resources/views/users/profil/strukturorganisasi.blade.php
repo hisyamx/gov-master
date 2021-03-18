@@ -9,7 +9,9 @@
         <div class="w3l-error-grid py-3 text-center mb-4">
             <div class="center-align">
                 <h2>Struktur Organisasi DPRD</h2>
-                <p>Struktur Organisasi DPRD Provinsi Kalimantan.</p>
+                @foreach ($strukturorganisasi as $args)
+                <p>{{ $args->title }}.</p>
+                @endforeach
             </div>
         </div>
         <div class="container">
@@ -18,7 +20,7 @@
                     <div class="text11-content">
                         <h4 class="mt-sm-3">Struktur Organisasi.</h4>
                         @foreach ($strukturorganisasi as $args)
-                        <p class="mt-4 mb-3">{{ $args->description }}.</p>
+                        <p class="mt-4 mb-3">{!! $args->description !!}.</p>
                         @endforeach
                     </div>
                 </div>

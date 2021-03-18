@@ -186,19 +186,20 @@
         </div>
         {{-- isi --}}
         <div class="container py-lg-5 py-md-4">
+            @foreach ($fraksi as $args)
             <div class="row top-pics">
                 <div class="col-lg-3 col-md-4 mt-4">
                     <div class="top-pic">
                         <div class="card-body blog-details">
                             <div class="author align-items-center">
-                                <img src="assets/images/a1.jpg" alt="" class="img-fluid rounded-circle" />
+                                <img src="{{asset('storage/cover_images/'.$args->cover_image)}}" alt="" class="img-fluid rounded-circle" />
                             </div>
-                            <a href="/fraksinasdem" class="blog-desc">Partai Nasdem
-                            </a>
+                            <a href="/fraksi/{fraksi_name}" class="blog-desc">{{ $args->fraksi_name }}</a>
                         </div>
                     </div>
                 </div>
             </div>
+            @endforeach
             <!-- block -->
             <div class="left-right">
                 <h3 class="section-title-left mb-sm-4 mb-2"></h3>

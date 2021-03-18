@@ -20,7 +20,7 @@
                     <div class="text11-content">
                         <h4 class="mt-sm-3">Tugas dan Fungsi.</h4>
                         @foreach ($tugas as $args)
-                        <p class="mt-4 mb-3">{{ $args->description }}.</p>
+                        <p class="mt-4 mb-3">{!! $args->description !!}.</p>
                         @endforeach
                     </div>
                 </div>

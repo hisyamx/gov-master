@@ -16,8 +16,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="text11-content">
-                        <h4 class="mt-sm-3">Title transparansi.</h4>
-                        <a href="#" class="mt-4 mb-3">Description.</a>
+                        <h4 class="mt-sm-3">Transparansi Anggaran.</h4>
+                        @foreach ($informasi as $args)
+                        <a href="{{ $args->linksatu }}" target="_blank" class="btn btn-primary">{{ $args->linksatu }}.</a>
+                        @endforeach
                     </div>
                 </div>
             </div>

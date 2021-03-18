@@ -12,7 +12,6 @@
         </div>
         <div class="section-body">
             <div class="container-fluid">
-                @include('admin.layouts.message')
                 <div class="row">
                     <div class="col-12 grid-margin">
                         <div class="card">
@@ -37,7 +36,7 @@
                                                 value="{{ old('description') }}"></textarea>
                                         </div>
                                     </div> <br>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary tambah">Submit</button>
                                 </form>
                             </div>
                         </div>
@@ -80,7 +79,7 @@
                                         <form action="{{ route('tentang.delete',$args->id) }}" method="POST">
                                             @csrf
                                             @method("DELETE")
-                                            <button class="btn btn-danger" type="submit">Delete</button>
+                                            <button class="btn btn-danger hapus" type="submit">Delete</button>
                                         </form>
                                     </div>
                                 </td>
@@ -93,25 +92,4 @@
         </div>
     </section>
 </div>
-@endsection
-
-@section('texteditor')
-<script type="text/javascript">
-    tinymce.init({
-        selector: 'textarea.konten',
-        height: 500,
-        menubar: false,
-        plugins: [
-            'advlist autolink lists link image charmap print preview anchor',
-            'searchreplace visualblocks code fullscreen',
-            'insertdatetime media table paste code help wordcount'
-        ],
-        toolbar: 'undo redo | formatselect | ' +
-            'bold italic backcolor | alignleft aligncenter ' +
-            'alignright alignjustify | bullist numlist outdent indent | ' +
-            'removeformat | help',
-        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
-    });
-
-</script>
 @endsection

@@ -26,7 +26,7 @@ class KategoriController extends Controller
             'kategori' => $request->kategori,
             'slug'	=> $slug
         ]);
-        return redirect('admin/kategori/index')->with(['sukses' => 'Data telah ditambah']);
+        return redirect('admin/berita/kategori')->with(['sukses' => 'Data telah ditambah']);
     }
 
     // edit
@@ -40,13 +40,13 @@ class KategoriController extends Controller
             'kategori' => $request->kategori,
             'slug'	=> $slug
         ]);
-        return redirect('admin/kategori/edit')->with(['sukses' => 'Data telah diupdate']);
+        return redirect('admin/berita/editkategori')->with(['sukses' => 'Data telah diupdate']);
     }
 
     // Delete
     public function delete($id)
     {
     	Kategori::all()->where('id',$id)->delete();
-    	return redirect('admin/kategori/index')->with(['sukses' => 'Data telah dihapus']);
+    	return redirect('admin/berita/kategori')->with(['sukses' => 'Data telah dihapus']);
     }
 }

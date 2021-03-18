@@ -87,10 +87,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('admin/draft-blog', 'AgendaController@showDraft')->name('blog.draft');
     // Kategori
     // Show Kelola Kategori
-    Route::get('admin/kelola-kategori/index', 'Kategori@index')->name('kategori.index');
-    Route::post('admin/kelola-kategori/index', 'Kategori@store');
-    Route::post('admin/kelola-kategori/edit/{id}', 'Kategori@edit')->name('kategori.edit');
-    Route::get('admin/kelola-kategori/delete/{id}', 'Kategori@delete')->name('kategori.delete');
+    Route::get('admin/kelola-kategori/index', 'KategoriController@index')->name('kategori.index');
+    Route::get('admin/edit-kategori/{id}', 'KategoriController@showEdit')->name('kategori.show');
+    Route::post('admin/kelola-kategori/index', 'KategoriController@store');
+    Route::post('admin/edit-kategori/{id}', 'KategoriController@edit')->name('kategori.edit');
+    Route::get('admin/kelola-kategori/delete/{id}', 'KategoriController@delete')->name('kategori.delete');
     // Berita
     // Show Kelola beritautama
     Route::get('admin/kelola-berita', 'BeritaController@kelolaBerita')->name('berita.index');
@@ -156,27 +157,18 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('admin/edit-anggota/{id}', 'AnggotaController@edit');
     Route::get('admin/hapus-anggota/{id}', 'AnggotaController@destroy');
     // Show Kelola informasi
-    Route::get('admin/kelola-transparansianggaran', 'InformasiController@showKelolaInformasi')->name('anggaran.index');
-    Route::get('admin/kelola-transparansikinerja', 'InformasiController@showKelolaInformasi')->name('kinerja.index');
-    Route::get('admin/kelola-pengumuman', 'InformasiController@showKelolaPengumuman')->name('pengumuman.index');
-    Route::get('admin/kelola-formulir', 'InformasiController@showKelolaFormulir')->name('formulir.index');
+    Route::get('admin/kelola-informasi', 'InformasiController@showKelola')->name('informasi.index');
+    Route::get('admin/edit-informasi/{id}', 'InformasiController@showEdit')->name('informasi.show');
+    Route::post('admin/kelola-informasi', 'InformasiController@store');
+    Route::get('admin/edit-informasi/{id}', 'InformasiController@edit')->name('informasi.edit');
+    Route::get('admin/hapus-informasi/{id}', 'InformasiController@destroy')->name('informasi.delete');
     // Sekretariat
     // Show Kelola Rencana dan Laporan
-    Route::get('admin/kelola-rencanalaporan', 'SekretariatController@showKelolaRencanaLaporan')->name('rencanalaporan.index');
-    Route::get('admin/terbit-rencanalaporan/{id}', 'SekretariatController@terbitRencanaLaporan')->name('rencanalaporan.terbit');
-    Route::get('admin/tunda-rencanalaporan/{id}', 'SekretariatController@tundaRencanaLaporan')->name('rencanalaporan.tunda');
-    Route::get('admin/edit-rencanalaporan/{id}', 'SekretariatController@showEditRencanaLaporan')->name('rencanalaporan.show');
-    Route::post('admin/edit-rencanalaporan/{id}', 'SekretariatController@editRencanaLaporan')->name('rencanalaporan.edit');
-    Route::delete('admin/hapus-rencanalaporan/{id}', 'SekretariatController@destroyRencanaLaporan')->name('rencanalaporan.delete');
-    Route::get('admin/draft-rencanalaporan', 'SekretariatController@showDraftRencanaLaporan')->name('rencanalaporan.draft');
-    // Show Kelola Tugas dan Fungsi
-    Route::get('admin/kelola-tugasfungsisekretariat', 'SekretariatController@showKelolaTugasFungsi')->name('tugasfungsi.index');
-    Route::get('admin/terbit-tugasfungsisekretariat/{id}', 'SekretariatController@terbitTugasFungsi')->name('tugasfungsi.terbit');
-    Route::get('admin/tunda-tugasfungsisekretariat/{id}', 'SekretariatController@tundaTugasFungsi')->name('tugasfungsi.tunda');
-    Route::get('admin/edit-tugasfungsisekretariat/{id}', 'SekretariatController@showEditTugasFungsi')->name('tugasfungsi.show');
-    Route::post('admin/edit-tugasfungsisekretariat/{id}', 'SekretariatController@editTugasFungsi')->name('tugasfungsi.edit');
-    Route::delete('admin/hapus-tugasfungsisekretariat/{id}', 'SekretariatController@destroyTugasFungsi')->name('tugasfungsi.delete');
-    Route::get('admin/draft-tugasfungsisekretariat', 'SekretariatController@showDraftTugasFungsi')->name('tugasfungsi.draft');
+    Route::get('admin/kelola-sekretariat', 'SekretariatController@showKelola')->name('sekretariat.index');
+    Route::get('admin/edit-sekretariat/{id}', 'SekretariatController@showEdit')->name('sekretariat.show');
+    Route::post('admin/kelola-sekretariat', 'SekretariatController@store');
+    Route::post('admin/edit-sekretariat/{id}', 'SekretariatController@edit')->name('sekretariat.edit');
+    Route::delete('admin/hapus-sekretariat/{id}', 'SekretariatController@destroy')->name('sekretariat.delete');
     // Publikasi
     // Show Kelola Gallery
     Route::get('admin/kelola-gallery', 'PublikasiController@showKelolaGallery')->name('gallery.index');
@@ -263,8 +255,8 @@ Route::get('/akd/badananggaran', 'AkdController@badananggaran');
 Route::get('/akd/badanperda', 'AkdController@badanperda');
 //fraksi
 Route::get('/fraksi/{fraksi_name}', 'FraksiController@detailfraksi');
-Route::get('/fraksi/{nama_anggota}', 'FraksiController@listanggota');
-Route::get('/fraksi/{nama_anggota}/{id}', 'FraksiController@detailanggota');
+Route::get('/fraksi/{fraksi_name}/{nama_anggota}', 'FraksiController@listanggota');
+Route::get('/fraksi/{fraksi_name}/{nama_anggota}/{id}', 'FraksiController@detailanggota');
 //sekreatariat
 Route::get('/sekretariat/rencanalaporan', 'SekretariatController@rencanalaporan');
 Route::get('/sekretariat/tugasfungsi', 'SekretariatController@tugasfungsi');

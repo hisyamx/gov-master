@@ -9,30 +9,23 @@
         <div class="w3l-error-grid py-3 text-center mb-4">
             <div class="center-align">
                 <h2>Tugas dan Fungsi DPRD</h2>
-                <p>Tugas dan Fungsi DPRD Provinsi Kalimantan.</p>
+                @foreach ($sekretariat as $args)
+                <p>{{ $args->title }}.</p>
+                @endforeach
             </div>
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
+                    @foreach ($sekretariat as $args)
                     <div class="text11-content">
-                        <h4 class="mt-sm-3">Tugas Tugas dan Fungsi DPRD.</h4>
-                        <p class="mt-4 mb-3">Description.</p>
+                        <h4 class="mt-sm-3">{{ $args->title }}</h4>
+                        <p class="mt-4 mb-3">{!! $args->description !!}.</p>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 mt-4">
-                    <div class="text11-content">
-                        <h4 class="mt-sm-3">Susunan Tugas dan Fungsi DPRD.</h4>
-                        <p class="mt-4 mb-3">Description Table.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 </section>
 

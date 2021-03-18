@@ -16,23 +16,14 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="text11-content">
-                        <h4 class="mt-sm-3">Tugas Pimpinan DPRD.</h4>
-                        <p class="mt-4 mb-3">Description.</p>
+                        <h4 class="mt-sm-3">Rencana dan Laporan DPRD.</h4>
+                        @foreach ($informasi as $args)
+                        <a href="{{ $args->link }}" target="_blank" class="btn btn-primary">{{ $args->link }}.</a>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 mt-4">
-                    <div class="text11-content">
-                        <h4 class="mt-sm-3">Susunan Pimpinan DPRD.</h4>
-                        <p class="mt-4 mb-3">Description Table.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 </section>
 

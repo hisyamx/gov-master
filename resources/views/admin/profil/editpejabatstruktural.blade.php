@@ -12,18 +12,18 @@
         </div>
         <div class="section-body">
             <div class="container-fluid">
-                @include('admin.layouts.message')
                 <div class="row">
                     <div class="col-12 grid-margin">
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('pejabatstruktural.edit', $pejabatstruktual->id) }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('pejabatstruktural.edit', $pejabatstruktual->id) }}"
+                                    method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
                                             <label for="title">Nama</label>
                                             <input required type="text" class="form-control" id="title" name="title"
-                                            value="{{ $pejabatstruktural->title }}">
+                                                value="{{ $pejabatstruktural->title }}">
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label>Banner</label>
@@ -32,8 +32,8 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="description">Description</label>
-                                            <textarea required class="form-control konten" name="description" id="description" rows="3"
-                                                resize="none" placeholder="{{ $pejabatstruktural->description }}"></textarea>
+                                            <textarea class="form-control konten" name="description" id="description"
+                                                rows="3" resize="none">{{ $pejabatstruktural->description }}</textarea>
                                         </div>
                                     </div> <br>
                                     <button type="submit" class="btn btn-primary edit">Submit</button>
@@ -45,4 +45,5 @@
             </div>
         </div>
     </section>
-    @endsection
+</div>
+@endsection

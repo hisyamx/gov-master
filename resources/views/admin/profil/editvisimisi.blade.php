@@ -17,23 +17,26 @@
                     <div class="col-12 grid-margin">
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('visimisi.edit',$visimisi->id) }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('visimisi.edit',$visimisi->id) }}" method="POST"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
                                             <label for="title">Title</label>
                                             <input required type="text" class="form-control" id="title" name="title"
-                                            value="{{ $visimisi->title }}">
+                                                value="{{ $visimisi->title }}">
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="descriptionvisi">Description</label>
-                                            <textarea class="form-control editormce" name="descriptionvisi" id="descriptionvisi" rows="3"
-                                                resize="none" >value="{{ $visimisi->descriptionvisi }}"</textarea>
+                                            <textarea class="form-control konten" name="descriptionvisi"
+                                                id="descriptionvisi" rows="3"
+                                                resize="none">{{ $visimisi->descriptionvisi }}</textarea>
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="descriptionmisi">Description</label>
-                                            <textarea class="form-control editormce" name="descriptionmisi" id="descriptionmisi" rows="3"
-                                                resize="none" >value="{{ $visimisi->descriptionmisi }}"</textarea>
+                                            <textarea class="form-control konten" name="descriptionmisi"
+                                                id="descriptionmisi" rows="3"
+                                                resize="none">{{ $visimisi->descriptionmisi }}</textarea>
                                         </div>
                                     </div> <br>
                                     <button type="submit" class="btn btn-primary edit">Submit</button>
@@ -45,4 +48,5 @@
             </div>
         </div>
     </section>
-    @endsection
+</div>
+@endsection

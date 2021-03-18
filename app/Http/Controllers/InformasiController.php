@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Informasi;
+use App\Logo;
 use Illuminate\Http\Request;
 
 class InformasiController extends Controller
@@ -10,22 +11,26 @@ class InformasiController extends Controller
     public function anggaran()
     {
         $informasi = Informasi::all();
-        return view('users.informasi.transparansianggaran');
+        $logo = Logo::all();
+        return view('users.informasi.transparansianggaran',compact('informasi','logo'));
     }
     public function kinerja()
     {
         $informasi = Informasi::all();
-        return view('users.informasi.transparansikinerja');
+        $logo = Logo::all();
+        return view('users.informasi.transparansikinerja',compact('informasi','logo'));
     }
     public function pengumuman()
     {
         $informasi = Informasi::all();
-        return view('users.informasi.pengumuman');
+        $logo = Logo::all();
+        return view('users.informasi.pengumuman',compact('informasi','logo'));
     }
     public function formulirkunjungan()
     {
         $informasi = Informasi::all();
-        return view('users.informasi.kunjungan');
+        $logo = Logo::all();
+        return view('users.informasi.kunjungan',compact('informasi','logo'));
     }
 
     public function __construct()

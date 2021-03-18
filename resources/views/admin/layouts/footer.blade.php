@@ -9,7 +9,7 @@
 </div>
 
 @yield('script')
-@yield('texteditor')
+
 <!-- General JS Scripts -->
 <script src="{{asset('assets')}}/js/app.min.js"></script>
 <!-- JS Libraie assets -->
@@ -48,6 +48,24 @@
         dateFormat: "dd-mm-yy"
     });
 </script> --}}
+<script type="text/javascript">
+    tinymce.init({
+        selector: 'textarea.konten',
+        height: 500,
+        menubar: false,
+        plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table paste code help wordcount'
+        ],
+        toolbar: 'undo redo | formatselect | ' +
+            'bold italic backcolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'removeformat | help',
+        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+    });
+
+</script>
 
 <script>
     $(document).ready(function () {
@@ -64,28 +82,11 @@
     $('.edit').click(function () {
         swal("Selamat!", "Data berhasil diubah", "success");
     })
-
 </script>
 <script>
-    $('.hapusvisimisi').click(function () {
-        var id = $(this).attr('id');
-        swal({
-                title: "Kamu Yakin?",
-                text: "Data visimisi ini mau dihapus!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    window.location = "/admin/hapus-visimisi/" + id + "";
-                    swal("Selamat! Data berhasil dihapus!", {
-                        icon: "success",
-                    });
-                }
-            });
-    });
-
+    $('.hapus').click(function () {
+        swal("Selamat!", "Data berhasil dihapus", "success");
+    })
 </script>
 <script>
     $('.hapusblog').click(function () {
@@ -106,7 +107,6 @@
                 }
             });
     });
-
 </script>
 <script>
     $('.hapusberita').click(function () {
@@ -127,5 +127,4 @@
                 }
             });
     });
-
 </script>

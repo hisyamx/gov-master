@@ -51,9 +51,12 @@ class TentangController extends Controller
 
         $tentang = new Tentang();
 
+        $input = $tentang->all();
         $tentang->title = request('title');
         $tentang->description = request('description');
         $tentang->cover_image = $fileNameToStore;
+
+        Tentang::create($input);
 
         $tentang->save();
 
@@ -106,7 +109,7 @@ class TentangController extends Controller
 
         $tentang->save(); //this will UPDATE the record
 
-        return redirect("/admin/kelola-tentangdprd")->with("success","Account was updated successfully");
+        return redirect("/admin/kelola-tentangdprd")->with("success","profil was updated successfully");
     }
 
 }

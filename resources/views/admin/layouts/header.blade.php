@@ -13,7 +13,7 @@
     {{-- <link rel="stylesheet" href="{{asset('assets')}}/plugins/datatables/DataTables/css/dataTables.bootstrap4.min.css"> --}}
     <link rel="stylesheet" href="{{asset('assets')}}/plugins/datatables/datatables.min.css">
     {{-- Editor --}}
-    <link rel="stylesheet" href="{{asset('assets')}}/fonts/webfonts/fa-solid-900.woff2">
+    {{-- <link rel="stylesheet" href="{{asset('assets')}}/fonts/webfonts/fa-solid-900.woff2"> --}}
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <script src="https://cdn.tiny.cloud/1/gz7dxy3cdxgn8mmaiqvzfc946r68pwukt3nce3dwdnfvoavk/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
