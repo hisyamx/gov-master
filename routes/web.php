@@ -15,16 +15,6 @@ Route::get('logout', 'Auth\AuthController@logout')->name('logout');
 // Show Welcome
 Route::get('/home', 'HomeController@index');
 Route::get('admin', 'AdminController@index')->name('dashboard.index');
-//fraksi
-Route::get('/fraksi', 'FraksiController@fraksi');
-Route::post('admin/tambah-fraksi', 'FraksiController@store');
-Route::get('admin/edit-fraksi/{id}', 'FraksiController@edit');
-Route::get('admin/hapus-fraksi/{id}', 'FraksiController@destroy');
-
-Route::get('/anggota', 'AnggotaController@anggota');
-Route::post('admin/tambah-anggota', 'AnggotaController@store');
-Route::get('admin/edit-anggota/{id}', 'AnggotaController@edit');
-Route::get('admin/hapus-anggota/{id}', 'AnggotaController@destroy');
 
 
 Route::group(['middleware' => 'auth'], function () {
@@ -80,13 +70,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('admin/hapus-pejabatstruktural/{id}', 'PejabatstrukturalController@destroy')->name('pejabatstruktural.delete');
     // Agenda
     // Show Kelola agendadprd
-    Route::get('admin/kelola-agendadprd', 'AgendaController@showKelolaDprd')->name('agendadprd.index');
-    Route::get('admin/terbit-agendadprd/{id}', 'AgendaController@terbitDprd')->name('agendadprd.terbit');
-    Route::get('admin/tunda-agendadprd/{id}', 'AgendaController@tundaDprd')->name('agendadprd.tunda');
-    Route::get('admin/edit-agendadprd/{id}', 'AgendaController@showEditDprd')->name('agendadprd.show');
-    Route::post('admin/edit-agendadprd/{id}', 'AgendaController@editDprd')->name('agendadprd.edit');
-    Route::delete('admin/hapus-agendadprd/{id}', 'AgendaController@destroyDprd')->name('agendadprd.delete');
-    Route::get('admin/draft-agendadprd', 'AgendaController@showDraftDprd')->name('agendadprd.draft');
+    Route::get('admin/agendadprd', 'AgendaController@agenda');
+    Route::get('admin/tambah-agenda', 'AgendaController@store');
+    Route::get('admin/edit-agendadprd/{id}', 'AgendaController@edit');
+    Route::delete('admin/hapus-agendadprd/{id}', 'AgendaController@destroy');
     // Show Kelola agendasekretariat
     Route::get('admin/kelola-agendasekretariat', 'AgendaController@showKelolaSekretariat')->name('agendasekretariat.index');
     Route::get('admin/terbit-agendasekretariat/{id}', 'AgendaController@terbitSekretariat')->name('agendasekretariat.terbit');
@@ -114,7 +101,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('admin/draft-pressrelease', 'BeritaController@showDraftPressrelease')->name('pressrelease.draft');
     // Akd
     // Show Kelola Komisi
-    Route::get('admin/kelola-komisi', 'KomisiController@showKelola')->name('komisi.index');
+    Route::get('admin/kelola-komisi', 'KomisiController@showKelola');
     Route::get('admin/edit-komisi/{id}', 'KomisiController@showEdit')->name('komisi.show');
     Route::post('admin/kelola-komisi', 'KomisiController@store');
     Route::post('admin/edit-komisi/{id}', 'KomisiController@edit')->name('komisi.edit');
@@ -151,17 +138,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('admin/hapus-badanperda/{id}', 'BadanPerdaController@destroy')->name('badanperda.delete');
     // Fraksi
     //Show Kelola fraksi
-    Route::get('admin/kelola-fraksi', 'FraksiController@showKelola')->name('fraksi.index');
-    Route::get('admin/edit-fraksi/{id}', 'FraksiController@showEdit')->name('fraksi.show');
-    Route::post('admin/kelola-fraksi', 'BadanPerdanController@store');
-    Route::post('admin/edit-fraksi/{id}', 'FraksiController@edit')->name('fraksi.edit');
-    Route::delete('admin/hapus-fraksi/{id}', 'FraksiController@destroy')->name('fraksi.delete');
+    Route::get('admin/fraksi', 'FraksiController@fraksi');
+    Route::post('admin/tambah-fraksi', 'FraksiController@store');
+    Route::get('admin/edit-fraksi/{id}', 'FraksiController@edit');
+    Route::get('admin/hapus-fraksi/{id}', 'FraksiController@destroy');
     // Show Kelola Anggota fraksi
-    Route::get('admin/kelola-angota', 'FraksiController@showKelolaAnggota')->name('anggota.index');
-    Route::get('admin/edit-anggota/{id}', 'FraksiController@showEditAnggota')->name('anggota.show');
-    Route::post('admin/kelola-anggota', 'FraksiPerdanController@store');
-    Route::post('admin/edit-anggota/{id}', 'FraksiController@editAnggota')->name('anggota.edit');
-    Route::delete('admin/hapus-angota/{id}', 'FraksiController@destroyAnggota')->name('anggota.delete');
+    Route::get('admin/anggota', 'AnggotaController@anggota');
+    Route::post('admin/tambah-anggota', 'AnggotaController@store');
+    Route::get('admin/edit-anggota/{id}', 'AnggotaController@edit');
+    Route::get('admin/hapus-anggota/{id}', 'AnggotaController@destroy');
 
     // Show Kelola informasi
     Route::get('admin/kelola-transparansianggaran', 'InformasiController@showKelolaInformasi')->name('anggaran.index');

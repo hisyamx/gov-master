@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'Fraksi')
+@section('title', 'Agenda')
 
 @section('content')
 <div class="main-content">
@@ -16,9 +16,8 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <button type="button" id="btnFraksi" class="btn btn-outline-primary">Add Fraksi
-                                </button>
-                                <table class="table table-striped table-hover" id="table-fraksi" style="width:100%;">
+                                <button type="button" id="btnAgenda" class="float-right ml-4 btn btn-outline-primary">Add Agenda</button>
+                                <table class="table table-striped table-hover" id="table-agenda">
                                     <thead>
                                         <tr>
                                             <th>Nama Agenda</th>
@@ -51,7 +50,7 @@
     </section>
 </div>
 <!-- modal main -->
-<div class="modal fade" id="modalInputFraksi" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="modalInputAgenda" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -61,34 +60,38 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="form-fraksi">
+                <form id="form-agenda">
                     <div class="form-group">
-                        <input type="hidden" class="form-control d-none" name="fraksi_id" id="fraksi_id">
+                        <input type="hidden" class="form-control d-none" name="id" id="id">
                     </div>
                     @csrf
                     <div class="form-group">
-                        <label for="namaSekolah">Nama Fraksi</label>
-                        <input type="text" id="fraksi_name" name="fraksi_name" class="form-control"
-                            placeholder="Masukkan Nama Fraksi">
+                        <label>Nama Agenda</label>
+                        <input type="text" id="nama_agenda" name="nama_agenda" class="form-control"
+                            placeholder="Masukkan Nama Agenda">
                     </div>
                     <div class="form-group">
-                        <label for="logo">Upload Foto</label>
-                        <div class="input-button" data-button="right">
-                            <input type="file" class="form-control" readonly placeholder="Upload File"
-                                name="fraksi_foto" id="fraksi_foto">
-                            <input type="text" name="file" class="file" id="file_upload" hidden>
-                            <span class="btn-addon">
-                                <a href="#" id="browse_file">
-                                    <i class="ti-folder text-muted"></i>
-                                </a>
-                            </span>
-                        </div>
+                        <label>Tempat</label>
+                        <input type="text" id="tempat" name="tempat" class="form-control"
+                            placeholder="Masukkan Tempat">
                     </div>
                     <div class="form-group">
-                        <label>Preview</label>
-                        <div class="preview-container input-preview mt-0">
-                            <img id="preview" class="img-fluid">
-                        </div>
+                        <label>Durasi</label>
+                        <input type="text" id="durasi" name="durasi" class="form-control"
+                        placeholder="Masukkan Durasi">
+                    </div>
+                    <div class="form-group">
+                        <label>Peserta</label>
+                        <input type="text" id="peserta" name="peserta" class="form-control"
+                        placeholder="Masukkan Peserta">
+                    </div>
+                    <div class="form-group">
+                        <label>Tanggal Buat</label>
+                        <input type="text" id="tanggal_buat" name="tanggal_buat" class="form-control datetimepicker">
+                    </div>
+                    <div class="form-group">
+                        <label>Tanggal Post</label>
+                        <input type="text" id="tanggal_post" name="tanggal_post" class="form-control datetimepicker">
                     </div>
                 </form>
             </div>
@@ -120,4 +123,7 @@
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+    @include('admin.agenda.script')
 @endsection

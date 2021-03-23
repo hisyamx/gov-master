@@ -13,8 +13,8 @@
     <li class="dropdown">
         <a href="#" class="nav-link has-dropdown {{ (request()->is(['fraksi*','anggota*']))?'active':'' }}"><i class="fab fa-gg"></i><span>Fraksi</span></a>
         <ul class="dropdown-menu">
-            <li><a href="{{ url('/fraksi') }}"  class="nav-link {{ (request()->is('fraksi*'))?'active':'' }} ">Fraksi</a></li>
-            <li><a href="{{ url('/anggota') }}" class="nav-link {{ (request()->is('anggota*'))?'active':'' }} ">Anggota Fraksi</a></li>
+            <li><a href="{{ url('/admin/fraksi') }}"  class="nav-link {{ (request()->is('fraksi*'))?'active':'' }} ">Fraksi</a></li>
+            <li><a href="{{ url('/admin/anggota') }}" class="nav-link {{ (request()->is('anggota*'))?'active':'' }} ">Anggota Fraksi</a></li>
         </ul>
     </li>
     <li>
@@ -38,7 +38,7 @@
     <li class="dropdown">
         <a href="#" class="nav-link has-dropdown"><i class="far fa-list-alt"></i><span>Agenda</span></a>
         <ul class="dropdown-menu">
-            <li><a class="nav-link {{ request()->is('agendadprd') ? 'active' : ''}}" href="/admin/kelola-agendadprd">Agenda DPRD</a></li>
+            <li><a class="nav-link {{ request()->is('agendadprd') ? 'active' : ''}}" href="/admin/agendadprd">Agenda DPRD</a></li>
             <li><a class="nav-link {{ request()->is('agendasekretariat') ? 'active' : ''}}" href="/admin/kelola-agendasekretariat">Agenda Sekretariat</a></li>
         </ul>
     </li>

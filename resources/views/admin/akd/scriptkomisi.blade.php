@@ -14,25 +14,15 @@
         });
         //TOMBOL TAMBAH DATA
         //jika tombol-tambah diklik maka
-        $('#btnkomisi').click(function () {
+        $('#btnKomisi').click(function () {
             $('#tambah').val("create-post"); //valuenya menjadi create-post
-            $('#komisi_id').val(''); //valuenya menjadi kosong
+            $('#id').val(''); //valuenya menjadi kosong
             $('#form-komisi').trigger("reset"); //mereset semua input dll didalamnya
             $('#modal-judul').html("Tambah komisi Baru"); //valuenya tambah baru
-            $('#modalInputkomisi').modal('show'); //modal tampil
+            $('#modalInputKomisi').modal('show'); //modal tampil
         });
         //MULAI DATATABLE
         //script untuk memanggil data json dari server dan menampilkannya berupa datatable
-        $('#komisi_foto').change(function(e) {
-            // console.log('sasa', e);
-            var fileName = e.target.files[0].name;
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                $('#preview').attr('src', e.target.result);
-                $('#file_upload').val(fileName);
-            };
-            reader.readAsDataURL(this.files[0]);
-        });
         $(document).ready(function () {
             var table = $('#table-komisi').DataTable({
                 processing: true,
@@ -54,15 +44,24 @@
                     "targets": []
                 }],
                 columns: [{
-                        data: 'komisi_name',
-                        name: 'komisi_name'
+                        data: 'nama',
+                        name: 'nama'
                     },
                     {
-                        data: 'komisi_foto',
-                        name: 'komisi_foto',
-                        render : function (data, type, full, meta){
-                            return "<img src="+data+" class='thumbnail'/>";
-                        }
+                        data: 'fraksi',
+                        name: 'fraksi'
+                    },
+                    {
+                        data: 'jabatan',
+                        name: 'jabatan'
+                    },
+                    {
+                        data: 'komisi',
+                        name: 'komisi'
+                    },
+                    {
+                        data: 'tingkat',
+                        name: 'tingkat'
                     },
                     {
                         data: 'action',
@@ -78,13 +77,19 @@
         //jika id = form-tambah-edit panjangnya lebih dari 0 atau bisa dibilang terdapat data dalam form tersebut maka
         //jalankan jquery validator terhadap setiap inputan dll dan eksekusi script ajax untuk simpan data
         $('#tambah').click(function(){
-            var id = $('#komisi_id').val();
+            var id = $('#id').val();
             if(id == ''){
                 var formdata = new FormData();
-                    var nama = $('#komisi_name').val();
-                    var gambar = $('#komisi_foto')[0].files[0];
-                    formdata.append('komisi_name', nama);
-                    formdata.append('foto', gambar);
+                    var nama = $('#nama').val();
+                    var jabatan = $('#jabatan').val();
+                    var fraksi = $('#fraksi').val();
+                    var komisi = $('#komisi').val();
+                    var tingkat = $('#tingkat').val();
+                    formdata.append('nama', nama);
+                    formdata.append('jabatan', jabatan);
+                    formdata.append('fraksi', fraksi);
+                    formdata.append('komisi', komisi);
+                    formdata.append('tingkat', tingkat);
                     $.ajaxSetup({
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -99,7 +104,7 @@
                     contentType: false,
                     success: function (data) { //jika berhasil
                             $('#form-komisi').trigger("reset"); //form reset
-                            $('#modalInputkomisi').modal('hide'); //modal hide
+                            $('#modalInputKomisi').modal('hide'); //modal hide
                             $('#tambah').html('Simpan'); //tombol simpan
                             var oTable = $('#table-komisi').dataTable(); //inialisasi datatable
                             oTable.fnDraw(false); //reset datatable
@@ -156,11 +161,13 @@
             $.get('admin/edit-komisi/' + data_id , function (data) {
                 $('#modal-judul').html("Edit Post");
                 $('#tambah').val("edit-post");
-                $('#modalInputkomisi').modal('show');
+                $('#modalInputKomisi').modal('show');
                 //set value masing-masing id berdasarkan data yg diperoleh dari ajax get request diatas
-                $('#komisi_id').val(data.result['komisi_id']);
-                $('#komisi_name').val(data.result['komisi_name']);
-                $('#komisi_foto').val(data.result['komisi_foto']);
+                $('#nama').val(data.result['nama']);
+                $('#fraksi').val(data.result['fraksi']);
+                $('#jabatan').val(data.result['jabatan']);
+                $('#komisi').val(data.result['komisi']);
+                $('#tingkat').val(data.result['tingkat']);
             })
         });
         //jika klik class delete (yang ada pada tombol delete) maka tampilkan modal konfirmasi hapus maka

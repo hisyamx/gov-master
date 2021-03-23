@@ -1,33 +1,39 @@
 @extends('admin.layouts.master')
-@section('title', 'Fraksi')
+@section('title', 'Komisi')
 
 @section('content')
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Fraksi</h1>
+            <h1>Komisi</h1>
         </div>
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Table Fraksi</h4>
+                            <h4>Table Komisi</h4>
                         </div>
                         <div class="card-body card-body-table">
                             <div class="table-responsive">
-                                <button type="button" id="btnFraksi" class="float-right ml-4 btn btn-outline-primary">Add Fraksi
+                                <button type="button" id="btnKomisi" class="float-right ml-4 btn btn-outline-primary">Add Komisi
                                 </button>
-                                <table class="table table-custom table-striped w-100 table-hover" id="table-fraksi">
+                                <table class="table table-custom table-striped w-100 table-hover" id="table-komisi">
                                     <thead>
                                         <tr>
-                                            <th>Nama Fraksi</th>
-                                            <th>Gambar</th>
+                                            <th>Nama </th>
+                                            <th>Fraksi</th>
+                                            <th>Jabatan</th>
+                                            <th>Komisi</th>
+                                            <th>Tingkat</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
+                                            <td>James Smith</td>
+                                            <td>Accountant</td>
+                                            <td>Durham</td>
                                             <td>James Smith</td>
                                             <td>Accountant</td>
                                             <td>Durham</td>
@@ -43,7 +49,7 @@
     </section>
 </div>
 <!-- modal main -->
-<div class="modal fade" id="modalInputFraksi" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="modalInputKomisi" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -53,34 +59,35 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="form-fraksi">
+                <form id="form-komisi">
                     <div class="form-group">
-                        <input type="hidden" class="form-control d-none" name="fraksi_id" id="fraksi_id">
+                        <input type="hidden" class="form-control d-none" name="id" id="id">
                     </div>
                     @csrf
                     <div class="form-group">
-                        <label for="namaSekolah">Nama Fraksi</label>
-                        <input type="text" id="fraksi_name" name="fraksi_name" class="form-control"
-                            placeholder="Masukkan Nama Fraksi">
+                        <label for="namaSekolah">Nama</label>
+                        <input type="text" id="nama" name="nama" class="form-control"
+                            placeholder="Masukkan Nama Komisi">
                     </div>
                     <div class="form-group">
-                        <label for="logo">Upload Foto</label>
-                        <div class="input-button" data-button="right">
-                            <input type="file" class="form-control" readonly placeholder="Upload File"
-                                name="fraksi_foto" id="fraksi_foto">
-                            <input type="text" name="file" class="file" id="file_upload" hidden>
-                            <span class="btn-addon">
-                                <a href="#" id="browse_file">
-                                    <i class="ti-folder text-muted"></i>
-                                </a>
-                            </span>
-                        </div>
+                        <label for="namaSekolah">Fraksi</label>
+                        <input type="text" id="fraksi" name="fraksi" class="form-control"
+                            placeholder="Masukkan Fraksi">
                     </div>
                     <div class="form-group">
-                        <label>Preview</label>
-                        <div class="preview-container input-preview mt-0">
-                            <img id="preview" class="img-fluid">
-                        </div>
+                        <label for="namaSekolah">Jabatan</label>
+                        <input type="text" id="jabatan" name="jabatan" class="form-control"
+                            placeholder="Masukkan Jabatan">
+                    </div>
+                    <div class="form-group">
+                        <label for="namaSekolah">Komisi</label>
+                        <input type="text" id="komisi" name="komisi" class="form-control"
+                            placeholder="Masukkan Nama Komisi">
+                    </div>
+                    <div class="form-group">
+                        <label for="namaSekolah">Tingkat</label>
+                        <input type="text" id="tingkat" name="tingkat" class="form-control"
+                            placeholder="Masukkan Tingkat">
                     </div>
                 </form>
             </div>
@@ -103,7 +110,7 @@
             </div>
             <div class="modal-body">
                 <p><b>Perhatian</b></p>
-                <p>*data fraksi hilang selamanya, apakah anda yakin?</p>
+                <p>*data komisi hilang selamanya, apakah anda yakin?</p>
             </div>
             <div class="modal-footer bg-whitesmoke br">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -115,5 +122,5 @@
 
 @endsection
 @section('script')
-    @include('admin.fraksi.script')
+    @include('admin.akd.scriptkomisi')
 @endsection
