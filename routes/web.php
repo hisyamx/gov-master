@@ -12,6 +12,10 @@ Route::post('register', 'Auth\AuthController@storeUser');
 Route::get('login', 'Auth\AuthController@showLoginForm')->name('login');
 Route::post('login', 'Auth\AuthController@authenticate');
 Route::get('logout', 'Auth\AuthController@logout')->name('logout');
+// Show Welcome
+Route::get('/home', 'HomeController@index');
+Route::get('admin', 'AdminController@index')->name('dashboard.index');
+
 
 Route::group(['middleware' => 'auth'], function () {
     // Show Welcome
@@ -111,7 +115,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('admin/draft-pressrelease', 'BeritaController@showDraftPressrelease')->name('pressrelease.draft');
     // Akd
     // Show Kelola Komisi
-    Route::get('admin/kelola-komisi', 'KomisiController@showKelola')->name('komisi.index');
+    Route::get('admin/kelola-komisi', 'KomisiController@showKelola');
     Route::get('admin/edit-komisi/{id}', 'KomisiController@showEdit')->name('komisi.show');
     Route::post('admin/kelola-komisi', 'KomisiController@store');
     Route::post('admin/edit-komisi/{id}', 'KomisiController@edit')->name('komisi.edit');
@@ -147,10 +151,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('admin/edit-badanperda/{id}', 'BadanPerdaController@edit')->name('badanperda.edit');
     Route::delete('admin/hapus-badanperda/{id}', 'BadanPerdaController@destroy')->name('badanperda.delete');
     // Fraksi
-    Route::get('/fraksi', 'FraksiController@fraksi');
+    //Show Kelola fraksi
+    Route::get('admin/fraksi', 'FraksiController@fraksi');
     Route::post('admin/tambah-fraksi', 'FraksiController@store');
     Route::get('admin/edit-fraksi/{id}', 'FraksiController@edit');
     Route::get('admin/hapus-fraksi/{id}', 'FraksiController@destroy');
+    // Show Kelola Anggota fraksi
+    Route::get('admin/anggota', 'AnggotaController@anggota');
+    Route::post('admin/tambah-anggota', 'AnggotaController@store');
+    Route::get('admin/edit-anggota/{id}', 'AnggotaController@edit');
+    Route::get('admin/hapus-anggota/{id}', 'AnggotaController@destroy');
 
     Route::get('/anggota', 'AnggotaController@anggota');
     Route::post('admin/tambah-anggota', 'AnggotaController@store');

@@ -38,7 +38,7 @@
                 processing: true,
                 serverSide: true, //aktifkan server-side
                 ajax: {
-                    url: "{{ url('/fraksi') }}",
+                    url: "{{ url('admin/fraksi') }}",
                     type: 'GET',
                     dataType:"json",
                     data: function (d) {
@@ -92,7 +92,7 @@
                     });
                 $.ajax({
                     data : formdata,
-                    url : "{{ url('admin/kelola-fraksi') }}",
+                    url : "{{ url('admin/tambah-fraksi') }}",
                     type : "POST",
                     dataType : 'json',
                     processData: false,

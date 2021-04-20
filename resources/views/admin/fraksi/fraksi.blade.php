@@ -55,7 +55,7 @@
             <div class="modal-body">
                 <form id="form-fraksi">
                     <div class="form-group">
-                        <input type="hidden" class="form-control d-none" name="fraksi_id" id="fraksi_id">
+                        <input type="text" class="form-control d-none" name="fraksi_id" id="fraksi_id">
                     </div>
                     @csrf
                     <div class="form-group">
